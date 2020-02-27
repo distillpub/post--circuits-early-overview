@@ -64,17 +64,17 @@
 <h2 id="cards">Playing Cards with Neurons</h2>
 
 <p>
-  Dmitri Mendeleev is often accounted to have discovered the Periodic Table by playing “chemical solitaire,” writing the details of each element on a card and patiently fiddling with different ways of classifying and organizing them.
-  Some modern historians are skeptical about the cards, but Mendeleev’s story is a compelling demonstration of that there can be a lot of value in simply organizing phenomena, even when you don’t have a theory or firm justification for that organization yet.
+  Dmitri Mendeleev is often accounted to have discovered the Periodic Table by playing "chemical solitaire," writing the details of each element on a card and patiently fiddling with different ways of classifying and organizing them.
+  Some modern historians are skeptical about the cards, but Mendeleev's story is a compelling demonstration of that there can be a lot of value in simply organizing phenomena, even when you don't have a theory or firm justification for that organization yet.
   Mendeleev is far from unique in this.
   For example, in biology, taxonomies of species proceeded genetics and theory of evolution giving them a theoretical foundation.
 </p>
 
 <p>
   Our experience is that there are suspicious patterns in the neurons of vision models.
-  It’s not unusual to see a dozen neurons detecting the same feature in different orientations or colors.
-  Perhaps even more strikingly, the same “neuron families” seem to recur across models!
-  Of course, it’s well known that Gabor filters and color contrast detectors reliably comprise neurons in the first layer of convolutional neural networks, but we were quite surprised to see this generalize to later layers.
+  It's not unusual to see a dozen neurons detecting the same feature in different orientations or colors.
+  Perhaps even more strikingly, the same "neuron families" seem to recur across models!
+  Of course, it's well known that Gabor filters and color contrast detectors reliably comprise neurons in the first layer of convolutional neural networks, but we were quite surprised to see this generalize to later layers.
 </p>
 
 <p>
@@ -95,14 +95,14 @@
   With that said, it's features are surprisingly messy, compared to the
    perfect color contrast and Gabors we see in other models.
   Several neurons seem to be close to dead.
-  We have no way of knowing, but the gradient probably wasn’t reaching the early layers very well.
+  We have no way of knowing, but the gradient probably wasn't reaching the early layers very well.
   Note that InceptionV1 predated the adoption of modern techniques like batch norm and Adam, which make it much easier to train deep models well.
 </p>
 
 {conv2d0}
 
 <p>
-  One subtlety that’s worth noting here is that Gabor filters almost always come in pairs weights which are negative versions of each other, both in InceptionV1 and other vision models.
+  One subtlety that's worth noting here is that Gabor filters almost always come in pairs weights which are negative versions of each other, both in InceptionV1 and other vision models.
   A single Gabor filter can only detect edges at some offsets, but the negative version fills in holes, allowing for the formation of complex Gabor filters in the next layer.
 </p>
 
