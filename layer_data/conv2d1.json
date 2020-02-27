@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Color",
+    "units": [36, 46],
+    "comment": "These two units seem to mostly track hue, dividing the space of hues between them. One responds to red/orange/yellow, while the other responds to purple/blue/turqoise."
+  },
+  {
+    "name": "Multicolor",
+    "units": [48, 3, 33, 35, 40, 17, 16, 57, 8, 26, 19, 31, 37],
+    "comment": "These units respond to mixtures of colors without an obvious strong spacial structure preference."
+  },
+  {
+    "name": "Color Contrast",
+    "units": [2, 5, 9, 10, 12, 20, 21, 42, 45, 50, 53, 59],
+    "comment": "These units detect a color on side of the receptive field, and a different color on the oppositie side. Composed of lower-level color contrast detectors, they often respond to color transitions in a range of translation and orientation variations."
+  },
+  {
+    "name": "Low Frequency",
+    "units": [1, 13, 27, 34, 47, 56, 60, 23, 49, 0, 43, 28, 29],
+    "comment": "These units seem to respond to lower-frequency edge patterns, but we haven't studied them very carefully."
+  },
+  {
+    "name": "Complex Gabor",
+    "units": [51, 58, 30, 25, 52, 54, 22, 61, 55],
+    "comment": "Like Gabor Filters, but fairly invariant to the exact position. These units have very clean weights and are formed by adding together multiple gabor detectors in the same orientation but different phases."
+  },
+  {
+    "name": "hatch",
+    "units": [14],
+    "comment": "This unit detects gabor patterns in two orthogonal directions, selecting for a \"hatch\" pattern."
+  },
+  {
+    "name": "gabor_like",
+    "units": [4, 6, 32, 38, 41, 63, 7, 11, 18, 24, 39],
+    "comment": "These units respond to edges stimuli, but seem to respond to a wider range of orientations, and also respond to color contrasts that align with the edge. We haven't studied them very carefully."
+  },
+  {
+    "name": "Other Units",
+    "units": [15, 44, 62],
+    "comment": "Units that don't fit in another category.",
+    "priority": -1
+  },
+]

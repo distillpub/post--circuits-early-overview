@@ -1,0 +1,88 @@
+[
+  {
+    "name": "Fur Precursors",
+    "units": [46, 47, 26, 63, 80, 23, 16],
+    "comment": "These units detect fur textures oriented in various directions."
+  },
+  {
+    "name": "Eyes",
+    "units": [174, 168, 79, 125, 175],
+    "comment": "We think of eyes as high-level features, but small eye detectors actually form very early."
+  },
+  {
+    "name": "High-Low Frequency",
+    "units": [110, 180, 153, 106, 112, 186, 132, 136, 117, 113, 108, 70, 86, 88, 160],
+    "comment": "These units look for transitions from high-frequency texture to low-frequency. They are primarily used by boundary detectors as an additional cue for a boundary between objects. <br><br> A detailed article on these is forthcoming."
+  },
+  {
+    "name": "Brightness Graqdient",
+    "units": [206, 216, 28, 127, 29, 22, 182, 15, 249, 25, 196, 18, 59, 162, 247],
+    "comment": "These units detect brightness gradients. Among other things they will help detect specularity (shininess), curved surfaces, and the boundary of objects."
+  },
+  {
+    "name": "BW vs Color",
+    "units": [222, 197, 223, 201, 204, 214, 208, 210, 220],
+    "comment": "These \"black and white\" detectors respond to absences of color. Prior to this, color detectors contrast to the opposite hue, but from this point on we'll see many compare to the absence of color. "
+  },
+  {
+    "name": "Color Contrast",
+    "units": [195, 84, 85, 123, 203, 217, 199, 211, 205, 212, 202, 200, 138, 32],
+    "comment": "These units look for one color on one side of their receptive field, and another (usually oppsoite) color on the opposing side. They typically don't care about the exact position or orientation of the transition."
+  },
+  {
+    "name": "Color Center-Surround",
+    "units": [119, 34, 167, 76, 19, 30, 131, 251, 226, 13, 7, 50, 1, 4, 41, 192, 36, 40, 103, 213, 10, 35, 221, 193, 158, 73, 74, 177, 97, 141],
+    "comment": "These units look for one color in the center, and another (usually oppsoite) color surrounding it. They are typically much more seensitive to the center color than the surrounding one. In visual neuroscience, center-surround units are classically an extremely low-level feature, but we see them in the later parts of early vision."
+  },
+  {
+    "name": "Texture",
+    "units": [246, 242, 253, 232, 233, 209, 139, 65, 44, 51, 194, 207, 111, 218, 224, 225, 215, 198, 62, 21, 254, 255, 61, 2, 3, 8, 12, 53, 56, 102, 148, 244, 250, 11, 238, 248, 9, 219, 234, 252, 236, 5, 183, 241, 229, 93, 243, 99, 45, 33, 135, 231, 60, 235, 48, 55, 42, 151, 54, 72, 6, 239, 66, 129, 245],
+    "comment": "This is a broad, not very well defined category for units that seem to look for simple local structures over a wide receptfied field, including mixtures of colors. Many live in a branch consisting of a maxpool followed by a 1x1 conv, which structurally encourages this."
+  },
+  {
+    "name": "Angles",
+    "units": [188, 94, 164, 107, 77, 157, 149, 100],
+    "comment": "Units that detect multiple lines, forming angles, triangles and squares. They generally respond to any of the individual lines, and more strongly to them together."
+  },
+  {
+    "name": "Repeating patterns",
+    "units": [237, 31, 17, 20, 39, 126, 124, 156, 98, 105, 230, 228],
+    "comment": "This is broad, catch-all category for units that seem to look for repeating local patterns that seem more complex than textures."
+  },
+  {
+    "name": "Complex Center-Surround",
+    "units": [178, 181, 161, 166, 172, 68, 130, 49, 52, 114, 115, 120, 144, 37],
+    "comment": "This is a broad, not very well defined category for center-surround units that detect a pattern or complex texture in their center."
+  },
+  {
+    "name": "Curves",
+    "units": [81, 104, 92, 145, 95, 163, 171, 71, 147, 189, 137],
+    "comment": "These curve detectors detect significiantly larger radii curves than their predecessors. They will be refined into more specific, larger curve detectors in the next layer. <br><br> A detailed article on these is forthcoming."
+  },
+  {
+    "name": "Croses / Diverging Lines",
+    "units": [91, 185, 64, 118],
+    "comment": "These units seem to respond to lines crossing or to lines diverging from a central point."
+  },
+  {
+    "name": "Line Misc.",
+    "units": [191, 133, 96, 121, 116, 14, 24, 0, 159, 152, 165, 83, 173, 87, 90, 82],
+    "comment": "Broad, low confidence organizational category."
+  },
+  {
+    "name": "mixed3a_thick_lines",
+    "units": [140, 78, 89],
+    "comment": "Low confidence organizational category."
+  },
+  {
+    "name": "Lines",
+    "units": [227, 75, 146, 69, 169, 57, 154, 187, 27, 134, 150, 240, 101, 176],
+    "comment": "Units used to detect extended lines, often further excited by different colors on each side. A few are highly combed line detectors that aren't obviously such at first glance. The decision to include a unit was often decided by whether it seems to be used by downstream client units as a line detector."
+  },
+  {
+    "name": "Other Units",
+    "units": [38, 43, 58, 67, 190, 109, 122, 128, 142, 143, 155, 170, 179, 184],
+    "comment": "Catch-all category for all other units.",
+    "priority": -1
+  }
+]

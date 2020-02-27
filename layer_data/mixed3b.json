@@ -1,0 +1,208 @@
+[
+ {
+   "name": "Other Fur",
+   "units": [472, 476, 477, 453, 454, 427, 449, 467, 64, 129],
+   "comment": ""
+ },
+ {
+   "name": "Texture",
+   "units": [3, 40, 32, 54, 74, 309, 267, 438, 416, 440, 460, 276, 458, 132, 133, 106, 120, 123, 426, 434, 429, 445, 452, 456, 459, 464, 465, 421, 437, 418, 425, 221, 195, 204, 39, 76, 77, 468, 471, 227, 415, 126, 128, 172],
+   "comment": ""
+ },
+ {
+   "name": "Color Center-Surround",
+   "units": [285, 451, 208, 122, 93, 75, 46, 294, 44, 247, 91, 14, 10, 271, 60, 80, 84, 70, 202, 422, 48, 436, 65, 300, 105, 34, 121, 424, 457, 186, 23, 479, 89, 283, 22, 124, 6, 9, 50, 5, 71, 59, 182, 87, 308, 428, 109, 141, 12, 474, 112, 192, 2, 177, 249, 281, 284, 30, 27, 255, 53, 432, 475, 79, 67, 25, 351, 420, 152, 26, 193, 448, 153, 164, 113, 216, 259, ],
+   "comment": "These units look for one color in the center, and another color surrounding it. These units are likely have many subelties about the range of hues, texture preferences, and interactions that similar neurons in earlier layers may not have."
+ },
+ {
+   "name": "Complex Center-Surround",
+   "units": [299, 139, 7, 170, 16, 28, 291, 439, 443, 69, 11, 13, 56, 116, 117, 72, 36, 35, 41, 51, 55, 88, 101, 110, 114, 158, 161, 169, 176, 215, 228, 230, 232, 233, 234, 238, 242, 244, 245, 252, 256, 275, 280, 290, 296, 297, 302, 310, 410, 442, 17, 8, 15, 18, 20, 24, 31, 37, 42, 61, 73, 92, 315, 103, 104, 118, 119, 131, 274, 278, 289, 29, 147],
+   "comment": "This is a broad, not very well defined category for center-surround units that detect a pattern or complex texture in their center."
+ },
+ {
+   "name": "Lines",
+   "units": [377, 326, 95, 38, 307, 1, 19, 209, 210],
+   "comment": ""
+ },
+ {
+   "name": "Brightness Gradients",
+   "units": [0, 317, 136, 455, 417, 469, ],
+   "comment": "These units detect brightness gradients. This is their third iteration.",
+   "priority": 1
+ },
+ {
+   "name": "Generic, Oriented Fur",
+   "units": [57, 387, 404, 333, 375, 381, 335, 378, 62, 52],
+   "comment": "We don't typically think of fur as an oriented feature, but it is. These units detect fur parting in various ways, much like how hair on your head parts.",
+   "priority": 1
+ },
+ {
+   "name": "Eyes",
+   "units": [370, 352, 363, 322, 83, 199],
+   "comment": "Again, we continue to see eye detectors quite early in vision. Note that these detect eyes that are slightly larger in scale than the ones in the previous layer. In the next layer, we see much larger scale eye detectors again.",
+   "priority": 1
+ },
+ {
+   "name": "Circle Cluster",
+   "units": [446, 462, 82],
+   "comment": "",
+   "priority": 1
+ },
+ {
+   "name": "Boundary",
+   "units": [220, 402, 293, 356, 151, 203, 394, 376, 400, 328, 219, 320, 313, 329, 321, 251, 298, 257, 143, 366, 345, 405, 414, 301, 368, 398, 383, 396, 261, 184, 144, 360, 183, 239, 386],
+   "comment": "",
+   "priority": 1
+ },
+ {
+   "name": "mixed3b_curves",
+   "units": [379, 406, 385, 343, 342, 388, 340, 330, 349, 324],
+   "comment": "The third iteration of curve detectors. They detect larger radii curves than their predecessors, and are the first to not lsightly fire for curves rotated 180 degrees. A detailed article on these is forthcoming.",
+   "priority": 1
+ },
+ {
+   "name": "mixed3b_curve_double",
+   "units": [359, 337, 380],
+   "comment": "",
+   "priority": 1
+ },
+ {
+   "name": "mixed3b_curve_misc",
+   "units": [348, 407, 365, 367],
+   "comment": ""
+ },
+ {
+   "name": "mixed3b_shallow_curve",
+   "units": [403, 353, 355, 336],
+   "comment": "",
+   "priority": 1
+ },
+ {
+   "name": "Curve Shapes",
+   "units": [325, 338, 327, 347],
+   "comment": "Simple shapes created by composing curves, such as spirals and S-curves.",
+   "priority": 1
+ },
+ {
+   "name": "mixed3b_point_divot",
+   "units": [395, 159, 237, 409, 357, 190, 212, 211, 198, 218],
+   "comment": "",
+   "priority": 1
+ },
+ {
+   "name": "mixed3b_cross_corner_diverge",
+   "units": [108, 47, 339, 344, 374, 99, 369, 236, 408],
+   "comment": ""
+ },
+ {
+   "name": "mixed3b_square_grid",
+   "units": [392, 361, 401, 68, 341, 382, 397, 66, 125],
+   "comment": ""
+ },
+ {
+   "name": "mixed3b_evolute",
+   "units": [373],
+   "comment": "",
+   "priority": 1
+ },
+ {
+   "name": "mixed3b_quasi_loops",
+   "units": [389, 384, 346, 323],
+   "comment": "",
+   "priority": 1
+ },
+ {
+   "name": "mixed3b_line_grad",
+   "units": [21, 63, 102, 423, 364, 175, 314],
+   "comment": ""
+ },
+ {
+   "name": "mixed3b_shiny",
+   "units": [173, 200],
+   "comment": ""
+ },
+ {
+   "name": "mixed3b_pattern",
+   "units": [157, 431, 444, 311, 470, 33, 115, 316, 372],
+   "comment": ""
+ },
+ {
+   "name": "mixed3b_column_things",
+   "units": [229, 138, 332, 318, 258],
+   "comment": ""
+ },
+ {
+   "name": "mixed3b_scale_mystery",
+   "units": [461, 466, 90, 478, 419],
+   "comment": ""
+ },
+ {
+   "name": "Proto-Head",
+   "units": [362, 413, 334, 331, 174, 225, 393, 185, 435, 180, 441, 163, ],
+   "comment": "The tiny eye detectors, along with texture detectors for fur, hair and skin developed at the previous layer enable these early head detectors, which will continue to be refined in the next layer.",
+   "priority": 1
+ },
+
+
+ {
+   "name": "bump things",
+   "units": [167, 206, 312, 292, 194, 140, 223, 254,],
+   "comment": "",
+   "priority": 1
+ },
+
+
+  {
+    "name": "Color Contrast/Gradient",
+    "units": [4, 217, 450, 191, 287, 49, 196, 473, 430, 305, 447, 277, 165, 279, 226, 303, 224, 269, 264, 189, 156, 463, 270, 272, ],
+    "comment": "",
+    "priority": -1
+  },
+
+ {
+   "name": "Bar / Line-Like Things",
+   "units": [81, 97, 98, 107, 282, 286, 288, 295, ],
+   "comment": "",
+   "priority": -1
+ },
+
+ {
+   "name": "Boundary Misc Last Resort",
+   "units": [149, 130, 168, 243, 246, 160, 162, ],
+   "comment": "",
+   "priority": -1
+ },
+
+ {
+   "name": "Star Thingies",
+   "units": [263, 262, 205, 135, 94, 304],
+   "comment": "",
+   "priority": -1
+ },
+
+ {
+   "name": "Pointies",
+   "units": [166, 111, ],
+   "comment": "",
+   "priority": -1
+ },
+
+ {
+   "name": "Texture Contrast",
+   "units": [ 319, 155, 201, 171, 178, 197, 260, 412, 248, 250, 241, 390],
+   "comment": "",
+   "priority": -1
+ },
+
+
+  {
+    "name": "Other Units",
+    "units": [43, 45, 58, 78, 85, 86, 96, 100, 127, 134, 137, 142, 145, 146, 148, 150, 154, 179, 181, 187, 188, 207, 213, 214, 222, 231, 235, 240, 253, 265, 266, 268, 273, 306, 350, 354, 358, 371, 391, 399, 411, 433],
+    "comment": "",
+    "priority": -2
+  },
+
+
+
+
+]
