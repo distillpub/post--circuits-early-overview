@@ -19,11 +19,12 @@ def vis_html(layer_name, n, W=120):
   if layer_name == "localresponsenorm1":
     layer_name = "conv2d02"
 
-  if layer_name == "conv2d0" and False:
+  if layer_name == "conv2d0":
     pass
     # weight = param['conv2d0_w'][..., n]
     # weight = 0.6*weight / np.abs(param['conv2d0_w']).max() + 0.4*weight / np.abs(weight).max()
     # img_url = _image_url(0.5+0.5*weight, domain=[0,1])
+    img_url = "https://storage.googleapis.com/clarity-public/colah/experiments/aprox_weights_1/%s_%s.png" % (layer_name, n)
     img = "<img style='width: 100%%; image-rendering: pixelated;' src='%s'>" % (img_url)
   elif layer_name in [ "conv2d1", "conv2d2"]:
     img_url = "https://storage.googleapis.com/clarity-public/colah/experiments/aprox_weights_1/%s_%s.png" % (layer_name, n)
