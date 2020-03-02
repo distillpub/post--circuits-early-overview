@@ -9,6 +9,9 @@ layer_sizes = {
     "mixed3a" : 256,
     "mixed3b" : 480,
     "mixed4a" : 508,
+    "mixed4b" : 512,
+    "mixed4c" : 512,
+    "mixed4d" : 528,
 }
 
 def vis_html(layer_name, n, W=120):
@@ -112,7 +115,7 @@ def render(groups, max_rec_height=None, show_html=False, priority_filter=lambda 
 
     group_name, group_layer, group_units = group["name"], group["layer"], group["units"]
 
-    W_dict = {"mixed4a": 100}
+    W_dict = {"mixed4a": 100, "mixed4b" : 110, "mixed4c" : 120, "mixed4d" : 130}
     W = W_dict[group_layer] if group_layer in W_dict else 60
 
     n_width = units_to_width(group)
@@ -155,8 +158,9 @@ def render_layer(layer, priority_filter=lambda x: True, suffix=""):
   figure_html[layer+suffix] = html
   html = """
   <link rel="stylesheet" type="text/css" href="index.css">
+  <title>%s Neuron Groups</title>
   %s
-  """ % html
+  """ % (layer.replace("mixed","").replace("conv", ""), html)
   if suffix == "":
     out = open("public/%s.html" % layer, "w").write(html)
 
