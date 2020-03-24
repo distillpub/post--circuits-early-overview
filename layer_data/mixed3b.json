@@ -51,28 +51,28 @@
  {
    "name": "Boundary",
    "units": [220, 402, 293, 356, 151, 203, 394, 376, 400, 328, 219, 320, 313, 329, 321, 251, 298, 257, 143, 366, 345, 405, 414, 301, 368, 398, 383, 396, 261, 184, 144, 360, 183, 239, 386],
-   "comment": "",
+   "comment": "These units use multiple cues to detect the bounadries of objects. They vary in oreintation, detecting convex/concave/straight boundaries, and detecting articial vs fur foregrounds. Cues they rely on include line detectors, high-low frequency detectors, and color contrast.",
    "priority": 1
  },
  {
-   "name": "mixed3b_curves",
+   "name": "Curves",
    "units": [379, 406, 385, 343, 342, 388, 340, 330, 349, 324],
    "comment": "The third iteration of curve detectors. They detect larger radii curves than their predecessors, and are the first to not lsightly fire for curves rotated 180 degrees. A detailed article on these is forthcoming.",
    "priority": 1
  },
  {
-   "name": "mixed3b_curve_double",
+   "name": "Double Curves",
    "units": [359, 337, 380],
-   "comment": "",
+   "comment": "Weights appear to be two curve detectors added together. Likely best thought of as a polysemantic neuron.",
    "priority": 1
  },
  {
-   "name": "mixed3b_curve_misc",
+   "name": "Curves misc.",
    "units": [348, 407, 365, 367],
    "comment": ""
  },
  {
-   "name": "mixed3b_shallow_curve",
+   "name": "Shallow Curves",
    "units": [403, 353, 355, 336],
    "comment": "",
    "priority": 1
@@ -84,55 +84,55 @@
    "priority": 1
  },
  {
-   "name": "mixed3b_point_divot",
+   "name": "Divots",
    "units": [395, 159, 237, 409, 357, 190, 212, 211, 198, 218],
-   "comment": "",
+   "comment": "Curve-like detectors for sharp corners or bumps.",
    "priority": 1
  },
  {
-   "name": "mixed3b_cross_corner_diverge",
+   "name": "Cross / Corner Divergence",
    "units": [108, 47, 339, 344, 374, 99, 369, 236, 408],
    "comment": ""
  },
  {
-   "name": "mixed3b_square_grid",
+   "name": "Square / Grid",
    "units": [392, 361, 401, 68, 341, 382, 397, 66, 125],
    "comment": ""
  },
  {
-   "name": "mixed3b_evolute",
+   "name": "Evolute",
    "units": [373],
-   "comment": "",
+   "comment": "Detects curves facing away from the middle. Weights are the opposite of a circle detector.",
    "priority": 1
  },
  {
-   "name": "mixed3b_quasi_loops",
+   "name": "Circles / Loops",
    "units": [389, 384, 346, 323],
-   "comment": "",
+   "comment": "Piece together curves in a circle or partial circle. Opposite of evolute.",
    "priority": 1
  },
  {
-   "name": "mixed3b_line_grad",
+   "name": "Line Grad",
    "units": [21, 63, 102, 423, 364, 175, 314],
    "comment": ""
  },
  {
-   "name": "mixed3b_shiny",
+   "name": "Shiny",
    "units": [173, 200],
    "comment": ""
  },
  {
-   "name": "mixed3b_pattern",
+   "name": "Pattern",
    "units": [157, 431, 444, 311, 470, 33, 115, 316, 372],
    "comment": ""
  },
  {
-   "name": "mixed3b_column_things",
+   "name": "Column Things",
    "units": [229, 138, 332, 318, 258],
    "comment": ""
  },
  {
-   "name": "mixed3b_scale_mystery",
+   "name": "Scale Mystery",
    "units": [461, 466, 90, 478, 419],
    "comment": ""
  },

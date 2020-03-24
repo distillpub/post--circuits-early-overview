@@ -1,5 +1,6 @@
 from collections import defaultdict
 import numpy as np
+import os
 
 
 layer_sizes = {
@@ -115,23 +116,29 @@ def render(groups, max_rec_height=None, show_html=False, priority_filter=lambda 
 
     group_name, group_layer, group_units = group["name"], group["layer"], group["units"]
 
-    W_dict = {"mixed4a": 100, "mixed4b" : 110, "mixed4c" : 120, "mixed4d" : 130}
+    W_dict = {"mixed3a": 60, "mixed3b" : 60, "mixed4a": 100, "mixed4b" : 110, "mixed4c" : 120, "mixed4d" : 130}
     W = W_dict[group_layer] if group_layer in W_dict else 60
 
     n_width = units_to_width(group)
+
+    percent = 100*len(group_units)/layer_sizes[group_layer]
+    if percent >= 0.6:
+      size_str = str(int(percent + 0.5))
+    else:
+      size_str = str((1000*len(group_units)//layer_sizes[group_layer])*0.1)[:3]
 
     flex_content += "<div style='flex-basis: %spx; flex-grow: %s; max-width: %spx;' class='group'> <div><h3>%s</h3> <div>%s</div></div><div class='figcaption'>%s</div></div>" % (
         2+max(100, (W+3)*n_width+1),
         len(group_units) + (100 if np.ceil(len(group_units)/n_width) >=5 else 30 if np.ceil(len(group_units)/n_width) >=3 else 0),
         2+max(100, (W+3)*max(n_width, len(group_units))+1),
-        "<b>" + group_name.replace(group_layer+"_", "") + "</b> %s%%" % str((1000*len(group_units)//layer_sizes[group_layer])*0.1)[:4],
+        "<b>" + group_name.replace(group_layer+"_", "") + "</b> %s%%" % size_str,
         "".join(["<div class='neuron'>%s<div class='label'>%s</div></div>" % (vis_html(group_layer, unit, W=W), unit)
           for unit in group_units
       ]),
       group["comment"]
     )
 
-  html += "<figure class='l-screen-inset'><div style='display:flex; flex-wrap: wrap;'>%s</div></figure>" % flex_content
+  html += "<figure class='l-screen-inset'><div style='display:flex; flex-wrap: wrap; margin-top: 40px; margin-bottom: 40px;'>%s</div></figure>" % flex_content
 
   if unused_units:
     print("unused units:", unused_units)
@@ -141,7 +148,7 @@ def render(groups, max_rec_height=None, show_html=False, priority_filter=lambda 
         for unit in unused_units
       ]))
 
-  html += "</figure><br><br><br><br><br>"
+  html += "</figure><br>"
 
   return html
 
@@ -168,10 +175,30 @@ for layer in layer_sizes.keys():
   print(layer)
   render_layer(layer)
 
+for f in os.listdir("public/images/"):
+  name = f.split(".")[0]
+  key = "images/" + f.split(".")[0]
+  print(key)
+  lines = open("public/images/" + f).read().split("\n")
+  text = []
+  for line in lines:
+    line = line.replace("\"pattern", "\"pattern"+name)
+    line = line.replace("#pattern", "#pattern"+name)
+    line = line.replace("\"image", "\"image"+name)
+    line = line.replace("#image", "#image"+name)
+    if ("<rect" in line or "<path" in line) and "#pattern" in line:
+      pattern_n = line.split("#pattern")[1].split(")")[0]
+      text.append("<a href='#pattern%s'>" % pattern_n)
+      text.append(line)
+      text.append("</a>")
+    else:
+      text.append(line)
+  figure_html[key] = "\n".join(text)
+
 render_layer("mixed3b", priority_filter=lambda p: p >= 1, suffix="_hipri")
 render_layer("mixed3b", priority_filter=lambda p: p < 1, suffix="_lowpri")
 
-print([(k, type(figure_html[k])) for k in figure_html])
+#print([(k, type(figure_html[k])) for k in figure_html])
 
 index_template = open("index_template.html", "r").read()
 index_html = index_template.format(**figure_html)

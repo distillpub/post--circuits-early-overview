@@ -30,7 +30,7 @@
     "comment": "This unit detects gabor patterns in two orthogonal directions, selecting for a \"hatch\" pattern."
   },
   {
-    "name": "gabor_like",
+    "name": "Gabor Like",
     "units": [4, 6, 32, 38, 41, 63, 7, 11, 18, 24, 39],
     "comment": "These units respond to edges stimuli, but seem to respond to a wider range of orientations, and also respond to color contrasts that align with the edge. We haven't studied them very carefully."
   },

@@ -1,8 +1,9 @@
 <html>
 <head>
   <script src="https://distill.pub/template.v2.js"></script>
+  <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="index.css">
-  <title>Neuron Groups</title>
+  <title>An Overview of Early Vision in InceptionV1</title>
 </head>
 
 <d-front-matter>
@@ -22,12 +23,26 @@
   </d-front-matter>
 
 <d-title>
-<h1>An Overview of Early Vision</h1>
-<p style='font-size:  170%;'>A guided tour of the first four layers of InceptionV1,<br> taxonomized into "neuron groups".</p>
+<h1 style='font-size: 240%; grid-column-start: text; grid-column-end: page;'>An Overview of Early Vision in InceptionV1</h1>
+<p style='font-size:  150%; line-height: 140%; margin-top: 10px;'>A guided tour of the first five layers of InceptionV1,<br> taxonomized into "neuron groups."</p>
 </d-title>
 <d-byline></d-byline>
 
 <d-article>
+
+  <section id="thread-nav" class="thread-info" style="grid-column-start: text; grid-column-end: text; margin-top: 20px; margin-bottom: 80px;">
+      <div class="icon-multiple-pages"></div>
+      <p class="explanation">
+          This article is part of the <a style="border-bottom: none; color: #2e6db7; margin-left: 0px;" href="https://distill.pub/2020/circuits/">Circuits thread</a>, a collection of short articles and commentary by an open scientific collaboration delving into the inner workings of neural networks.<br>
+          <!--<a style="border-bottom: none; color: #2e6db7; margin-left: 0px;">🔬Learn how to get involved.</a>-->
+          <!--<a class="overview" href="#">Thread Overview</a>-->
+      </p>
+
+      <a class="prev" href="https://distill.pub/2020/circuits/zoom-in/">Zoom In: An Introduction to Circuits</a>
+      <div class="next" href="#" style="color:#999;">Curve Detectors
+        <div style="color:#BBB; font-size: 90%; line-height: 140%; margin-top: 4px;">Under discussion in <a href="http://slack.distill.pub/">Distill slack</a> <code>#circuits</code></div>
+      </div>
+  </section>
 
 <d-contents>
   <nav class="l-text toc figcaption">
@@ -41,24 +56,39 @@
       <li><a href="#mixed3a"><code>mixed3a</code></a></li>
       <li><a href="#mixed3b"><code>mixed3b</code></a></li>
     </ul>
-    <div><a href="#open"><code>Open Questions</code></a></div>
+    <!--<div><a href="#open"><code>Open Questions</code></a></div>-->
   </nav>
 </d-contents>
 
 <div>
+
 <p>
-  The first few weeks of the Circuits project will be focused on early vision
-  -- roughly, whatever goes on in the first 4-5 layers of InceptionV1.
-  There's a few reasons we think early vision is a good starting point.
-  Early vision seems particularly easy to study:
+  The first few articles of the Circuits project will be focused on early vision in InceptionV1
+  -- for our purposes, the five convolutional layers leading up to the third pooling layer.
+  Over the course of these layers, we see the network go from raw pixels
+  up to sophisticated boundary detection, basic shape detection (eg. curves, circles, spirals, triangles),
+  and even crude detectors for very small heads.
+  Along the way, we see a variety of interesting intermediate features,
+  including some of the classic "complex cell" features of neuroscience.
+</p>
+<p>
+  Studying early vision has two major advantages as a starting point in our investigation.
+  Firstly, it's particularly easy to study:
   it's close to the input, the circuits are only a few layers deep, there aren't that many different neurons, and the features seem quite simple.
-  Early vision also seems most likely to be universal -- to be the same not just across different model architectures, but also across different tasks.
+  Secondly, early vision seems most likely to be universal: to have the same features and circuits form across different architectures and tasks.
 </p>
 
 <p>
   Before we dive into details explorations of different parts of early vision, we wanted to give a broader overview of how we presently understand it.
   This article sketches out our understanding, as an annotated collection of what we call "neuron groups."
 </p>
+
+<p>
+  By limiting ourselves to early vision, this article "only" considers the first 1,056 neurons of InceptionV1.
+  But our experience is that a thousand neurons is more than enough to be disorienting when one begins studying a model.
+  Our hope is that this article will help readers avoid this disorientation by providing some structure and handholds for thinking about them.
+</p>
+
 </div>
 
 
@@ -84,6 +114,18 @@
   While there are some families we suspect are "real", many others are categories of convenience, or categories we have low-confidence about.
 </p>
 
+<h3>Caveats</h2>
+
+<ul>
+  <li>This is a broad overview and our understanding of many of these units is low-confidence.</li>
+  <li>Many neuron groups are catch-all categories or convenient organizational categories that we don't think reflect a fundamental taxonomy.</li>
+  <li>Even for neuron groups we suspect do exist in a more fundamental sense (eg. some can be recovered from factorizing the layer's weight matrices) the boundaries of these groups can be blurry and some neurons inclusion involve judgement calls.</li>
+</ul>
+
+
+<br><br>
+<hr style="margin-top: 100px; margin-bottom: 100px;">
+<br><br>
 
 <h2 id="conv2d0"><code>conv2d0</code></h2>
 
@@ -107,6 +149,10 @@
   A single Gabor filter can only detect edges at some offsets, but the negative version fills in holes, allowing for the formation of complex Gabor filters in the next layer.
 </p>
 
+<br><br>
+<hr style="margin-top: 100px; margin-bottom: 100px;">
+<br><br>
+
 <h2 id="conv2d1"><code>conv2d1</code></h2>
 
 <p>
@@ -114,37 +160,119 @@
   These neurons respond to similar patterns to units in <code>conv2d0</code>, but are invariant to some changes in position and orientation.
 </p>
 
+<p>
+  A nice example of this is the "Complex Gabor" features.
+  Like simple Gabor filters, these features detect edges.
+  But unlike simple Gabors, they are relatively invariant to the exact position of the edge or which side is dark and which side is white.
+  This is achieved by being excited by several Gabor filters in the same orientation -- and most critically, by being excited by Gabor "reciprocal Gabor filters" that detect the same pattern with dark and light switched.
+  This can be seen as an early example of the "union over cases" motif.
+</p>
+
+<figure style='grid-column-start: page-start; image-rendering: pixelated;'>
+  {images/ComplexGabors}
+</figure>
+
+<p>
+  In addition to Complex Gabors, we see a variety of other features, including
+  more invariant color contrast detectors, Gabor-like features that are less selective for a single orientation, and lower-frequency features.
+</p>
+
 {conv2d1}
 
+<br>
+<hr style="margin-top: 20px; margin-bottom: 100px;">
+<br><br>
 
 <h2 id="conv2d2"><code>conv2d2</code></h2>
 
 <p>
-In <code>conv2d2</code> we see the emergence of very simple shape predecessors, including tiny curve detectors, corner detectors, divergence detectors, and a single very tiny circle detector.
+In <code>conv2d2</code> we see the emergence of very simple shape predecessors.
+This layer sees the first units that might be described as "line detectors", preferring a single longer line to a Gabor pattern and accounting for about 25% of units.
+We also see tiny curve detectors, corner detectors, divergence detectors, and a single very tiny circle detector.
 One fun aspect of these features is that you can see that they are assembled from Gabor detectors in the feature visualizations, with curves being built from small piecewise Gabor segments.
-This layer also sees the first units that might be described as "line detectors", preferring a single longer line to a Gabor pattern.
 All of these units still moderately fire in response to incomplete versions of their feature, such as a small curve running tangent to the edge detector.
 </p>
 
 <p>
-Various kinds of texture detector also start to become a major constituent of the layer, including Gabor-like, hatch, low-frequency and high-frequency textures.
-In addition to these, we see a few units that detect different textures on different sides of their receptive field.
+Since <code>conv2d2</code> is a 3x3 convolution, our understanding of these shape precursor features (and some texture features) maps to particular ways Gabor and lower-frequency edges are being spatially assembled into new features.
+At a high-level, we see a few primary patterns:
+</p>
+
+<figure style='grid-column-start: page-start; image-rendering: pixelated;'>
+  {images/GaborCombinations}
+</figure>
+
+<p>
+  We also begin to see various kinds of texture and color detectors start to become a major constituent of the layer, including color-contrast and color center surround features, as well as Gabor-like, hatch, low-frequency and high-frequency textures.
+  A handful of units look for different textures on different sides of their receptive field.
 </p>
 
 {conv2d2}
 
 
 
+
+
+<br>
+<hr style="margin-top: 20px; margin-bottom: 100px;">
+<br><br>
+
 <h2 id="mixed3a"><code>mixed3a</code></h2>
 
 <p>
-In <code>mixed3a</code>
+<code>mixed3a</code> has a significant increase in the diversity of features we observe.
+Some of them  -- curve detectors and high-low frequency detectors --
+were discussed in <a>Zoom In</a>
+and will be discussed again in later articles in great detail.
+But there are some really interesting circuits in <code>mixed3a</code> which we haven't discussed before,
+and we'll go through a couple selected ones to give a flavor of what happens at this layer.
 </p>
 
+
+<p>
+One interesting property of <code>mixed3a</code> is the emergence of "black and  white" detectors, which detect the absence of color.
+Prior to this <code>mixed3a</code> color contrast detectors compare look for transitions from a color to its complement.
+From this layer on, we'll often see color detectors which compare a color to the absence of color.
+The circuit for our black and white detector is quite simple:
+almost all of its large weights are negative, detecting the absence of colors.
+</p>
+
+<figure style='grid-column-start: page-start; image-rendering: pixelated;'>
+  {images/BW}
+</figure>
+
+<p>
+We also see more complex shapes. Of course, curves (which we discussed in <a>Zoom In</a>) are a prominent example of this.
+But there's lots of other interesting examples.
+For instance, we see a variety of circle detectors and eye detectors form by piecing together early curves and and an early circle detector:
+</p>
+
+<figure style='grid-column-start: page-start; image-rendering: pixelated;'>
+  {images/SmallCircle}
+</figure>
+
+<p>
+  While on the matter of basic shapes, we also see triangle detectors form from edges.
+  (However, in practice, they seem to often just be used as multi-edge detectors downstream.)
+</p>
+
+<figure style='grid-column-start: page-start; image-rendering: pixelated;'>
+  {images/Triangle}
+</figure>
+
+<p>
+  These selected circuits only scratch the surface of the intricate structure in <code>mixed3a</code>.
+  Below, we provide a taxonomized overview of all of them:
+</p>
 
 {mixed3a}
 
 
+
+
+<br>
+<hr style="margin-top: 20px; margin-bottom: 100px;">
+<br><br>
 
 <h2 id="mixed3b"><code>mixed3b</code></h2>
 
@@ -171,6 +299,8 @@ The "boundary detectors" are particularly worth paying attention to: these units
 
 {mixed3b_lowpri}
 
+
+<!--
 <h2 id="open">Open Questions about Early Vision Neuron Groups</h2>
 
 <p>
@@ -182,7 +312,12 @@ The "boundary detectors" are particularly worth paying attention to: these units
   By this we mean
 </p>
 
-
+-->
 
 </d-article>
+<d-appendix>
+
+  <d-footnote-list></d-footnote-list>
+  <d-citation-list></d-citation-list>
+</d-appendix>
 </html>

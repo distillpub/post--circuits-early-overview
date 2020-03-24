@@ -16,12 +16,12 @@
   },
   {
     "name": "Brightness Graqdient",
-    "units": [206, 216, 28, 127, 29, 22, 182, 15, 249, 25, 196, 18, 59, 162, 247],
+    "units": [216, 127, 22, 182, 162, 25, 249, 15, 28, 59, 29, 196, 206, 18, 247],
     "comment": "These units detect brightness gradients. Among other things they will help detect specularity (shininess), curved surfaces, and the boundary of objects."
   },
   {
     "name": "BW vs Color",
-    "units": [222, 197, 223, 201, 204, 214, 208, 210, 220],
+    "units": [214, 208, 201, 223, 210, 197, 222, 204, 220, ],
     "comment": "These \"black and white\" detectors respond to absences of color. Prior to this, color detectors contrast to the opposite hue, but from this point on we'll see many compare to the absence of color. "
   },
   {
@@ -70,7 +70,7 @@
     "comment": "Broad, low confidence organizational category."
   },
   {
-    "name": "mixed3a_thick_lines",
+    "name": "Thick Lines",
     "units": [140, 78, 89],
     "comment": "Low confidence organizational category."
   },
