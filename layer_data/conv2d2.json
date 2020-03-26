@@ -27,12 +27,12 @@
   {
     "name": "Hatch Textures",
     "units": [164, 184, 28, 121, 159, 102],
-    "comment": "These units detect gabor patterns in two orthogonal directions, selecting for a \"hatch\" pattern."
+    "comment": "These units detect Gabor patterns in two orthogonal directions, selecting for a \"hatch\" pattern."
   },
   {
     "name": "Texture Contrast",
     "units": [1, 37, 71, 73, 105, 147, 178, 181],
-    "comment": "These units look for different textures on opposite sides of their receptive field. One side is typically a gabor pattern."
+    "comment": "These units look for different textures on opposite sides of their receptive field. One side is typically a Gabor pattern."
   },
   {
     "name": "Textures",
@@ -47,7 +47,7 @@
   {
     "name": "Corners",
     "units": [47, 87, 95, 26],
-    "comment": "These units detect two gabor patterens which meet at apprixmately 90 degrees, causing them to respond to corners."
+    "comment": "These units detect two Gabor patterens which meet at apprixmately 90 degrees, causing them to respond to corners."
   },
   {
     "name": "Shifted Line",

@@ -2,7 +2,7 @@
   {
     "name": "Fur Precursors",
     "units": [46, 47, 26, 63, 80, 23, 16],
-    "comment": "These units detect fur textures oriented in various directions."
+    "comment": "These units are not yet highly selective for fur (they also fire for other high-frequency patterns), but their primary use in the next layer is supporting fur detection. At the 224x224 image resolution, individual fur hairs are generally not detectable, but tufts of fur are. These units use Gabor textures to detect those tufts in different orientations. The also detect lower frequency edges or changes in lighting perpendicular to the tufts."
   },
   {
     "name": "Eyes",

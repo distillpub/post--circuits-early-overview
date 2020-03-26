@@ -22,12 +22,12 @@
   {
     "name": "Complex Gabor",
     "units": [51, 58, 30, 25, 52, 54, 22, 61, 55],
-    "comment": "Like Gabor Filters, but fairly invariant to the exact position. These units have very clean weights and are formed by adding together multiple gabor detectors in the same orientation but different phases."
+    "comment": "Like Gabor Filters, but fairly invariant to the exact position. These units have very clean weights and are formed by adding together multiple Gabor detectors in the same orientation but different phases."
   },
   {
     "name": "hatch",
     "units": [14],
-    "comment": "This unit detects gabor patterns in two orthogonal directions, selecting for a \"hatch\" pattern."
+    "comment": "This unit detects Gabor patterns in two orthogonal directions, selecting for a \"hatch\" pattern."
   },
   {
     "name": "Gabor Like",

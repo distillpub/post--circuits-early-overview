@@ -2,7 +2,7 @@
    {
      "name": "Gabor Filters",
      "units": [9, 53, 54, 15, 22, 39, 30, 1, 3, 49, 14, 17, 62, 20, 27, 0, 10, 28, 21, 63, 45, 18, 6, 57, 41, 43, 46, 8],
-     "comment": "Gabor filters are a simple edge detector, highly sensitive to the alignment of the edge. They're almost universally found in the fist layer of vision models. Note that gabor filters almost always come in pairs of negative reciprocals."
+     "comment": "Gabor filters are a simple edge detector, highly sensitive to the alignment of the edge. They're almost universally found in the fist layer of vision models. Note that Gabor filters almost always come in pairs of negative reciprocals."
    },
    {
      "name": "Color Contrast",
