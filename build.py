@@ -33,6 +33,9 @@ def vis_html(layer_name, n, W=120):
   elif layer_name in [ "conv2d1", "conv2d2"]:
     img_url = "https://storage.googleapis.com/clarity-public/colah/experiments/aprox_weights_1/%s_%s.png" % (layer_name, n)
     img = "<img style='width: 100%%;' src='%s'>" % (img_url)
+  elif layer_name in [ "mixed3a", "mixed3b"]:
+    img_url = "images/neuron/%s_%s.jpg" % (layer_name, n)
+    img = "<img style='width: 100%%;' src='%s'>" % (img_url)
   else:
     img_url = "https://openai-clarity.storage.googleapis.com/model-visualizer%2F1556758232%2FInceptionV1%2Ffeature_visualization%2Falpha%3DFalse%26layer_name%3D"+layer_name+"%26negative%3DFalse%26objective_name%3Dneuron%2Fchannel_index="+str(n)+".png"
     img = "<img style='margin-left: -%spx; margin-top: -%spx;' src='%s'>" % ((224 - W)//2+0.1*W, (224 - W)//2+0.1*W, img_url)
@@ -176,10 +179,12 @@ for layer in layer_sizes.keys():
   render_layer(layer)
 
 for f in os.listdir("public/images/"):
+  if ".svg" not in f: continue
   name = f.split(".")[0]
   key = "images/" + f.split(".")[0]
   print(key)
   lines = open("public/images/" + f).read().split("\n")
+  lines[2] = lines[2].replace("clip-path", "--disabled-clip-path")
   text = []
   for line in lines:
     line = line.replace("\"pattern", "\"pattern"+name)

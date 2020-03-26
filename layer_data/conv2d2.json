@@ -7,7 +7,7 @@
   {
     "name": "Early Brightness Gradient",
     "units": [94, 142, 99, 104, 163, 188, 98, 165, 83, 79, 128, 5],
-    "comment": "These units detect oriented gradients in brightness. They support a variet of similar units in the next layer."
+    "comment": "These units detect oriented gradients in brightness. They support a variety of similar units in the next layer."
   },
   {
     "name": "Line Divergence",
@@ -57,7 +57,7 @@
   {
     "name": "Color/Multicolor",
     "units": [58, 75, 92, 42, 12],
-    "comment": "Several units look for mixtures of colors but seem indifferent to their organizaiton."
+    "comment": "Several units look for mixtures of colors but seem indifferent to their organization."
   },
   {
     "name": "Color Center-Surround",

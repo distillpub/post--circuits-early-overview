@@ -1,29 +1,28 @@
-<svg width="1782" height="522" viewBox="0 0 1782 522" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect width="1782" height="522" fill="white"/>
-<path d="M1166 262C1030.25 262 1036.71 330 861.115 330L445 330" stroke="#646464" stroke-width="6"/>
-<path d="M1166 262C1030.25 262 1036.71 194 861.115 194L511 194" stroke="#646464" stroke-width="6"/>
-<path d="M1196 262L1156 285.094L1156 238.906L1196 262Z" fill="#857483"/>
-<path d="M502 272H604C608.971 272 613 276.029 613 281V391H493V281C493 276.029 497.029 272 502 272Z" fill="url(#pattern0)" stroke="#717171" stroke-width="2"/>
-<path d="M371 272H473C477.971 272 482 276.029 482 281V391H362V281C362 276.029 366.029 272 371 272Z" fill="url(#pattern1)" stroke="#717171" stroke-width="2"/>
-<path d="M446 22C446 16.4772 450.477 12 456 12H558C563.523 12 568 16.4772 568 22V133H446V22Z" fill="url(#pattern2)"/>
-<path d="M673 272H775C779.971 272 784 276.029 784 281V391H664V281C664 276.029 668.029 272 673 272Z" fill="url(#pattern3)" stroke="#717171" stroke-width="2"/>
-<path d="M577 22C577 16.4772 581.477 12 587 12H689C694.523 12 699 16.4772 699 22V133H577V22Z" fill="url(#pattern4)"/>
-<path d="M804 272H906C910.971 272 915 276.029 915 281V391H795V281C795 276.029 799.029 272 804 272Z" fill="url(#pattern5)" stroke="#717171" stroke-width="2"/>
-<path d="M708 22C708 16.4772 712.477 12 718 12H820C825.523 12 830 16.4772 830 22V133H708V22Z" fill="url(#pattern6)"/>
-<path d="M492 392H614V503C614 508.523 609.523 513 604 513H502C496.477 513 492 508.523 492 503V392Z" fill="url(#pattern7)"/>
-<path d="M361 392H483V503C483 508.523 478.523 513 473 513H371C365.477 513 361 508.523 361 503V392Z" fill="url(#pattern8)"/>
-<path d="M447 134H567V244C567 248.971 562.971 253 558 253H456C451.029 253 447 248.971 447 244V134Z" fill="url(#pattern9)" stroke="#717171" stroke-width="2"/>
-<path d="M663 392H785V503C785 508.523 780.523 513 775 513H673C667.477 513 663 508.523 663 503V392Z" fill="url(#pattern10)"/>
-<path d="M578 134H698V244C698 248.971 693.971 253 689 253H587C582.029 253 578 248.971 578 244V134Z" fill="url(#pattern11)" stroke="#717171" stroke-width="2"/>
-<path d="M794 392H916V503C916 508.523 911.523 513 906 513H804C798.477 513 794 508.523 794 503V392Z" fill="url(#pattern12)"/>
-<path d="M709 134H829V244C829 248.971 824.971 253 820 253H718C713.029 253 709 248.971 709 244V134Z" fill="url(#pattern13)" stroke="#717171" stroke-width="2"/>
+<svg width="1782" height="533" viewBox="0 0 1782 533" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="1782" height="533" fill="white"/>
+<path d="M1166 262C1030.25 262 1036.71 344 861.115 344L445 344" stroke="#949494" stroke-width="6"/>
+<path d="M1166 262C1030.25 262 1036.71 183 861.115 183L511 183" stroke="#949494" stroke-width="6"/>
+<path d="M1196 262L1156 285.094L1156 238.906L1196 262Z" fill="#949494"/>
+<path d="M502 282H604C608.971 282 613 286.029 613 291V401H493V291C493 286.029 497.029 282 502 282Z" fill="url(#pattern0)" stroke="#717171" stroke-width="2"/>
+<path d="M373 282H475C479.971 282 484 286.029 484 291V401H364V291C364 286.029 368.029 282 373 282Z" fill="url(#pattern1)" stroke="#717171" stroke-width="2"/>
+<path d="M448 12C448 6.47715 452.477 2 458 2H560C565.523 2 570 6.47715 570 12V123H448V12Z" fill="url(#pattern2)"/>
+<path d="M673 282H775C779.971 282 784 286.029 784 291V401H664V291C664 286.029 668.029 282 673 282Z" fill="url(#pattern3)" stroke="#717171" stroke-width="2"/>
+<path d="M577 12C577 6.47715 581.477 2 587 2H689C694.523 2 699 6.47715 699 12V123H577V12Z" fill="url(#pattern4)"/>
+<path d="M802 282H904C908.971 282 913 286.029 913 291V401H793V291C793 286.029 797.029 282 802 282Z" fill="url(#pattern5)" stroke="#717171" stroke-width="2"/>
+<path d="M706 12C706 6.47715 710.477 2 716 2H818C823.523 2 828 6.47715 828 12V123H706V12Z" fill="url(#pattern6)"/>
+<path d="M492 402H614V513C614 518.523 609.523 523 604 523H502C496.477 523 492 518.523 492 513V402Z" fill="url(#pattern7)"/>
+<path d="M363 402H485V513C485 518.523 480.523 523 475 523H373C367.477 523 363 518.523 363 513V402Z" fill="url(#pattern8)"/>
+<path d="M449 124H569V234C569 238.971 564.971 243 560 243H458C453.029 243 449 238.971 449 234V124Z" fill="url(#pattern9)" stroke="#717171" stroke-width="2"/>
+<path d="M663 402H785V513C785 518.523 780.523 523 775 523H673C667.477 523 663 518.523 663 513V402Z" fill="url(#pattern10)"/>
+<path d="M578 124H698V234C698 238.971 693.971 243 689 243H587C582.029 243 578 238.971 578 234V124Z" fill="url(#pattern11)" stroke="#717171" stroke-width="2"/>
+<path d="M792 402H914V513C914 518.523 909.523 523 904 523H802C796.477 523 792 518.523 792 513V402Z" fill="url(#pattern12)"/>
+<path d="M707 124H827V234C827 238.971 822.971 243 818 243H716C711.029 243 707 238.971 707 234V124Z" fill="url(#pattern13)" stroke="#717171" stroke-width="2"/>
 <rect x="1227" y="180" width="169" height="163" rx="9" fill="url(#pattern14)" stroke="white" stroke-width="2"/>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="0" y="34.3994">Formation of a </tspan><tspan x="0" y="66.3994">triangle detector </tspan><tspan x="0" y="98.3994">from edges.&#x2028;</tspan></text>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="0" y="311.399">Choice of which </tspan><tspan x="0" y="343.399">edges to show is </tspan><tspan x="0" y="375.399">slightly cherrypicked </tspan><tspan x="0" y="407.399">to have a concise </tspan><tspan x="0" y="439.399">diagram, but </tspan><tspan x="0" y="471.399">representative of the </tspan><tspan x="0" y="503.399">general pattern.</tspan></text>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="42" y="180.399">positive (excitation)</tspan></text>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="42" y="226.399">negative (inhibition)</tspan></text>
-<rect x="2" y="159" width="31" height="31" rx="5" fill="#CA0020" fill-opacity="0.8"/>
-<rect x="2" y="202" width="31" height="31" rx="5" fill="#0571B0" fill-opacity="0.8"/>
+<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="0" y="34.3994">Note: choice of </tspan><tspan x="0" y="66.3994">which edges to show </tspan><tspan x="0" y="98.3994">is slightly </tspan><tspan x="0" y="130.399">cherrypicked to have </tspan><tspan x="0" y="162.399">a concise diagram, </tspan><tspan x="0" y="194.399">but representative of </tspan><tspan x="0" y="226.399">the general circuit.</tspan></text>
+<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="1266" y="467.399">positive (excitation)</tspan></text>
+<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="1266" y="513.399">negative (inhibition)</tspan></text>
+<rect x="1226" y="446" width="31" height="31" rx="5" fill="#CA0020" fill-opacity="0.8"/>
+<rect x="1226" y="489" width="31" height="31" rx="5" fill="#0571B0" fill-opacity="0.8"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0" transform="translate(0 -0.00413223) scale(0.01)"/>

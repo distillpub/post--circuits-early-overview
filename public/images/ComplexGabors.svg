@@ -1,5 +1,5 @@
-<svg width="1782" height="656" viewBox="0 0 1782 656" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect width="1782" height="656" fill="white"/>
+<svg width="1782" height="580" viewBox="0 0 1782 580" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="1782" height="580" fill="white"/>
 <path d="M522 387C522 278.979 456 356.081 456 216.358V78" stroke="#CA0020" stroke-opacity="0.85" stroke-width="8.5"/>
 <path d="M456 217C456 356.197 522 279.385 522 387" stroke="#CA0020" stroke-width="10"/>
 <path d="M587 217V78" stroke="#CA0020" stroke-opacity="0.5" stroke-width="5"/>
@@ -40,11 +40,11 @@
 <rect x="1525" y="413" width="147" height="146" rx="9" fill="url(#pattern18)" stroke="#676767" stroke-width="2"/>
 <text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="4" y="36.3994">&#x201c;Complex Gabor&#x201d; </tspan><tspan x="4" y="68.3994">features are formed </tspan><tspan x="4" y="100.399">from </tspan><tspan x="174.989" y="100.399"> Gabor </tspan><tspan x="4" y="132.399">filters. Note how pairs </tspan><tspan x="4" y="164.399">of reciprocal Gabor </tspan><tspan x="4" y="196.399">filters are often </tspan><tspan x="4" y="228.399">combined to build </tspan><tspan x="4" y="260.399">invariance.</tspan></text>
 <text fill="#434343" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" font-weight="500" letter-spacing="0em"><tspan x="69.2319" y="100.399">conv2d0</tspan></text>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="4" y="422.399">All neurons in the </tspan><tspan x="4" y="454.399">previous layer with at </tspan><tspan x="4" y="486.399">least 30% of the max </tspan><tspan x="4" y="518.399">weight magnitude are </tspan><tspan x="4" y="550.399">shown.</tspan></text>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="44" y="309.399">positive (excitation)</tspan></text>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="44" y="355.399">negative (inhibition)</tspan></text>
-<rect x="4" y="288" width="31" height="31" rx="5" fill="#CA0020" fill-opacity="0.8"/>
-<rect x="4" y="331" width="31" height="31" rx="5" fill="#0571B0" fill-opacity="0.8"/>
+<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="4" y="431.399">All neurons in the </tspan><tspan x="4" y="463.399">previous layer with at </tspan><tspan x="4" y="495.399">least 30% of the max </tspan><tspan x="4" y="527.399">weight magnitude are </tspan><tspan x="4" y="559.399">shown.</tspan></text>
+<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="44" y="320.399">positive (excitation)</tspan></text>
+<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="44" y="364.399">negative (inhibition)</tspan></text>
+<rect x="4" y="299" width="31" height="31" rx="5" fill="#CA0020" fill-opacity="0.8"/>
+<rect x="4" y="340" width="31" height="31" rx="5" fill="#0571B0" fill-opacity="0.8"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0" transform="scale(0.142857)"/>

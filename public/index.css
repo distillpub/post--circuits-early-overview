@@ -7,7 +7,7 @@ img {
 figure {
   ---border: solid 1px #D2D2D4;
   ---padding-bottom: 20px;
-  padding-top: 20px;
+  ---padding-top: 20px;
 }
 figure > svg {
   width: 100%;
@@ -16,6 +16,10 @@ figure > svg {
 figure > svg > text {
   font: normal 29px sans-serif;
   opacity: 0.8;
+}
+figure > svg > text[font-weight=bold] {
+  font: bold 28px sans-serif;
+  opacity: 1.0;
 }
 p code {
   color:  #000;

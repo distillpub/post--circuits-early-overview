@@ -12,7 +12,7 @@
  {
    "name": "Color Center-Surround",
    "units": [285, 451, 208, 122, 93, 75, 46, 294, 44, 247, 91, 14, 10, 271, 60, 80, 84, 70, 202, 422, 48, 436, 65, 300, 105, 34, 121, 424, 457, 186, 23, 479, 89, 283, 22, 124, 6, 9, 50, 5, 71, 59, 182, 87, 308, 428, 109, 141, 12, 474, 112, 192, 2, 177, 249, 281, 284, 30, 27, 255, 53, 432, 475, 79, 67, 25, 351, 420, 152, 26, 193, 448, 153, 164, 113, 216, 259, ],
-   "comment": "These units look for one color in the center, and another color surrounding it. These units are likely have many subelties about the range of hues, texture preferences, and interactions that similar neurons in earlier layers may not have."
+   "comment": "These units look for one color in the center, and another color surrounding it. These units are likely have many subtleties about the range of hues, texture preferences, and interactions that similar neurons in earlier layers may not have."
  },
  {
    "name": "Complex Center-Surround",
@@ -51,13 +51,13 @@
  {
    "name": "Boundary",
    "units": [220, 402, 293, 356, 151, 203, 394, 376, 400, 328, 219, 320, 313, 329, 321, 251, 298, 257, 143, 366, 345, 405, 414, 301, 368, 398, 383, 396, 261, 184, 144, 360, 183, 239, 386],
-   "comment": "These units use multiple cues to detect the bounadries of objects. They vary in oreintation, detecting convex/concave/straight boundaries, and detecting articial vs fur foregrounds. Cues they rely on include line detectors, high-low frequency detectors, and color contrast.",
+   "comment": "These units use multiple cues to detect the boundaries of objects. They vary in orientation, detecting convex/concave/straight boundaries, and detecting artificial vs fur foregrounds. Cues they rely on include line detectors, high-low frequency detectors, and color contrast.",
    "priority": 1
  },
  {
    "name": "Curves",
    "units": [379, 406, 385, 343, 342, 388, 340, 330, 349, 324],
-   "comment": "The third iteration of curve detectors. They detect larger radii curves than their predecessors, and are the first to not lsightly fire for curves rotated 180 degrees. A detailed article on these is forthcoming.",
+   "comment": "The third iteration of curve detectors. They detect larger radii curves than their predecessors, and are the first to not slightly fire for curves rotated 180 degrees. A detailed article on these is forthcoming.",
    "priority": 1
  },
  {

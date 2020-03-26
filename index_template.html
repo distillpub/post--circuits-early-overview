@@ -65,12 +65,20 @@
 <p>
   The first few articles of the Circuits project will be focused on early vision in InceptionV1
   -- for our purposes, the five convolutional layers leading up to the third pooling layer.
+</p>
+
+<figure style='image-rendering: pixelated; grid-column-end: page'>
+  {images/Early}
+</figure>
+
+<p>
   Over the course of these layers, we see the network go from raw pixels
   up to sophisticated boundary detection, basic shape detection (eg. curves, circles, spirals, triangles),
   and even crude detectors for very small heads.
   Along the way, we see a variety of interesting intermediate features,
   including some of the classic "complex cell" features of neuroscience.
 </p>
+
 <p>
   Studying early vision has two major advantages as a starting point in our investigation.
   Firstly, it's particularly easy to study:
@@ -112,13 +120,14 @@
   This article shares our working categorization of units in the first four layers of InceptionV1 into neuron families.
   We've found these helpful for communicating among ourselves and breaking the problem of understanding InceptionV1 into smaller chunks.
   While there are some families we suspect are "real", many others are categories of convenience, or categories we have low-confidence about.
+  The main goal of these families is to help researchers orient themselves.
 </p>
 
 <h3>Caveats</h2>
 
 <ul>
   <li>This is a broad overview and our understanding of many of these units is low-confidence.</li>
-  <li>Many neuron groups are catch-all categories or convenient organizational categories that we don't think reflect a fundamental taxonomy.</li>
+  <li>Many neuron groups are catch-all categories or convenient organizational categories that we don't think reflect fundamental structure.</li>
   <li>Even for neuron groups we suspect do exist in a more fundamental sense (eg. some can be recovered from factorizing the layer's weight matrices) the boundaries of these groups can be blurry and some neurons inclusion involve judgement calls.</li>
 </ul>
 
@@ -135,7 +144,7 @@
 </p>
 
 <p>
-  With that said, it's features are surprisingly messy, compared to the
+  With that said, its features are surprisingly messy, compared to the
    perfect color contrast and Gabors we see in other models.
   Several neurons seem to be close to dead.
   We have no way of knowing, but the gradient probably wasn't reaching the early layers very well.
@@ -145,7 +154,7 @@
 {conv2d0}
 
 <p>
-  One subtlety that's worth noting here is that Gabor filters almost always come in pairs weights which are negative versions of each other, both in InceptionV1 and other vision models.
+  One subtlety that's worth noting here is that Gabor filters almost always come in pairs of weights which are negative versions of each other, both in InceptionV1 and other vision models.
   A single Gabor filter can only detect edges at some offsets, but the negative version fills in holes, allowing for the formation of complex Gabor filters in the next layer.
 </p>
 
@@ -222,7 +231,7 @@ At a high-level, we see a few primary patterns:
 <p>
 <code>mixed3a</code> has a significant increase in the diversity of features we observe.
 Some of them  -- curve detectors and high-low frequency detectors --
-were discussed in <a>Zoom In</a>
+were discussed in <a href="https://distill.pub/2020/circuits/zoom-in/">Zoom In</a>
 and will be discussed again in later articles in great detail.
 But there are some really interesting circuits in <code>mixed3a</code> which we haven't discussed before,
 and we'll go through a couple selected ones to give a flavor of what happens at this layer.
@@ -230,29 +239,30 @@ and we'll go through a couple selected ones to give a flavor of what happens at 
 
 
 <p>
-One interesting property of <code>mixed3a</code> is the emergence of "black and  white" detectors, which detect the absence of color.
-Prior to this <code>mixed3a</code> color contrast detectors compare look for transitions from a color to its complement.
+<b>Black & White Detectors:</b> One interesting property of <code>mixed3a</code> is the emergence of "black and  white" detectors, which detect the absence of color.
+Prior to this <code>mixed3a</code> color contrast detectors look for transitions of a color to near complementary colors (eg. blue vs yellow).
 From this layer on, we'll often see color detectors which compare a color to the absence of color.
+Additionally, black and white detectors can allow the detection of greyscale images, which may be correlated with ImageNet categories (see <a href="https://storage.googleapis.com/clarity-public/colah/experiments/aprox_weights_1/mixed4a_479.html">4a:479</a> which builds on these features to detect black and white portraits of people).
 The circuit for our black and white detector is quite simple:
 almost all of its large weights are negative, detecting the absence of colors.
 </p>
 
-<figure style='grid-column-start: page-start; image-rendering: pixelated;'>
+<figure style='image-rendering: pixelated;'>
   {images/BW}
 </figure>
 
 <p>
-We also see more complex shapes. Of course, curves (which we discussed in <a>Zoom In</a>) are a prominent example of this.
+<b>Small Circle Detector:</b> We also see somewhat more complex shapes in <code>mixed3a</code>. Of course, curves (which we discussed in <a href="https://distill.pub/2020/circuits/zoom-in/">Zoom In</a>) are a prominent example of this.
 But there's lots of other interesting examples.
 For instance, we see a variety of circle detectors and eye detectors form by piecing together early curves and and an early circle detector:
 </p>
 
-<figure style='grid-column-start: page-start; image-rendering: pixelated;'>
+<figure style='grid-column-start: text-start; image-rendering: pixelated;'>
   {images/SmallCircle}
 </figure>
 
 <p>
-  While on the matter of basic shapes, we also see triangle detectors form from edges.
+  <b>Triangle Detectors:</b> While on the matter of basic shapes, we also see triangle detectors form from edges.
   (However, in practice, they seem to often just be used as multi-edge detectors downstream.)
 </p>
 
@@ -277,17 +287,68 @@ For instance, we see a variety of circle detectors and eye detectors form by pie
 <h2 id="mixed3b"><code>mixed3b</code></h2>
 
 <p>
-<code>mixed3b</code> is an awkward layer, straddling a boundary between two levels of abstraction.
+<code>mixed3b</code> straddles two levels of abstraction.
 On the one hand, it has some quite sophisticated features that don't really seem like they should be characterized as "early" or "low-level": object boundary detectors, early head detectors, more sophisticated part of shape detectors.
 On the other hand, it also has many units that still feel quite low-level, such as color center-surround units.
+</p>
+
+
+<p>
+  <b>Boundary detectors:</b> One of the most striking transitions in <code>mixed3b</code> is the formation of boundary detectors.
+  When you first look at the feature visualizations and dataset examples,
+  you might think these are just another iteration of edge or curve detectors.
+  But they are in fact combining a variety of cues to detect boundaries and transitions between objects.
+  Perhaps the most important one is the high-low frequency detectors we saw develop at the previous layer.
+  Notice that it largely doesn't care which direction in color or frequency is, just that there's a change.
+</p>
+
+
+<figure style='image-rendering: pixelated;'>
+  {images/Boundary}
+</figure>
+
+<p>
+  We sometimes find it useful to think about the "goal" of early vision.
+  Gradient descent will only create features if they are useful for features in later layers.
+  Which later features incentivized the creation of the features we see in early vision?
+  The primary function of high-low frequency detectors seems to be supporting the creation of these boundary detectors.
+</p>
+
+<p>
+  <b>Curve-based Features:</b>
+  Another major theme in this layer is the emergence of more complex and specific shape detectors, base on curves.
+  These include more sophisticated curves, circles, loops, S-shapes, spirals, and "evolutes" (curves facing away from the middle).
+  We'll discuss these in detail in a forthcoming article on curve circuits, but they warrant mention here.
+</p>
+
+<p>
+  Conceptually, you can think of the weights as piecing the curve detectors as something like this:
+</p>
+
+<figure style='image-rendering: pixelated;'>
+  {images/CurveBased}
+</figure>
+
+<p>
+  <b>Fur detectors:</b> Another interesting (albeit, probably quite specific to the dog focus of ImageNet)
+  circuit is the implementation of "oriented fur detectors" which detect fur parting, like hair on one's head.
+  They're implemented by piecing together early fur detectors so that they converge in a particular way.
+</p>
+
+<figure style='image-rendering: pixelated;'>
+  {images/Fur}
+</figure>
+
+<p>
 Perhaps most frustratingly, it has many shape detectors that don't have a simple low-level articulation, but also are not yet very specific to a high-level feature.
 </p>
 
 <p>
 With that said, there are many interesting features in <code>mixed3b</code> that we do understand quite well.
 We'll start by examining those.
-The "boundary detectors" are particularly worth paying attention to: these units use multiple cues (edge/curves, high-low frequency detectors, and color contrast) to detect the boundary of objects. Developing them seems to be an important goal of many early vision features
+The "boundary detectors" are particularly worth paying attention to: these units use multiple cues (edge/curves, high-low frequency detectors, and color contrast) to detect the boundary of objects. Developing them seems to be an important goal of many early vision features.
 </p>
+
 
 
 {mixed3b_hipri}
