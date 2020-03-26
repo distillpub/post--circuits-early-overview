@@ -275,3 +275,30 @@ p code {
       margin-top: 0.25em;
       letter-spacing: 0.25px;
   }
+
+
+
+
+
+
+svg .model .node, svg .model .background {
+  fill: hsla(213, 45%, 90%, 1);
+}
+svg .model .early .node, svg .model .early .background {
+  fill: hsla(40, 80%, 65%,1);
+}
+svg .model .edge {
+  opacity: 0.85;
+}
+svg .model .background{
+  opacity: 0.6;
+}
+svg .model text {
+  opacity: 0.7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+svg .model .small-text {
+  font-size: 10px;
+  opacity: 0.5;
+}
