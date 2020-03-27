@@ -118,10 +118,10 @@
   <path d="M 740.666666667,52.0 C 746.666666667,52.0 752.666666667,52.0 758.666666667,52.0 L 758.666666667,52.0" style="stroke: #DDD; stroke-width: 1.5px; fill: none;" data-source-tf-name="softmax2_pre_activation/matmul" data-dest-tf-name="softmax2" class="edge"></path>
 </g>
 <g transform="translate(6,42.0)" class="early"><g transform="translate(0, 0)"><polygon points="0,10 5,20 15,20 20,10 15,0 5,0 0,10" class="node" data-tf-name="input" data-tf-op="Placeholder"></polygon></g></g>
-<g transform="translate(32,42.0)" class="early"><g transform="translate(2, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="conv2d0" data-tf-op="Relu"></rect></g></g>
+<a href="#conv2d0"><g transform="translate(32,42.0)" class="early"><g transform="translate(3, -8)"><text>0</text></g><g transform="translate(2, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="conv2d0" data-tf-op="Relu"></rect></g></g></a>
 <g transform="translate(50,42.0)" class="early"><g transform="translate(2, 0)"><polygon points=" 0,0 0,20 3,20 10,12 10,7 3,0 0,0 " class="node" data-tf-name="maxpool0" data-tf-op="MaxPool"></polygon></g></g>
-<g transform="translate(68,42.0)" class="early"><g transform="translate(2, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="conv2d1" data-tf-op="Relu"></rect></g></g>
-<g transform="translate(86,42.0)" class="early"><g transform="translate(2, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="conv2d2" data-tf-op="Relu"></rect></g></g>
+<a href="#conv2d1"><g transform="translate(68,42.0)" class="early"><g transform="translate(1, -8)"><text>1</text></g><g transform="translate(2, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="conv2d1" data-tf-op="Relu"></rect></g></g></a>
+<a href="#conv2d2"><g transform="translate(86,42.0)" class="early"><g transform="translate(3, -8)"><text>2</text></g><g transform="translate(2, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="conv2d2" data-tf-op="Relu"></rect></g></g></a>
 <g transform="translate(104,42.0)" class="early"><g transform="translate(2, 0)"><polygon points=" 0,0 0,20 3,20 10,12 10,7 3,0 0,0 " class="node" data-tf-name="maxpool1" data-tf-op="MaxPool"></polygon></g></g>
 <g transform="translate(246,42.0)"><g transform="translate(2, 0)"><polygon points=" 0,0 0,20 3,20 10,12 10,7 3,0 0,0 " class="node" data-tf-name="maxpool4" data-tf-op="MaxPool"></polygon></g></g>
 <g transform="translate(574,42.0)"><g transform="translate(2, 0)"><polygon points=" 0,0 0,20 3,20 10,12 10,7 3,0 0,0 " class="node" data-tf-name="maxpool10" data-tf-op="MaxPool"></polygon></g></g>
@@ -167,7 +167,7 @@
         <g transform="translate(17, -6)"><text class="emph-text">5b</text></g>
         <rect width="54" height="104.0" rx="2" ry="2" class="background emph" data-group-tf-name="mixed5b"></rect>
       </g></g></g>
-<g transform="translate(0,0)" class="early"><g><g transform="translate(206,6.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed3b_1x1" data-tf-op="Relu"></rect></g></g>
+<a href="#mixed3b"><g transform="translate(0,0)" class="early"><g><g transform="translate(206,6.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed3b_1x1" data-tf-op="Relu"></rect></g></g>
   <g transform="translate(192,30.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed3b_3x3_bottleneck" data-tf-op="Relu"></rect></g></g>
   <g transform="translate(206,30.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed3b_3x3" data-tf-op="Relu"></rect></g></g>
   <g transform="translate(192,54.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed3b_5x5_bottleneck" data-tf-op="Relu"></rect></g></g>
@@ -179,7 +179,7 @@
       <g transform="translate(186, 0.0)">
         <g transform="translate(17, -6)"><text class="emph-text">3b</text></g>
         <rect width="54" height="104.0" rx="2" ry="2" class="background emph" data-group-tf-name="mixed3b"></rect>
-      </g></g></g>
+      </g></g></g></a>
 <g transform="translate(0,0)"><g><g transform="translate(534,6.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed4e_1x1" data-tf-op="Relu"></rect></g></g>
   <g transform="translate(520,30.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed4e_3x3_bottleneck" data-tf-op="Relu"></rect></g></g>
   <g transform="translate(534,30.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed4e_3x3" data-tf-op="Relu"></rect></g></g>
@@ -219,7 +219,7 @@
         <g transform="translate(17, -6)"><text>4b</text></g>
         <rect width="54" height="104.0" rx="2" ry="2" class="background" data-group-tf-name="mixed4b"></rect>
       </g></g></g>
-<g transform="translate(0,0)" class="early"><g><g transform="translate(144,6.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed3a_1x1" data-tf-op="Relu"></rect></g></g>
+<a href="#mixed3a"><g transform="translate(0,0)" class="early"><g><g transform="translate(144,6.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed3a_1x1" data-tf-op="Relu"></rect></g></g>
   <g transform="translate(130,30.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed3a_3x3_bottleneck" data-tf-op="Relu"></rect></g></g>
   <g transform="translate(144,30.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed3a_3x3" data-tf-op="Relu"></rect></g></g>
   <g transform="translate(130,54.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed3a_5x5_bottleneck" data-tf-op="Relu"></rect></g></g>
@@ -228,10 +228,10 @@
   <g transform="translate(144,78.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed3a_pool_reduce" data-tf-op="Relu"></rect></g></g>
   <g transform="translate(158,42.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" x="4" class="node" data-tf-name="mixed3a" data-tf-op="Concat"></rect></g></g>
 
-      <g transform="translate(124, 0.0)" class="early">
+      <g transform="translate(124, 0.0)">
         <g transform="translate(17, -6)"><text>3a</text></g>
         <rect width="54" height="104.0" rx="2" ry="2" class="background" data-group-tf-name="mixed3a"></rect>
-      </g></g></g>
+      </g></g></g></a>
 <g transform="translate(0,0)"><g><g transform="translate(286,6.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed4a_1x1" data-tf-op="Relu"></rect></g></g>
   <g transform="translate(272,30.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed4a_3x3_bottleneck" data-tf-op="Relu"></rect></g></g>
   <g transform="translate(286,30.0)"><g transform="translate(0, 0)"><rect width="10" height="20" rx="2" ry="2" class="node" data-tf-name="mixed4a_3x3" data-tf-op="Relu"></rect></g></g>

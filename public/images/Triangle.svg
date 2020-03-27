@@ -1,28 +1,27 @@
-<svg width="1782" height="533" viewBox="0 0 1782 533" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect width="1782" height="533" fill="white"/>
-<path d="M1166 262C1030.25 262 1036.71 344 861.115 344L445 344" stroke="#949494" stroke-width="6"/>
-<path d="M1166 262C1030.25 262 1036.71 183 861.115 183L511 183" stroke="#949494" stroke-width="6"/>
-<path d="M1196 262L1156 285.094L1156 238.906L1196 262Z" fill="#949494"/>
-<path d="M502 282H604C608.971 282 613 286.029 613 291V401H493V291C493 286.029 497.029 282 502 282Z" fill="url(#pattern0)" stroke="#717171" stroke-width="2"/>
-<path d="M373 282H475C479.971 282 484 286.029 484 291V401H364V291C364 286.029 368.029 282 373 282Z" fill="url(#pattern1)" stroke="#717171" stroke-width="2"/>
-<path d="M448 12C448 6.47715 452.477 2 458 2H560C565.523 2 570 6.47715 570 12V123H448V12Z" fill="url(#pattern2)"/>
-<path d="M673 282H775C779.971 282 784 286.029 784 291V401H664V291C664 286.029 668.029 282 673 282Z" fill="url(#pattern3)" stroke="#717171" stroke-width="2"/>
-<path d="M577 12C577 6.47715 581.477 2 587 2H689C694.523 2 699 6.47715 699 12V123H577V12Z" fill="url(#pattern4)"/>
-<path d="M802 282H904C908.971 282 913 286.029 913 291V401H793V291C793 286.029 797.029 282 802 282Z" fill="url(#pattern5)" stroke="#717171" stroke-width="2"/>
-<path d="M706 12C706 6.47715 710.477 2 716 2H818C823.523 2 828 6.47715 828 12V123H706V12Z" fill="url(#pattern6)"/>
-<path d="M492 402H614V513C614 518.523 609.523 523 604 523H502C496.477 523 492 518.523 492 513V402Z" fill="url(#pattern7)"/>
-<path d="M363 402H485V513C485 518.523 480.523 523 475 523H373C367.477 523 363 518.523 363 513V402Z" fill="url(#pattern8)"/>
-<path d="M449 124H569V234C569 238.971 564.971 243 560 243H458C453.029 243 449 238.971 449 234V124Z" fill="url(#pattern9)" stroke="#717171" stroke-width="2"/>
-<path d="M663 402H785V513C785 518.523 780.523 523 775 523H673C667.477 523 663 518.523 663 513V402Z" fill="url(#pattern10)"/>
-<path d="M578 124H698V234C698 238.971 693.971 243 689 243H587C582.029 243 578 238.971 578 234V124Z" fill="url(#pattern11)" stroke="#717171" stroke-width="2"/>
-<path d="M792 402H914V513C914 518.523 909.523 523 904 523H802C796.477 523 792 518.523 792 513V402Z" fill="url(#pattern12)"/>
-<path d="M707 124H827V234C827 238.971 822.971 243 818 243H716C711.029 243 707 238.971 707 234V124Z" fill="url(#pattern13)" stroke="#717171" stroke-width="2"/>
-<rect x="1227" y="180" width="169" height="163" rx="9" fill="url(#pattern14)" stroke="white" stroke-width="2"/>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="0" y="34.3994">Note: choice of </tspan><tspan x="0" y="66.3994">which edges to show </tspan><tspan x="0" y="98.3994">is slightly </tspan><tspan x="0" y="130.399">cherrypicked to have </tspan><tspan x="0" y="162.399">a concise diagram, </tspan><tspan x="0" y="194.399">but representative of </tspan><tspan x="0" y="226.399">the general circuit.</tspan></text>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="1266" y="467.399">positive (excitation)</tspan></text>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="1266" y="513.399">negative (inhibition)</tspan></text>
-<rect x="1226" y="446" width="31" height="31" rx="5" fill="#CA0020" fill-opacity="0.8"/>
-<rect x="1226" y="489" width="31" height="31" rx="5" fill="#0571B0" fill-opacity="0.8"/>
+<svg width="1423" height="533" viewBox="0 0 1423 533" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="1423" height="533" fill="white"/>
+<path d="M803 262C667.248 262 673.707 344 498.115 344L82 344" stroke="#949494" stroke-width="6"/>
+<path d="M803 262C667.248 262 673.707 183 498.115 183L148 183" stroke="#949494" stroke-width="6"/>
+<path d="M833 262L793 285.094L793 238.906L833 262Z" fill="#949494"/>
+<path d="M139 282H241C245.971 282 250 286.029 250 291V401H130V291C130 286.029 134.029 282 139 282Z" fill="url(#pattern0)" stroke="#717171" stroke-width="2"/>
+<path d="M10 282H112C116.971 282 121 286.029 121 291V401H1V291C1 286.029 5.02944 282 10 282Z" fill="url(#pattern1)" stroke="#717171" stroke-width="2"/>
+<path d="M85 12C85 6.47715 89.4772 2 95 2H197C202.523 2 207 6.47715 207 12V123H85V12Z" fill="url(#pattern2)"/>
+<path d="M310 282H412C416.971 282 421 286.029 421 291V401H301V291C301 286.029 305.029 282 310 282Z" fill="url(#pattern3)" stroke="#717171" stroke-width="2"/>
+<path d="M214 12C214 6.47715 218.477 2 224 2H326C331.523 2 336 6.47715 336 12V123H214V12Z" fill="url(#pattern4)"/>
+<path d="M439 282H541C545.971 282 550 286.029 550 291V401H430V291C430 286.029 434.029 282 439 282Z" fill="url(#pattern5)" stroke="#717171" stroke-width="2"/>
+<path d="M343 12C343 6.47715 347.477 2 353 2H455C460.523 2 465 6.47715 465 12V123H343V12Z" fill="url(#pattern6)"/>
+<path d="M129 402H251V513C251 518.523 246.523 523 241 523H139C133.477 523 129 518.523 129 513V402Z" fill="url(#pattern7)"/>
+<path d="M0 402H122V513C122 518.523 117.523 523 112 523H10C4.47716 523 0 518.523 0 513V402Z" fill="url(#pattern8)"/>
+<path d="M86 124H206V234C206 238.971 201.971 243 197 243H95C90.0294 243 86 238.971 86 234V124Z" fill="url(#pattern9)" stroke="#717171" stroke-width="2"/>
+<path d="M300 402H422V513C422 518.523 417.523 523 412 523H310C304.477 523 300 518.523 300 513V402Z" fill="url(#pattern10)"/>
+<path d="M215 124H335V234C335 238.971 330.971 243 326 243H224C219.029 243 215 238.971 215 234V124Z" fill="url(#pattern11)" stroke="#717171" stroke-width="2"/>
+<path d="M429 402H551V513C551 518.523 546.523 523 541 523H439C433.477 523 429 518.523 429 513V402Z" fill="url(#pattern12)"/>
+<path d="M344 124H464V234C464 238.971 459.971 243 455 243H353C348.029 243 344 238.971 344 234V124Z" fill="url(#pattern13)" stroke="#717171" stroke-width="2"/>
+<rect x="864" y="180" width="169" height="163" rx="9" fill="url(#pattern14)" stroke="white" stroke-width="2"/>
+<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="903" y="467.399">positive (excitation)</tspan></text>
+<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="903" y="513.399">negative (inhibition)</tspan></text>
+<rect x="863" y="446" width="31" height="31" rx="5" fill="#CA0020" fill-opacity="0.8"/>
+<rect x="863" y="489" width="31" height="31" rx="5" fill="#0571B0" fill-opacity="0.8"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0" transform="translate(0 -0.00413223) scale(0.01)"/>

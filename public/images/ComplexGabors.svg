@@ -1,50 +1,43 @@
-<svg width="1782" height="580" viewBox="0 0 1782 580" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect width="1782" height="580" fill="white"/>
-<path d="M522 387C522 278.979 456 356.081 456 216.358V78" stroke="#CA0020" stroke-opacity="0.85" stroke-width="8.5"/>
-<path d="M456 217C456 356.197 522 279.385 522 387" stroke="#CA0020" stroke-width="10"/>
-<path d="M587 217V78" stroke="#CA0020" stroke-opacity="0.5" stroke-width="5"/>
-<path d="M587 217C587 356.197 522 279.385 522 387" stroke="#CA0020" stroke-opacity="0.6" stroke-width="6"/>
-<path d="M522 403L498.906 363H545.094L522 403Z" fill="#B13D3D"/>
-<rect x="405.5" y="149.5" width="102" height="102" rx="7.5" fill="url(#pattern0)" stroke="#CA0020" stroke-width="5"/>
-<rect x="404.5" y="9.5" width="104" height="104" rx="8.5" fill="url(#pattern1)" stroke="#CA0020" stroke-width="3"/>
-<rect x="537.5" y="148.5" width="104" height="104" rx="8.5" fill="url(#pattern2)" stroke="#CA0020" stroke-width="3"/>
-<rect x="537.5" y="9.5" width="104" height="104" rx="8.5" fill="url(#pattern3)" stroke="#CA0020" stroke-width="3"/>
-<rect x="449" y="413" width="147" height="146" rx="9" fill="url(#pattern4)" stroke="#676767" stroke-width="2"/>
-<path d="M829 216.358V78" stroke="#CA0020" stroke-opacity="0.6" stroke-width="6"/>
-<path d="M967 216.358V78" stroke="#CA0020" stroke-opacity="0.6" stroke-width="6"/>
-<path d="M829 216C829 356.016 1028 278.752 1028 387" stroke="#CA0020" stroke-width="10"/>
-<path d="M965 216C965 312.5 1028 272 1028 375" stroke="#CA0020" stroke-width="10"/>
-<path d="M1096 216C1096 356.016 1028 278.752 1028 387" stroke="#CA0020" stroke-opacity="0.4" stroke-width="5"/>
-<path d="M1231 217C1231 346.372 1028 274.982 1028 375" stroke="#CA0020" stroke-opacity="0.3" stroke-width="3"/>
-<path d="M1028 403L1004.91 363H1051.09L1028 403Z" fill="#B13D3D"/>
-<rect x="778.5" y="9.5" width="104" height="104" rx="8.5" fill="url(#pattern5)" stroke="#CA0020" stroke-width="3"/>
-<rect x="779.5" y="149.5" width="102" height="102" rx="7.5" fill="url(#pattern6)" stroke="#CA0020" stroke-width="5"/>
-<rect x="912.5" y="9.5" width="103" height="104" rx="8.5" fill="url(#pattern7)" stroke="#CA0020" stroke-width="3"/>
-<rect x="1044.5" y="148.5" width="104" height="104" rx="8.5" fill="url(#pattern8)" stroke="#CA0020" stroke-width="3"/>
-<rect x="913" y="149" width="102" height="103" rx="8" fill="url(#pattern9)" stroke="#CA0020" stroke-width="4"/>
-<rect x="1178.5" y="146.5" width="104" height="104" rx="8.5" fill="url(#pattern10)" stroke="#CA0020" stroke-width="3"/>
-<rect x="955" y="413" width="146" height="146" rx="9" fill="url(#pattern11)" stroke="#676767" stroke-width="2"/>
-<path d="M1598 387C1598 278.979 1460 356.081 1460 216.358V78" stroke="#CA0020" stroke-opacity="0.6" stroke-width="6"/>
-<path d="M1598 387C1598 278.979 1726 356.081 1726 216.358V78" stroke="#378DC0" stroke-opacity="0.4" stroke-width="6"/>
-<path d="M1597 387C1597 278.979 1598 356.081 1598 216.358V78" stroke="#CA0020" stroke-opacity="0.6" stroke-width="6"/>
-<path d="M1460 216C1460 356.016 1598 278.752 1598 387" stroke="#CA0020" stroke-width="10"/>
-<path d="M1726 216C1726 356.016 1598 278.752 1598 387" stroke="#378DC0" stroke-opacity="0.6" stroke-width="5"/>
-<path d="M1598 216C1598 356.016 1597 278.752 1597 387" stroke="#CA0020" stroke-opacity="0.4" stroke-width="5"/>
-<path d="M1598 403L1574.91 363H1621.09L1598 403Z" fill="#857483"/>
-<rect x="1408.5" y="9.5" width="104" height="104" rx="8.5" fill="url(#pattern12)" stroke="#CA0020" stroke-width="3"/>
-<rect x="1409.5" y="149.5" width="102" height="102" rx="7.5" fill="url(#pattern13)" stroke="#CA0020" stroke-width="5"/>
-<rect x="1541.5" y="9.5" width="104" height="104" rx="8.5" fill="url(#pattern14)" stroke="#CA0020" stroke-width="3"/>
-<rect x="1674.5" y="148.5" width="104" height="104" rx="8.5" fill="url(#pattern15)" stroke="#378DC0" stroke-width="3"/>
-<rect x="1541.5" y="148.5" width="104" height="104" rx="8.5" fill="url(#pattern16)" stroke="#CA0020" stroke-width="3"/>
-<rect x="1674.5" y="9.5" width="104" height="104" rx="8.5" fill="url(#pattern17)" stroke="#67A8CF" stroke-width="3"/>
-<rect x="1525" y="413" width="147" height="146" rx="9" fill="url(#pattern18)" stroke="#676767" stroke-width="2"/>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="4" y="36.3994">&#x201c;Complex Gabor&#x201d; </tspan><tspan x="4" y="68.3994">features are formed </tspan><tspan x="4" y="100.399">from </tspan><tspan x="174.989" y="100.399"> Gabor </tspan><tspan x="4" y="132.399">filters. Note how pairs </tspan><tspan x="4" y="164.399">of reciprocal Gabor </tspan><tspan x="4" y="196.399">filters are often </tspan><tspan x="4" y="228.399">combined to build </tspan><tspan x="4" y="260.399">invariance.</tspan></text>
-<text fill="#434343" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" font-weight="500" letter-spacing="0em"><tspan x="69.2319" y="100.399">conv2d0</tspan></text>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="4" y="431.399">All neurons in the </tspan><tspan x="4" y="463.399">previous layer with at </tspan><tspan x="4" y="495.399">least 30% of the max </tspan><tspan x="4" y="527.399">weight magnitude are </tspan><tspan x="4" y="559.399">shown.</tspan></text>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="44" y="320.399">positive (excitation)</tspan></text>
-<text fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="44" y="364.399">negative (inhibition)</tspan></text>
-<rect x="4" y="299" width="31" height="31" rx="5" fill="#CA0020" fill-opacity="0.8"/>
-<rect x="4" y="340" width="31" height="31" rx="5" fill="#0571B0" fill-opacity="0.8"/>
+<svg width="1377" height="565" viewBox="0 0 1377 565" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="1377" height="565" fill="white"/>
+<path d="M119 387C119 278.979 53 356.081 53 216.358V78" stroke="#CA0020" stroke-opacity="0.85" stroke-width="8.5"/>
+<path d="M53 217C53 356.197 119 279.385 119 387" stroke="#CA0020" stroke-width="10"/>
+<path d="M184 217V78" stroke="#CA0020" stroke-opacity="0.5" stroke-width="5"/>
+<path d="M184 217C184 356.197 119 279.385 119 387" stroke="#CA0020" stroke-opacity="0.6" stroke-width="6"/>
+<path d="M119 403L95.906 363H142.094L119 403Z" fill="#B13D3D"/>
+<rect x="2.5" y="149.5" width="102" height="102" rx="7.5" fill="url(#pattern0)" stroke="#CA0020" stroke-width="5"/>
+<rect x="1.5" y="9.5" width="104" height="104" rx="8.5" fill="url(#pattern1)" stroke="#CA0020" stroke-width="3"/>
+<rect x="134.5" y="148.5" width="104" height="104" rx="8.5" fill="url(#pattern2)" stroke="#CA0020" stroke-width="3"/>
+<rect x="134.5" y="9.5" width="104" height="104" rx="8.5" fill="url(#pattern3)" stroke="#CA0020" stroke-width="3"/>
+<rect x="46" y="413" width="147" height="146" rx="9" fill="url(#pattern4)" stroke="#676767" stroke-width="2"/>
+<path d="M426 216.358V78" stroke="#CA0020" stroke-opacity="0.6" stroke-width="6"/>
+<path d="M564 216.358V78" stroke="#CA0020" stroke-opacity="0.6" stroke-width="6"/>
+<path d="M426 216C426 356.016 625 278.752 625 387" stroke="#CA0020" stroke-width="10"/>
+<path d="M562 216C562 312.5 625 272 625 375" stroke="#CA0020" stroke-width="10"/>
+<path d="M693 216C693 356.016 625 278.752 625 387" stroke="#CA0020" stroke-opacity="0.4" stroke-width="5"/>
+<path d="M828 217C828 346.372 625 274.982 625 375" stroke="#CA0020" stroke-opacity="0.3" stroke-width="3"/>
+<path d="M625 403L601.906 363H648.094L625 403Z" fill="#B13D3D"/>
+<rect x="375.5" y="9.5" width="104" height="104" rx="8.5" fill="url(#pattern5)" stroke="#CA0020" stroke-width="3"/>
+<rect x="376.5" y="149.5" width="102" height="102" rx="7.5" fill="url(#pattern6)" stroke="#CA0020" stroke-width="5"/>
+<rect x="509.5" y="9.5" width="103" height="104" rx="8.5" fill="url(#pattern7)" stroke="#CA0020" stroke-width="3"/>
+<rect x="641.5" y="148.5" width="104" height="104" rx="8.5" fill="url(#pattern8)" stroke="#CA0020" stroke-width="3"/>
+<rect x="510" y="149" width="102" height="103" rx="8" fill="url(#pattern9)" stroke="#CA0020" stroke-width="4"/>
+<rect x="775.5" y="146.5" width="104" height="104" rx="8.5" fill="url(#pattern10)" stroke="#CA0020" stroke-width="3"/>
+<rect x="552" y="413" width="146" height="146" rx="9" fill="url(#pattern11)" stroke="#676767" stroke-width="2"/>
+<path d="M1195 387C1195 278.979 1057 356.081 1057 216.358V78" stroke="#CA0020" stroke-opacity="0.6" stroke-width="6"/>
+<path d="M1195 387C1195 278.979 1323 356.081 1323 216.358V78" stroke="#378DC0" stroke-opacity="0.4" stroke-width="6"/>
+<path d="M1194 387C1194 278.979 1195 356.081 1195 216.358V78" stroke="#CA0020" stroke-opacity="0.6" stroke-width="6"/>
+<path d="M1057 216C1057 356.016 1195 278.752 1195 387" stroke="#CA0020" stroke-width="10"/>
+<path d="M1323 216C1323 356.016 1195 278.752 1195 387" stroke="#378DC0" stroke-opacity="0.6" stroke-width="5"/>
+<path d="M1195 216C1195 356.016 1194 278.752 1194 387" stroke="#CA0020" stroke-opacity="0.4" stroke-width="5"/>
+<path d="M1195 403L1171.91 363H1218.09L1195 403Z" fill="#857483"/>
+<rect x="1005.5" y="9.5" width="104" height="104" rx="8.5" fill="url(#pattern12)" stroke="#CA0020" stroke-width="3"/>
+<rect x="1006.5" y="149.5" width="102" height="102" rx="7.5" fill="url(#pattern13)" stroke="#CA0020" stroke-width="5"/>
+<rect x="1138.5" y="9.5" width="104" height="104" rx="8.5" fill="url(#pattern14)" stroke="#CA0020" stroke-width="3"/>
+<rect x="1271.5" y="148.5" width="104" height="104" rx="8.5" fill="url(#pattern15)" stroke="#378DC0" stroke-width="3"/>
+<rect x="1138.5" y="148.5" width="104" height="104" rx="8.5" fill="url(#pattern16)" stroke="#CA0020" stroke-width="3"/>
+<rect x="1271.5" y="9.5" width="104" height="104" rx="8.5" fill="url(#pattern17)" stroke="#67A8CF" stroke-width="3"/>
+<rect x="1122" y="413" width="147" height="146" rx="9" fill="url(#pattern18)" stroke="#676767" stroke-width="2"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0" transform="scale(0.142857)"/>

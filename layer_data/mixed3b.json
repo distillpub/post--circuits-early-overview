@@ -7,12 +7,12 @@
  {
    "name": "Texture",
    "units": [3, 40, 32, 54, 74, 309, 267, 438, 416, 440, 460, 276, 458, 132, 133, 106, 120, 123, 426, 434, 429, 445, 452, 456, 459, 464, 465, 421, 437, 418, 425, 221, 195, 204, 39, 76, 77, 468, 471, 227, 415, 126, 128, 172],
-   "comment": ""
+   "comment": "This is a broad, not very well defined category for units that seem to look for simple local structures over a wide receptive field, including mixtures of colors. "
  },
  {
    "name": "Color Center-Surround",
    "units": [285, 451, 208, 122, 93, 75, 46, 294, 44, 247, 91, 14, 10, 271, 60, 80, 84, 70, 202, 422, 48, 436, 65, 300, 105, 34, 121, 424, 457, 186, 23, 479, 89, 283, 22, 124, 6, 9, 50, 5, 71, 59, 182, 87, 308, 428, 109, 141, 12, 474, 112, 192, 2, 177, 249, 281, 284, 30, 27, 255, 53, 432, 475, 79, 67, 25, 351, 420, 152, 26, 193, 448, 153, 164, 113, 216, 259, ],
-   "comment": "These units look for one color in the center, and another color surrounding it. These units are likely have many subtleties about the range of hues, texture preferences, and interactions that similar neurons in earlier layers may not have."
+   "comment": "These units look for one color in the center, and another color surrounding it. These units likely have many subtleties about the range of hues, texture preferences, and interactions that similar neurons in earlier layers may not have. Note how many units detect the absence (or generic presence) of color, building off of the black and white detectors in <code>mixed3a</code>."
  },
  {
    "name": "Complex Center-Surround",
@@ -45,7 +45,7 @@
  {
    "name": "Circle Cluster",
    "units": [446, 462, 82],
-   "comment": "",
+   "comment": "Units detecting circles and curves without necesarily requiring spatial coherrence.",
    "priority": 1
  },
  {
@@ -69,12 +69,12 @@
  {
    "name": "Curves misc.",
    "units": [348, 407, 365, 367],
-   "comment": ""
+   "comment": "Low confidence organizational category."
  },
  {
    "name": "Shallow Curves",
    "units": [403, 353, 355, 336],
-   "comment": "",
+   "comment": "Detectors for curves with wider radii than regular curve detectors.",
    "priority": 1
  },
  {
@@ -92,12 +92,13 @@
  {
    "name": "Cross / Corner Divergence",
    "units": [108, 47, 339, 344, 374, 99, 369, 236, 408],
-   "comment": ""
+   "comment": "Units detecting lines crossing or diverging from a center point. Some are early predecessors for 3D corner detection."
  },
  {
    "name": "Square / Grid",
    "units": [392, 361, 401, 68, 341, 382, 397, 66, 125],
-   "comment": ""
+   "comment": "Units detecting grid patterns.",
+   "priority": 1
  },
  {
    "name": "Evolute",
@@ -127,14 +128,14 @@
    "comment": ""
  },
  {
-   "name": "Column Things",
+   "name": "Columns",
    "units": [229, 138, 332, 318, 258],
-   "comment": ""
+   "comment": "We don't really understand these units."
  },
  {
-   "name": "Scale Mystery",
+   "name": "Scales",
    "units": [461, 466, 90, 478, 419],
-   "comment": ""
+   "comment": "We don't really understand these units."
  },
  {
    "name": "Proto-Head",
@@ -145,52 +146,52 @@
 
 
  {
-   "name": "bump things",
+   "name": "Bumps",
    "units": [167, 206, 312, 292, 194, 140, 223, 254,],
-   "comment": "",
-   "priority": 1
+   "comment": "Low confidence category.",
+   "priority": -1
  },
 
 
   {
     "name": "Color Contrast/Gradient",
     "units": [4, 217, 450, 191, 287, 49, 196, 473, 430, 305, 447, 277, 165, 279, 226, 303, 224, 269, 264, 189, 156, 463, 270, 272, ],
-    "comment": "",
+    "comment": "Units which respond to different colors on each side. These units look for one color in the center, and another color surrounding it. These units likely have many subtleties about the range of hues, texture preferences, and interactions that similar neurons in earlier layers may not have.",
     "priority": -1
   },
 
  {
-   "name": "Bar / Line-Like Things",
+   "name": "Bar / Line-Like",
    "units": [81, 97, 98, 107, 282, 286, 288, 295, ],
-   "comment": "",
+   "comment": "Low confidence category.",
    "priority": -1
  },
 
  {
    "name": "Boundary Misc Last Resort",
    "units": [149, 130, 168, 243, 246, 160, 162, ],
-   "comment": "",
+   "comment": "Boundary-related units we didn't know what else to do with.",
    "priority": -1
  },
 
  {
-   "name": "Star Thingies",
+   "name": "Star",
    "units": [263, 262, 205, 135, 94, 304],
-   "comment": "",
+   "comment": "Low confidence category.",
    "priority": -1
  },
 
  {
-   "name": "Pointies",
+   "name": "Pointy",
    "units": [166, 111, ],
-   "comment": "",
+   "comment": "Low confidence category.",
    "priority": -1
  },
 
  {
    "name": "Texture Contrast",
    "units": [ 319, 155, 201, 171, 178, 197, 260, 412, 248, 250, 241, 390],
-   "comment": "",
+   "comment": "Units that detect one texture on one side and a different texture on the other.",
    "priority": -1
  },
 
@@ -198,7 +199,7 @@
   {
     "name": "Other Units",
     "units": [43, 45, 58, 78, 85, 86, 96, 100, 127, 134, 137, 142, 145, 146, 148, 150, 154, 179, 181, 187, 188, 207, 213, 214, 222, 231, 235, 240, 253, 265, 266, 268, 273, 306, 350, 354, 358, 371, 391, 399, 411, 433],
-    "comment": "",
+    "comment": "Units that don't fall in any other category.",
     "priority": -2
   },
 

@@ -1,6 +1,16 @@
 
 @charset "UTF-8";
 
+.positive-text {
+  color: #ca0020;
+  font-weight: bold;
+  opacity: 0.9;
+}
+.negative-text {
+  color: #0571b0;
+  font-weight: bold;
+  opacity: 0.9;
+}
 img {
   image-rendering: pixelated;
 }
@@ -282,10 +292,16 @@ p code {
 
 
 svg .model .node, svg .model .background {
-  fill: hsla(213, 45%, 90%, 1);
+  fill: hsla(213, 25%, 91%, 1);
 }
 svg .model .early .node, svg .model .early .background {
-  fill: hsla(40, 80%, 65%,1);
+  fill: hsla(40, 70%, 90%, 1);
+}
+svg .model a .early > g > .node,svg .model a .early .node[data-tf-op="Concat"], svg .model a .early .background {
+  fill: hsla(40, 80%, 75%,1);
+}
+svg .model a:hover .early > g > .node, svg .model a:hover .early .node[data-tf-op="Concat"], svg .model a:hover .early .background {
+  fill: hsla(40, 95%, 50%,1);
 }
 svg .model .edge {
   opacity: 0.85;

@@ -35,7 +35,7 @@ def vis_url(layer_name, n):
     return "https://openai-clarity.storage.googleapis.com/model-visualizer%2F1556758232%2FInceptionV1%2Ffeature_visualization%2Falpha%3DFalse%26layer_name%3D"+layer_name+"%26negative%3DFalse%26objective_name%3Dneuron%2Fchannel_index="+str(n)+".png"
 
 
-for layer in list(layer_sizes.keys())[3:5]:
+for layer in list(layer_sizes.keys())[5:6]:#[3:5]:
   W = W_dict[layer]
   for unit in range(layer_sizes[layer]):
     url = vis_url(layer, unit)
@@ -43,6 +43,8 @@ for layer in list(layer_sizes.keys())[3:5]:
     D = (img.shape[0] - W)//2
     if layer in ["mixed3a", "mixed3b"]:
       D += 5
+    if layer in ["mixed4a"]:
+      D += 10
     img = img[D:D+W, D:D+W]
     save(img, "public/images/neuron/%s_%s.jpg" % (layer, unit))
     print(".", end="")

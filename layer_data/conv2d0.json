@@ -6,7 +6,7 @@
    },
    {
      "name": "Color Contrast",
-     "units": [59, 23, 5, 7, 48, 29, 12, 24, 55, 50, 13, 32, 36, 37, 11, 16, 33, 34, 47, 38, 58, 2, 60, 61, 4, 51, 25],
+     "units": [59, 23, 5, 7, 48, 29, 12, 24, 55, 13, 32, 50, 36, 37, 16, 11, 33, 34, 47, 38, 58, 2, 60, 61, 4, 51, 25],
      "comment": "These units detect a color one side of their receptive field, and the opposite color on the other side."
    },
    {

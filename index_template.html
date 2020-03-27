@@ -44,31 +44,15 @@
       </div>
   </section>
 
-<d-contents>
-  <nav class="l-text toc figcaption">
-    <h3>Contents</h3>
-    <div><a href="#cards">Playing Cards with Neurons</a></div>
-    <div>Layer Overviews</div>
-    <ul>
-      <li><a href="#conv2d0"><code>conv2d0</code></a></li>
-      <li><a href="#conv2d1"><code>conv2d1</code></a></li>
-      <li><a href="#conv2d2"><code>conv2d2</code></a></li>
-      <li><a href="#mixed3a"><code>mixed3a</code></a></li>
-      <li><a href="#mixed3b"><code>mixed3b</code></a></li>
-    </ul>
-    <!--<div><a href="#open"><code>Open Questions</code></a></div>-->
-  </nav>
-</d-contents>
-
-<div>
 
 <p>
-  The first few articles of the Circuits project will be focused on early vision in InceptionV1
+  The first few articles of the Circuits project will be focused on early vision in InceptionV1<d-cite bibtex-key="szegedy2015going"></d-cite>
   -- for our purposes, the five convolutional layers leading up to the third pooling layer.
 </p>
 
-<figure style='image-rendering: pixelated; grid-column-end: page'>
+<figure class="l-body-outset">
   {images/Early}
+  <figcaption style="margin-top:8px;">For our purposes, we'll consider early vision to be the first five layers. Click on a layer to jump to section.</figcaption>
 </figure>
 
 <p>
@@ -82,54 +66,74 @@
 <p>
   Studying early vision has two major advantages as a starting point in our investigation.
   Firstly, it's particularly easy to study:
-  it's close to the input, the circuits are only a few layers deep, there aren't that many different neurons, and the features seem quite simple.
+  it's close to the input, the circuits are only a few layers deep, there aren't that many different neurons,<d-footnote>It's common for vision models to have on the order of 64 channels in their initial convolutional layers, which are applied at many spatial positions. So while there are many neurons, the number of unique neurons is orders of magnitude smaller.</d-footnote> and the features seem quite simple.
   Secondly, early vision seems most likely to be universal: to have the same features and circuits form across different architectures and tasks.
 </p>
 
 <p>
-  Before we dive into details explorations of different parts of early vision, we wanted to give a broader overview of how we presently understand it.
+  Before we dive into detailed explorations of different parts of early vision, we wanted to give a broader overview of how we presently understand it.
   This article sketches out our understanding, as an annotated collection of what we call "neuron groups."
+  We also provide illustrations of selected circuits at each layer.
 </p>
 
 <p>
-  By limiting ourselves to early vision, this article "only" considers the first 1,056 neurons of InceptionV1.
+  By limiting ourselves to early vision, this article "only" considers the first 1,056 neurons of InceptionV1.<d-footnote>We will not discuss the "bottleneck" neurons in mixed3a/mixed3b, which we generally think of as low-rank connections to the previous layer.</d-footnote>
   But our experience is that a thousand neurons is more than enough to be disorienting when one begins studying a model.
   Our hope is that this article will help readers avoid this disorientation by providing some structure and handholds for thinking about them.
 </p>
 
-</div>
 
 
-<h2 id="cards">Playing Cards with Neurons</h2>
+<h3 id="cards">Playing Cards with Neurons</h3>
 
 <p>
   Dmitri Mendeleev is often accounted to have discovered the Periodic Table by playing "chemical solitaire," writing the details of each element on a card and patiently fiddling with different ways of classifying and organizing them.
   Some modern historians are skeptical about the cards, but Mendeleev's story is a compelling demonstration of that there can be a lot of value in simply organizing phenomena, even when you don't have a theory or firm justification for that organization yet.
   Mendeleev is far from unique in this.
-  For example, in biology, taxonomies of species proceeded genetics and theory of evolution giving them a theoretical foundation.
+  For example, in biology, taxonomies of species proceeded genetics and the theory of evolution giving them a theoretical foundation.
 </p>
 
 <p>
-  Our experience is that there are suspicious patterns in the neurons of vision models.
-  It's not unusual to see a dozen neurons detecting the same feature in different orientations or colors.
+  Our experience is that many neurons in vision models seem to fall into families of similar features.
+  For example, it's not unusual to see a dozen neurons detecting the same feature in different orientations or colors.
   Perhaps even more strikingly, the same "neuron families" seem to recur across models!
   Of course, it's well known that Gabor filters and color contrast detectors reliably comprise neurons in the first layer of convolutional neural networks, but we were quite surprised to see this generalize to later layers.
 </p>
 
 <p>
   This article shares our working categorization of units in the first four layers of InceptionV1 into neuron families.
+  Our categorization is based on looking at feature visualizations, dataset examples, how a feature is built from the previous layer, how it is used, and other analysis, although it varies in how much attention we've given to an individual neuron.
   We've found these helpful for communicating among ourselves and breaking the problem of understanding InceptionV1 into smaller chunks.
   While there are some families we suspect are "real", many others are categories of convenience, or categories we have low-confidence about.
   The main goal of these families is to help researchers orient themselves.
 </p>
 
-<h3>Caveats</h2>
+<h4>Caveats</h4>
 
 <ul>
   <li>This is a broad overview and our understanding of many of these units is low-confidence.</li>
   <li>Many neuron groups are catch-all categories or convenient organizational categories that we don't think reflect fundamental structure.</li>
-  <li>Even for neuron groups we suspect do exist in a more fundamental sense (eg. some can be recovered from factorizing the layer's weight matrices) the boundaries of these groups can be blurry and some neurons inclusion involve judgement calls.</li>
+  <li>Even for neuron groups we suspect do reflect a fundamental structure (eg. some can be recovered from factorizing the layer's weight matrices) the boundaries of these groups can be blurry and some neurons inclusion involve judgement calls.</li>
 </ul>
+
+
+<h3 id="presentation">Presentation of Neurons</h3>
+
+<p>
+  In order to talk about neurons, we need to somehow represent them.
+  While we could use neuron indices, it's very hard to keep hundreds of numbers straight in one's head.
+  Instead, we use <a href="https://distill.pub/2017/feature-visualization/">feature visualizations</a><d-cite key="erhan2009visualizing,olah2017feature,simonyan2013deep,nguyen2015deep,mordvintsev2015inceptionism,nguyen2016plug"></d-cite>, optimized images which highly stimulate a neuron.<d-footnote>
+    Our feature visualization is done with the <a href="https://github.com/tensorflow/lucid">lucid library</a><d-cite key="olah2017feature"></d-cite>.
+    We use small amounts of transformation robustness when visualizing the first few layers, because it has a larger proportional affect on their small receptive fields, and increase as we move to higher layers.
+    For low layers, we use L2 regularization to push pixels towards gray.
+    For the first layer, we follow the convention of other papers and just show the weights, which for the special case of the first layer are equivalent to feature visualization with the right L2 penalty.
+  </d-footnote>
+</p>
+<p>
+  When we represent a neuron with a feature visualization, we don't intend to claim that the feature visualization captures the entirety of the neuron's behavior.
+  Rather, the role of a feature visualization is like a variable name in understanding a program.
+  It replaces an arbitrary number with a more meaningful symbol <d-cite bibtex-key="olah2018building"></d-cite>.
+</p>
 
 
 <br><br>
@@ -144,22 +148,21 @@
 </p>
 
 <p>
-  With that said, its features are surprisingly messy, compared to the
-   perfect color contrast and Gabors we see in other models.
-  Several neurons seem to be close to dead.
-  We have no way of knowing, but the gradient probably wasn't reaching the early layers very well.
+  In contrast to other models, however, the features aren't perfect color contrast detectors and Gabor filters.
+  For lack of a better word, they're messy.
+  We have no way of knowing, but it seems likely this is a result of the gradient mot reaching the early layers very well during training.
   Note that InceptionV1 predated the adoption of modern techniques like batch norm and Adam, which make it much easier to train deep models well.
 </p>
-
-{conv2d0}
 
 <p>
   One subtlety that's worth noting here is that Gabor filters almost always come in pairs of weights which are negative versions of each other, both in InceptionV1 and other vision models.
   A single Gabor filter can only detect edges at some offsets, but the negative version fills in holes, allowing for the formation of complex Gabor filters in the next layer.
 </p>
 
-<br><br>
-<hr style="margin-top: 100px; margin-bottom: 100px;">
+{conv2d0}
+
+
+<hr style="margin-top: 80px; margin-bottom: 100px;">
 <br><br>
 
 <h2 id="conv2d1"><code>conv2d1</code></h2>
@@ -170,16 +173,25 @@
 </p>
 
 <p>
-  A nice example of this is the "Complex Gabor" features.
-  Like simple Gabor filters, these features detect edges.
-  But unlike simple Gabors, they are relatively invariant to the exact position of the edge or which side is dark and which side is white.
-  This is achieved by being excited by several Gabor filters in the same orientation -- and most critically, by being excited by Gabor "reciprocal Gabor filters" that detect the same pattern with dark and light switched.
+  A nice example of this is the "Complex Gabor" feature family.
+  Like simple Gabor filters, complex Gabors detect edges.
+  But unlike simple Gabors, they are relatively invariant to the exact position of the edge or which side is dark or light.
+  This is achieved by being excited by multiple Gabor filters in similar orientations -- and most critically, by being excited by "reciprocal Gabor filters" that detect the same pattern with dark and light switched.
   This can be seen as an early example of the "union over cases" motif.
 </p>
 
-<figure style='grid-column-start: page-start; image-rendering: pixelated;'>
+<figure style='image-rendering: pixelated;'>
   {images/ComplexGabors}
+  <figcaption style="margin-top: 12px;">All neurons in the previous layer with at least 30% of the max weight magnitude are shown,
+    both <span class="positive-text">positive (excitation)</span> and <span class="negative-text">negative (inhibition)</span>.
+    Click on a neuron to see its forwards and backwards weights.</figcaption>
 </figure>
+
+<p>
+  Note that <code>conv2d1</code> is a 1x1 convolution, so there's only a single weight — a single line, in this diagram — between each channel in the previous and this one.<d-footnote>
+    There is a pooling layer between them, so the features it connects to are pooled versions of the previous layer rather than original features.</d-footnote>
+  This plays an important role in determining the features we observe: in models with larger convolutions in their second layer, we often see a jump to crude versions of the larger more complex features we'll see in the following layers.
+</p>
 
 <p>
   In addition to Complex Gabors, we see a variety of other features, including
@@ -240,15 +252,21 @@ and we'll go through a couple selected ones to give a flavor of what happens at 
 
 <p>
 <b>Black & White Detectors:</b> One interesting property of <code>mixed3a</code> is the emergence of "black and  white" detectors, which detect the absence of color.
-Prior to this <code>mixed3a</code> color contrast detectors look for transitions of a color to near complementary colors (eg. blue vs yellow).
-From this layer on, we'll often see color detectors which compare a color to the absence of color.
-Additionally, black and white detectors can allow the detection of greyscale images, which may be correlated with ImageNet categories (see <a href="https://storage.googleapis.com/clarity-public/colah/experiments/aprox_weights_1/mixed4a_479.html">4a:479</a> which builds on these features to detect black and white portraits of people).
+Prior to <code>mixed3a</code>, color contrast detectors look for transitions of a color to near complementary colors (eg. blue vs yellow).
+From this layer on, however, we'll often see color detectors which compare a color to the absence of color.
+Additionally, black and white detectors can allow the detection of greyscale images, which may be correlated with ImageNet categories (see {neuron/4a/479} which detects black and white portraits).
+</p>
+<p>
 The circuit for our black and white detector is quite simple:
 almost all of its large weights are negative, detecting the absence of colors.
 </p>
 
 <figure style='image-rendering: pixelated;'>
   {images/BW}
+  <figcaption style="margin-top: 12px;">
+    The sixteen strongest magnitude weights to the previous layer are shown.
+    For simplicity, only one spatial weight for positive and negative have been shown, but they all have almost identical structure.
+    Click on a neuron to see its forwards and backwards weights.</figcaption>
 </figure>
 
 <p>
@@ -266,8 +284,10 @@ For instance, we see a variety of circle detectors and eye detectors form by pie
   (However, in practice, they seem to often just be used as multi-edge detectors downstream.)
 </p>
 
-<figure style='grid-column-start: page-start; image-rendering: pixelated;'>
+<figure>
   {images/Triangle}
+  <figcaption style="margin-top: 12px;">
+  Six highest magnitudes inputs to the triangle detector, plus one a couple further down the ranking. (Left leaning edges have slightly higher weights than right ones, but it seemed more illustrative to show two of both.) Click on neurons to see the full weights.</figcaption>
 </figure>
 
 <p>
@@ -288,7 +308,7 @@ For instance, we see a variety of circle detectors and eye detectors form by pie
 
 <p>
 <code>mixed3b</code> straddles two levels of abstraction.
-On the one hand, it has some quite sophisticated features that don't really seem like they should be characterized as "early" or "low-level": object boundary detectors, early head detectors, more sophisticated part of shape detectors.
+On the one hand, it has some quite sophisticated features that don't really seem like they should be characterized as "early" or "low-level": object boundary detectors, early head detectors, and more sophisticated part of shape detectors.
 On the other hand, it also has many units that still feel quite low-level, such as color center-surround units.
 </p>
 
@@ -299,7 +319,7 @@ On the other hand, it also has many units that still feel quite low-level, such 
   you might think these are just another iteration of edge or curve detectors.
   But they are in fact combining a variety of cues to detect boundaries and transitions between objects.
   Perhaps the most important one is the high-low frequency detectors we saw develop at the previous layer.
-  Notice that it largely doesn't care which direction in color or frequency is, just that there's a change.
+  Notice that it largely doesn't care which direction the change in color or frequency is, just that there's a change.
 </p>
 
 
@@ -316,13 +336,13 @@ On the other hand, it also has many units that still feel quite low-level, such 
 
 <p>
   <b>Curve-based Features:</b>
-  Another major theme in this layer is the emergence of more complex and specific shape detectors, base on curves.
-  These include more sophisticated curves, circles, loops, S-shapes, spirals, and "evolutes" (curves facing away from the middle).
+  Another major theme in this layer is the emergence of more complex and specific shape detectors based on curves.
+  These include more sophisticated curves, circles, loops, S-shapes, spirals, and "evolutes" (a term we've repurposed to describe units detecting curves facing away from the middle).
   We'll discuss these in detail in a forthcoming article on curve circuits, but they warrant mention here.
 </p>
 
 <p>
-  Conceptually, you can think of the weights as piecing the curve detectors as something like this:
+  Conceptually, you can think of the weights as piecing together curve detectors as something like this:
 </p>
 
 <figure style='image-rendering: pixelated;'>
@@ -340,23 +360,18 @@ On the other hand, it also has many units that still feel quite low-level, such 
 </figure>
 
 <p>
-Perhaps most frustratingly, it has many shape detectors that don't have a simple low-level articulation, but also are not yet very specific to a high-level feature.
+  Again, these circuits only scratch the surface of <code>mixed3b</code>.
+  Since it's a larger layer with lots of families, we'll go through a couple particularly interesting and well understood families first:
 </p>
-
-<p>
-With that said, there are many interesting features in <code>mixed3b</code> that we do understand quite well.
-We'll start by examining those.
-The "boundary detectors" are particularly worth paying attention to: these units use multiple cues (edge/curves, high-low frequency detectors, and color contrast) to detect the boundary of objects. Developing them seems to be an important goal of many early vision features.
-</p>
-
-
 
 {mixed3b_hipri}
 
 <p>
-  There are also a lot of other features, which don't fall into such a neat categorization.
-
+  In addition to the above features, are also a lot of other features which don't fall into such a neat categorization.
+  One frustrating issue is that <code>mixed3b</code> has many units that don't have a simple low-level articulation, but also are not yet very specific to a high-level feature.
+  For example, there are units which seem to be developing towards detecting certain animal body parts, but still respond to many other stimuli as well and so hare difficult to describe.
 </p>
+
 
 {mixed3b_lowpri}
 
@@ -381,4 +396,5 @@ The "boundary detectors" are particularly worth paying attention to: these units
   <d-footnote-list></d-footnote-list>
   <d-citation-list></d-citation-list>
 </d-appendix>
+<d-bibliography src="bibliography.bib"></d-bibliography>
 </html>
