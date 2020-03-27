@@ -7,7 +7,7 @@
   {
     "name": "Multicolor",
     "units": [48, 3, 33, 35, 40, 17, 16, 57, 8, 26, 19, 31, 37],
-    "comment": "These units respond to mixtures of colors without an obvious strong spacial structure preference."
+    "comment": "These units respond to mixtures of colors without an obvious strong spatial structure preference."
   },
   {
     "name": "Color Contrast",

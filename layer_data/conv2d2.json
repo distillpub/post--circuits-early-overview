@@ -52,7 +52,7 @@
   {
     "name": "Shifted Line",
     "units": [116, 61, 8, 22, 69, 96, 78, 18, 17, 132, 190, 64, 81, 154, 179, 136],
-    "comment": "These units look for edges \"shifted\" the side of the receptive field instead of the middle. This may be linked to the many 1x1 convs in the next layer."
+    "comment": "These units look for edges \"shifted\" to the side of the receptive field instead of the middle. This may be linked to the many 1x1 convs in the next layer."
   },
   {
     "name": "Color/Multicolor",

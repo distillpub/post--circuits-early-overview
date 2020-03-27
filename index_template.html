@@ -101,7 +101,7 @@
 </p>
 
 <p>
-  This article shares our working categorization of units in the first four layers of InceptionV1 into neuron families.
+  This article shares our working categorization of units in the first five layers of InceptionV1 into neuron families.
   Our categorization is based on looking at feature visualizations, dataset examples, how a feature is built from the previous layer, how it is used, and other analysis, although it varies in how much attention we've given to an individual neuron.
   We've found these helpful for communicating among ourselves and breaking the problem of understanding InceptionV1 into smaller chunks.
   While there are some families we suspect are "real", many others are categories of convenience, or categories we have low-confidence about.
@@ -150,7 +150,7 @@
 <p>
   In contrast to other models, however, the features aren't perfect color contrast detectors and Gabor filters.
   For lack of a better word, they're messy.
-  We have no way of knowing, but it seems likely this is a result of the gradient mot reaching the early layers very well during training.
+  We have no way of knowing, but it seems likely this is a result of the gradient not reaching the early layers very well during training.
   Note that InceptionV1 predated the adoption of modern techniques like batch norm and Adam, which make it much easier to train deep models well.
 </p>
 
@@ -392,7 +392,10 @@ On the other hand, it also has many units that still feel quite low-level, such 
 
 </d-article>
 <d-appendix>
-
+  <h3>Acknowledgments</h3>
+  <p>
+    Daniel Filan, Nick Moran 
+  </p>
   <d-footnote-list></d-footnote-list>
   <d-citation-list></d-citation-list>
 </d-appendix>
