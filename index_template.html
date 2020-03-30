@@ -57,10 +57,12 @@
 
 <p>
   Over the course of these layers, we see the network go from raw pixels
-  up to sophisticated boundary detection, basic shape detection (eg. curves, circles, spirals, triangles),
-  and even crude detectors for very small heads.
+  up to sophisticated <a href="#group_mixed3b_boundary">boundary detection</a>, basic shape detection
+  (eg. <a href="#group_mixed3b_curves">curves</a>, <a href="#group_mixed3b_circles_loops">circles</a>, <a href="#group_mixed3b_curve_shapes">spirals</a>, <a href="#group_mixed3a_angles">triangles</a>),
+  <a href="#group_mixed3b_eyes">eye detectors</a>, and even crude detectors for <a href="#group_mixed3b_proto_head">very small heads</a>.
   Along the way, we see a variety of interesting intermediate features,
-  including some of the classic "complex cell" features of neuroscience.
+  including <a href="#conv2d1_discussion_complex_gabor">Complex Gabor detectors</a> (similar to some classic "complex cells" of neuroscience),
+  <a href="#mixed3a_discussion_BW">black and white vs color detectors</a>, and <a href="#mixed3a_discussion_small_circle">small circle formation from curves</a>.
 </p>
 
 <p>
@@ -162,6 +164,8 @@
 {conv2d0}
 
 
+
+
 <hr style="margin-top: 80px; margin-bottom: 100px;">
 <br><br>
 
@@ -172,7 +176,8 @@
   These neurons respond to similar patterns to units in <code>conv2d0</code>, but are invariant to some changes in position and orientation.
 </p>
 
-<p>
+<p style="margin-top: 20px;">
+  <b id="conv2d1_discussion_complex_gabor">Complex Gabors:</b>
   A nice example of this is the "Complex Gabor" feature family.
   Like simple Gabor filters, complex Gabors detect edges.
   But unlike simple Gabors, they are relatively invariant to the exact position of the edge or which side is dark or light.
@@ -250,8 +255,8 @@ and we'll go through a couple selected ones to give a flavor of what happens at 
 </p>
 
 
-<p>
-<b>Black & White Detectors:</b> One interesting property of <code>mixed3a</code> is the emergence of "black and  white" detectors, which detect the absence of color.
+<p style="margin-top:20px;">
+<b id="mixed3a_discussion_BW">Black & White Detectors:</b> One interesting property of <code>mixed3a</code> is the emergence of <a href="#group_mixed3a_bw_vs_color">"black and  white" detectors</a>, which detect the absence of color.
 Prior to <code>mixed3a</code>, color contrast detectors look for transitions of a color to near complementary colors (eg. blue vs yellow).
 From this layer on, however, we'll often see color detectors which compare a color to the absence of color.
 Additionally, black and white detectors can allow the detection of greyscale images, which may be correlated with ImageNet categories (see {neuron/4a/479} which detects black and white portraits).
@@ -259,6 +264,7 @@ Additionally, black and white detectors can allow the detection of greyscale ima
 <p>
 The circuit for our black and white detector is quite simple:
 almost all of its large weights are negative, detecting the absence of colors.
+  Roughly, it computes <code style="margin-left: 4px;"><b>NOT(</b>color_feature_1 <b>OR</b> color_feature_2 <b>OR</b> ...<b>)</b></code>.
 </p>
 
 <figure style='image-rendering: pixelated;'>
@@ -269,18 +275,20 @@ almost all of its large weights are negative, detecting the absence of colors.
     Click on a neuron to see its forwards and backwards weights.</figcaption>
 </figure>
 
-<p>
-<b>Small Circle Detector:</b> We also see somewhat more complex shapes in <code>mixed3a</code>. Of course, curves (which we discussed in <a href="https://distill.pub/2020/circuits/zoom-in/">Zoom In</a>) are a prominent example of this.
+<p style="margin-top:20px;">
+<b id="mixed3a_discussion_small_circle">Small Circle Detector:</b> We also see somewhat more complex shapes in <code>mixed3a</code>. Of course, curves (which we discussed in <a href="https://distill.pub/2020/circuits/zoom-in/">Zoom In</a>) are a prominent example of this.
 But there's lots of other interesting examples.
-For instance, we see a variety of circle detectors and eye detectors form by piecing together early curves and and an early circle detector:
+For instance, we see a variety of <a href="#group_mixed3a_eyes_small_circles">small circle and eye detectors</a> form
+by piecing together <a href="#group_conv2d2_tiny_curves">early curves and circle detectors (<code>conv2d2</code>)</a>:
 </p>
 
 <figure style='grid-column-start: text-start; image-rendering: pixelated;'>
   {images/SmallCircle}
 </figure>
 
-<p>
-  <b>Triangle Detectors:</b> While on the matter of basic shapes, we also see triangle detectors form from edges.
+<p style="margin-top:20px;">
+  <b id="mixed3a_discussion_triangle">Triangle Detectors:</b> While on the matter of basic shapes, we also see <a href="#group_mixed3a_angles">triangle detectors</a>
+  form from earlier <a href="#group_conv2d2_line">line (<code>conv2d2</code>)</a> and <a href="#group_conv2d2_shifted_line">shifted line (<code>conv2d2</code>)</a> detectors.
   (However, in practice, they seem to often just be used as multi-edge detectors downstream.)
 </p>
 
@@ -291,7 +299,12 @@ For instance, we see a variety of circle detectors and eye detectors form by pie
 </figure>
 
 <p>
-  These selected circuits only scratch the surface of the intricate structure in <code>mixed3a</code>.
+  However, in practice, these triangle detectors (and other angle units)  seem to often just be used as multi-edge detectors downstream,
+  or in conjunction with many other units to detect convex boundaries.
+</p>
+
+<p style="margin-top:20px;">
+  The selected circuits discussed above only scratch the surface of the intricate structure in <code>mixed3a</code>.
   Below, we provide a taxonomized overview of all of them:
 </p>
 
@@ -313,8 +326,8 @@ On the other hand, it also has many units that still feel quite low-level, such 
 </p>
 
 
-<p>
-  <b>Boundary detectors:</b> One of the most striking transitions in <code>mixed3b</code> is the formation of boundary detectors.
+<p style="margin-top:20px;">
+  <b id="mixed3b_discussion_boundary">Boundary detectors:</b> One of the most striking transitions in <code>mixed3b</code> is the formation of boundary detectors.
   When you first look at the feature visualizations and dataset examples,
   you might think these are just another iteration of edge or curve detectors.
   But they are in fact combining a variety of cues to detect boundaries and transitions between objects.
@@ -331,13 +344,16 @@ On the other hand, it also has many units that still feel quite low-level, such 
   We sometimes find it useful to think about the "goal" of early vision.
   Gradient descent will only create features if they are useful for features in later layers.
   Which later features incentivized the creation of the features we see in early vision?
-  The primary function of high-low frequency detectors seems to be supporting the creation of these boundary detectors.
+  These boundary detectors seem to be the "goal" of the <a href="#group_mixed3a_high_low_frequency">high-low frequency detectors (<code>mixed3a</code>)</a> we saw in the previous layer.
 </p>
 
-<p>
-  <b>Curve-based Features:</b>
+<p style="margin-top:20px;">
+  <b id="mixed3b_discussion_curve_based">Curve-based Features:</b>
   Another major theme in this layer is the emergence of more complex and specific shape detectors based on curves.
-  These include more sophisticated curves, circles, loops, S-shapes, spirals, and "evolutes" (a term we've repurposed to describe units detecting curves facing away from the middle).
+  These include more <a href="">sophisticated curves</a>,
+  <a href="#group_mixed3b_circles_loops">circles</a>, <a href="#group_mixed3b_curve_shapes">S-shapes</a>, <a href="#group_mixed3b_curve_shapes">spirals</a>,
+  <a href="#group_mixed3b_divots">divots</a>, and <a href="#group_mixed3b_evolute">"evolutes"</a>
+  (a term we've repurposed to describe units detecting curves facing away from the middle).
   We'll discuss these in detail in a forthcoming article on curve circuits, but they warrant mention here.
 </p>
 
@@ -349,10 +365,10 @@ On the other hand, it also has many units that still feel quite low-level, such 
   {images/CurveBased}
 </figure>
 
-<p>
-  <b>Fur detectors:</b> Another interesting (albeit, probably quite specific to the dog focus of ImageNet)
-  circuit is the implementation of "oriented fur detectors" which detect fur parting, like hair on one's head.
-  They're implemented by piecing together early fur detectors so that they converge in a particular way.
+<p style="margin-top:20px;">
+  <b id="mixed3b_discussion_fur">Fur detectors:</b> Another interesting (albeit, probably quite specific to the dog focus of ImageNet)
+  circuit is the implementation of <a href="#group_mixed3b_generic_oriented_fur">"oriented fur detectors"</a> which detect fur parting, like hair on one's head.
+  They're implemented by piecing together <a href="#group_mixed3a_fur_precursors">fur precursors (<code>mixed3a</code>)</a> so that they converge in a particular way.
 </p>
 
 <figure style='image-rendering: pixelated;'>
@@ -376,6 +392,32 @@ On the other hand, it also has many units that still feel quite low-level, such 
 {mixed3b_lowpri}
 
 
+
+<hr style="margin-top: 20px; margin-bottom: 100px;">
+<br><br>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>
+  The goal of this essay was to give a high-level overview of our present understanding of early vision in InceptionV1.
+  Every single feature discussed in this article is a potential topic of deep investigation.
+  For example, are curve detectors really curve detectors? What types of curves to they fire for? How do they behave on various edge cases? How are they built?
+  Over the coming articles, we'll do deep dives rigorously investigating these questions for a few features, starting with curves.
+</p>
+
+<p>
+  Our investigation into early vision has also left us with many broader open questions.
+  To what extent do these feature families reflect fundamental clusters in features,
+  versus a taxonomy that might be helpful to humans but is ultimately somewhat arbitrary?
+  Is there a better taxonomy, or another way to understand the space of features?
+  Why do features often seem to form in families?
+  To what extent do the same features families form across models?
+  Is there a "periodic table of low-level visual features", in some sense?
+  To what extent do later features admit a similar taxonomy?
+  We think these could be interesting questions for future work.
+</p>
+
+
 <!--
 <h2 id="open">Open Questions about Early Vision Neuron Groups</h2>
 
@@ -390,11 +432,26 @@ On the other hand, it also has many units that still feel quite low-level, such 
 
 -->
 
+<br>
+<div id="thread-nav" class="thread-info" style="margin-top: 40px;">
+    <div class="icon-multiple-pages"></div>
+    <p class="explanation">
+        This article is part of the Circuits thread, a collection of short articles and commentary by an open scientific collaboration delving into the inner workings of neural networks.<br>
+        <!--<a style="border-bottom: none; color: #2e6db7; margin-left: 0px;">🔬Learn how to get involved.</a>-->
+        <!--<a class="overview" href="#">Thread Overview</a>-->
+    </p>
+
+    <a class="prev" href="https://distill.pub/2020/circuits/zoom-in/">Zoom In: An Introduction to Circuits</a>
+    <div class="next" href="#" style="color:#999;">Curve Detectors
+      <div style="color:#BBB; font-size: 90%; line-height: 140%; margin-top: 4px;">Under discussion in <a href="http://slack.distill.pub/">Distill slack</a> <code>#circuits</code></div>
+    </div>
+</div>
+
 </d-article>
 <d-appendix>
   <h3>Acknowledgments</h3>
   <p>
-    Daniel Filan, Nick Moran 
+    Brice Menard, Sophia Sanborn, Nick Barry, Daniel Filan, Nick Moran, Joseph Abrahamson, Richard Meyes, David Valdman
   </p>
   <d-footnote-list></d-footnote-list>
   <d-citation-list></d-citation-list>

@@ -12,7 +12,7 @@
  {
    "name": "Color Center-Surround",
    "units": [285, 451, 208, 122, 93, 75, 46, 294, 44, 247, 91, 14, 10, 271, 60, 80, 84, 70, 202, 422, 48, 436, 65, 300, 105, 34, 121, 424, 457, 186, 23, 479, 89, 283, 22, 124, 6, 9, 50, 5, 71, 59, 182, 87, 308, 428, 109, 141, 12, 474, 112, 192, 2, 177, 249, 281, 284, 30, 27, 255, 53, 432, 475, 79, 67, 25, 351, 420, 152, 26, 193, 448, 153, 164, 113, 216, 259, ],
-   "comment": "These units look for one color in the center, and another color surrounding it. These units likely have many subtleties about the range of hues, texture preferences, and interactions that similar neurons in earlier layers may not have. Note how many units detect the absence (or generic presence) of color, building off of the black and white detectors in <code>mixed3a</code>."
+   "comment": "These units look for one color in the center, and another color surrounding it. These units likely have many subtleties about the range of hues, texture preferences, and interactions that similar neurons in earlier layers may not have. Note how many units detect the absence (or generic presence) of color, building off of the <a href='#group_mixed3a_bw_vs_color'>black and white detectors</a> in <code>mixed3a</code>. Compare to earlier <a href='#group_conv2d2_color_center_surround'> Color Center-Surround (<code>conv2d2</code>)</a> and <a href='#group_mixed3a_color_center_surround'> (Color Center-Surround <code>mixed3a</code>)</a>."
  },
  {
    "name": "Complex Center-Surround",
@@ -27,7 +27,7 @@
  {
    "name": "Brightness Gradients",
    "units": [0, 317, 136, 455, 417, 469, ],
-   "comment": "These units detect brightness gradients. This is their third iteration.",
+   "comment": "These units detect brightness gradients. This is their third iteration; compare to earlier <a href='#group_conv2d2_early_brightness_gradient'>brightness gradients (<code>conv2d2</code>)</a> and <a href='#group_mixed3a_brightness_gradient'>brightness gradients (<code>mixed3a</code>)</a>.",
    "priority": 1
  },
  {
@@ -39,7 +39,7 @@
  {
    "name": "Eyes",
    "units": [370, 352, 363, 322, 83, 199],
-   "comment": "Again, we continue to see eye detectors quite early in vision. Note that these detect eyes that are slightly larger in scale than the ones in the previous layer. In the next layer, we see much larger scale eye detectors again.",
+   "comment": "Again, we continue to see eye detectors quite early in vision. Note that several of these detect larger eyes than the earlier <a href='#group_mixed3a_eyes_small_circles'>eye detectors (mixed3a)</a>. In the next layer, we see much larger scale eye detectors again.",
    "priority": 1
  },
  {
@@ -57,7 +57,7 @@
  {
    "name": "Curves",
    "units": [379, 406, 385, 343, 342, 388, 340, 330, 349, 324],
-   "comment": "The third iteration of curve detectors. They detect larger radii curves than their predecessors, and are the first to not slightly fire for curves rotated 180 degrees. A detailed article on these is forthcoming.",
+   "comment": "The third iteration of curve detectors. They detect larger radii curves than their predecessors, and are the first to not slightly fire for curves rotated 180 degrees. Compare to the earlier <a href='#group_conv2d2_tiny_curves'>curves (conv2d2)</a> and <a href='#group_mixed3a_curves'>curves (mixed3a)</a>. <br><br>A detailed article on these is forthcoming.",
    "priority": 1
  },
  {
@@ -74,7 +74,7 @@
  {
    "name": "Shallow Curves",
    "units": [403, 353, 355, 336],
-   "comment": "Detectors for curves with wider radii than regular curve detectors.",
+   "comment": "Detectors for curves with wider radii than <a href='#group_mixed3b_curves'>regular curve detectors</a>.",
    "priority": 1
  },
  {
@@ -103,13 +103,13 @@
  {
    "name": "Evolute",
    "units": [373],
-   "comment": "Detects curves facing away from the middle. Weights are the opposite of a circle detector.",
+   "comment": "Detects curves facing away from the middle. Opposite of <a href='#group_mixed3b_circles_loops'>circles</a>. Term repurposed from <a href='https://en.wikipedia.org/wiki/Evolute'>mathematical evolutes</a> which can sometimes be visually similar.",
    "priority": 1
  },
  {
    "name": "Circles / Loops",
    "units": [389, 384, 346, 323],
-   "comment": "Piece together curves in a circle or partial circle. Opposite of evolute.",
+   "comment": "Piece together curves in a circle or partial circle. Opposite of <a href='#group_mixed3b_evolute'>evolute</a>.",
    "priority": 1
  },
  {
@@ -156,7 +156,7 @@
   {
     "name": "Color Contrast/Gradient",
     "units": [4, 217, 450, 191, 287, 49, 196, 473, 430, 305, 447, 277, 165, 279, 226, 303, 224, 269, 264, 189, 156, 463, 270, 272, ],
-    "comment": "Units which respond to different colors on each side. These units look for one color in the center, and another color surrounding it. These units likely have many subtleties about the range of hues, texture preferences, and interactions that similar neurons in earlier layers may not have.",
+    "comment": "Units which respond to different colors on each side. These units look for one color in the center, and another color surrounding it. These units likely have many subtleties about the range of hues, texture preferences, and interactions that similar neurons in earlier layers may not have. Compare to earlier color contrast (<a href='#group_conv2d0_color_contrast'><code>conv2d0</code></a>, <a href='#group_conv2d1_color_contrast'><code>conv2d1</code></a>, <a href='#group_conv2d2_color_contrast'><code>conv2d2</code></a>, <a href='group_mixed3a_color_contrast'><code>mixed3a</code></a>).",
     "priority": -1
   },
 

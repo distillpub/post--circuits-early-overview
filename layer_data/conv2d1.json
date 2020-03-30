@@ -12,7 +12,7 @@
   {
     "name": "Color Contrast",
     "units": [2, 5, 9, 10, 12, 20, 21, 42, 45, 50, 53, 59],
-    "comment": "These units detect a color on side of the receptive field, and a different color on the oppositie side. Composed of lower-level color contrast detectors, they often respond to color transitions in a range of translation and orientation variations."
+    "comment": "These units detect a color on side of the receptive field, and a different color on the oppositie side. Composed of lower-level color contrast detectors, they often respond to color transitions in a range of translation and orientation variations. Compare to earlier <a href='#group_conv2d0_color_contrast'>color contrast (<code>conv2d0</code>)</a> and later color contrast (<a href='#group_conv2d2_color_contrast'><code>conv2d2</code></a>, <a href='#group_mixed3a_color_contrast'><code>mixed3a</code></a>, <a href='#group_mixed3b_color_contrast_gradient'><code>mixed3b</code></a>)."
   },
   {
     "name": "Low Frequency",
@@ -22,7 +22,7 @@
   {
     "name": "Complex Gabor",
     "units": [51, 58, 30, 25, 52, 54, 22, 61, 55],
-    "comment": "Like Gabor Filters, but fairly invariant to the exact position. These units have very clean weights and are formed by adding together multiple Gabor detectors in the same orientation but different phases."
+    "comment": "Like Gabor Filters, but fairly invariant to the exact position, formed by adding together multiple Gabor detectors in the same orientation but different phases. We call these 'Complex' after <a href='https://en.wikipedia.org/wiki/Complex_cell'>complex cells</a> in neuroscience."
   },
   {
     "name": "hatch",

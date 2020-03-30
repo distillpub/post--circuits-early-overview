@@ -130,14 +130,19 @@ def render(groups, max_rec_height=None, show_html=False, priority_filter=lambda 
     else:
       size_str = str((1000*len(group_units)//layer_sizes[group_layer])*0.1)[:3]
 
-    flex_content += "<div style='flex-basis: %spx; flex-grow: %s; max-width: %spx;' class='group'> <div><h3>%s</h3> <div>%s</div></div><div class='figcaption'>%s</div></div>" % (
+    div_id = "group_"+group_layer+"_"+group_name.lower()
+    div_id = div_id.replace(" ","_").replace("-", "_")
+    div_id = div_id.replace("_/_","_").replace("/","_").replace(",","")
+
+    flex_content += "<div style='flex-basis: %spx; flex-grow: %s; max-width: %spx;' class='group' id='%s'> <div><h3>%s</h3> <div>%s</div></div><div class='figcaption'>%s</div></div>" % (
         2+max(100, (W+3)*n_width+1),
         len(group_units) + (100 if np.ceil(len(group_units)/n_width) >=5 else 30 if np.ceil(len(group_units)/n_width) >=3 else 0),
         2+max(100, (W+3)*max(n_width, len(group_units))+1),
-        "<b>" + group_name.replace(group_layer+"_", "") + "</b> %s%%" % size_str,
+        div_id,
+        "<a href='#"+div_id+"'><b>" + group_name.replace(group_layer+"_", "") + "</b> %s%%</a>" % size_str,
         "".join(["<div class='neuron'>%s<div class='label'>%s</div></div>" % (vis_html(group_layer, unit, W=W), unit)
-          for unit in group_units
-      ]),
+          for unit in group_units]
+          ),
       group["comment"]
     )
 
@@ -181,9 +186,11 @@ for layer in layer_sizes.keys():
 for f in os.listdir("public/images/"):
   if ".svg" not in f: continue
   name = f.split(".")[0]
-  key = "images/" + f.split(".")[0]
+  key = "images/" + name
   print(key)
   lines = open("public/images/" + f).read().split("\n")
+  if "<svg" in lines[0]:
+    lines[0] = lines[0].replace(">", "id=\"diagram-%s\">"%name)
   lines[2] = lines[2].replace("clip-path", "--disabled-clip-path")
   text = []
   for line in lines:

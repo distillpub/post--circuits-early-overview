@@ -7,7 +7,7 @@
    {
      "name": "Color Contrast",
      "units": [59, 23, 5, 7, 48, 29, 12, 24, 55, 13, 32, 50, 36, 37, 16, 11, 33, 34, 47, 38, 58, 2, 60, 61, 4, 51, 25],
-     "comment": "These units detect a color one side of their receptive field, and the opposite color on the other side."
+     "comment": "These units detect a color one side of their receptive field, and the opposite color on the other side. Compare to later color contrast (<a href='#group_conv2d1_color_contrast'><code>conv2d1</code></a>, <a href='#group_conv2d2_color_contrast'><code>conv2d2</code></a>, <a href='#group_mixed3a_color_contrast'><code>mixed3a</code></a>, <a href='#group_mixed3b_color_contrast_gradient'><code>mixed3b</code></a>)."
    },
    {
      "name": "Other Units",

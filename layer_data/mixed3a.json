@@ -2,37 +2,37 @@
   {
     "name": "Fur Precursors",
     "units": [46, 47, 26, 63, 80, 23, 16],
-    "comment": "These units are not yet highly selective for fur (they also fire for other high-frequency patterns), but their primary use in the next layer is supporting fur detection. At the 224x224 image resolution, individual fur hairs are generally not detectable, but tufts of fur are. These units use Gabor textures to detect those tufts in different orientations. The also detect lower frequency edges or changes in lighting perpendicular to the tufts."
+    "comment": "These units are not yet highly selective for fur (they also fire for other high-frequency patterns), but their primary use in the next layer is supporting <a href='#group_mixed3b_generic_oriented_fur'>fur detection</a>. At the 224x224 image resolution, individual fur hairs are generally not detectable, but tufts of fur are. These units use Gabor textures to detect those tufts in different orientations. The also detect lower frequency edges or changes in lighting perpendicular to the tufts."
   },
   {
-    "name": "Eyes",
+    "name": "Eyes / Small Circles",
     "units": [174, 168, 79, 125, 175],
-    "comment": "We think of eyes as high-level features, but small eye detectors actually form very early."
+    "comment": "We think of eyes as high-level features, but small eye detectors actually form very early. Compare to later <a href='#group_mixed3b_eyes'>eye detectors (<code>mixed3b</code>)</a>. See also <a href='#mixed3a_discussion_small_circle'>circuit example and discussion</a>."
   },
   {
     "name": "High-Low Frequency",
     "units": [110, 180, 153, 106, 112, 186, 132, 136, 117, 113, 108, 70, 86, 88, 160],
-    "comment": "These units look for transitions from high-frequency texture to low-frequency. They are primarily used by boundary detectors as an additional cue for a boundary between objects. <br><br> A detailed article on these is forthcoming."
+    "comment": "These units look for transitions from high-frequency texture to low-frequency. They are primarily used by <a href='#group_mixed3b_boundary'>boundary detectors (<code>mixed3b</code>)</a> as an additional cue for a boundary between objects. (Larger scale high-low frequency detectors can be found again in <code>mixed4a</code>, but are not discussed in this article.) <br><br> A detailed article on these is forthcoming."
   },
   {
     "name": "Brightness Gradient",
     "units": [216, 127, 22, 182, 162, 25, 249, 15, 28, 59, 29, 196, 206, 18, 247],
-    "comment": "These units detect brightness gradients. Among other things they will help detect specularity (shininess), curved surfaces, and the boundary of objects."
+    "comment": "These units detect brightness gradients. Among other things they will help detect specularity (shininess), curved surfaces, and the boundary of objects. Compare to earlier <a href='#group_conv2d2_early_brightness_gradient'>brightness gradients (<code>conv2d2</code>)</a> and later <a href='#group_mixed3b_brightness_gradients'>brightness gradients (<code>mixed3b</code>)</a>."
   },
   {
     "name": "BW vs Color",
     "units": [214, 208, 201, 223, 210, 197, 222, 204, 220, ],
-    "comment": "These \"black and white\" detectors respond to absences of color. Prior to this, color detectors contrast to the opposite hue, but from this point on we'll see many compare to the absence of color. "
+    "comment": "These \"black and white\" detectors respond to absences of color. Prior to this, color detectors contrast to the opposite hue, but from this point on we'll see many compare to the absence of color. See also <a href='#mixed3a_discussion_BW'>BW circuit example and discussion</a>."
   },
   {
     "name": "Color Contrast",
     "units": [195, 84, 85, 123, 203, 217, 199, 211, 205, 212, 202, 200, 138, 32],
-    "comment": "These units look for one color on one side of their receptive field, and another (usually opposite) color on the opposing side. They typically don't care about the exact position or orientation of the transition."
+    "comment": "These units look for one color on one side of their receptive field, and another (usually opposite) color on the opposing side. They typically don't care about the exact position or orientation of the transition. Compare to earlier color contrast (<a href='#group_conv2d0_color_contrast'><code>conv2d0</code></a>, <a href='#group_conv2d1_color_contrast'><code>conv2d1</code></a>, <a href='#group_conv2d2_color_contrast'><code>conv2d2</code></a>) and later color contrast (<a href='#group_mixed3b_color_contrast_gradient'><code>mixed3b</code></a>)."
   },
   {
     "name": "Color Center-Surround",
     "units": [119, 34, 167, 76, 19, 30, 131, 251, 226, 13, 7, 50, 1, 4, 41, 192, 36, 40, 103, 213, 10, 35, 221, 193, 158, 73, 74, 177, 97, 141],
-    "comment": "These units look for one color in the center, and another (usually opposite) color surrounding it. They are typically much more sensitive to the center color than the surrounding one. In visual neuroscience, center-surround units are classically an extremely low-level feature, but we see them in the later parts of early vision."
+    "comment": "These units look for one color in the center, and another (usually opposite) color surrounding it. They are typically much more sensitive to the center color than the surrounding one. In visual neuroscience, center-surround units are classically an extremely low-level feature, but we see them in the later parts of early vision. Compare to earlier <a href='#group_conv2d2_color_center_surround'> Color Center-Surround (<code>conv2d2</code>)</a> and later <a href='#group_mixed3b_color_center_surround'>Color Center-Surround  (<code>mixed3b</code>)</a>."
   },
   {
     "name": "Texture",
@@ -57,7 +57,7 @@
   {
     "name": "Curves",
     "units": [81, 104, 92, 145, 95, 163, 171, 71, 147, 189, 137],
-    "comment": "These curve detectors detect significantly larger radii curves than their predecessors. They will be refined into more specific, larger curve detectors in the next layer. <br><br> A detailed article on these is forthcoming."
+    "comment": "These curve detectors detect significantly larger radii curves than their predecessors. They will be refined into more specific, larger curve detectors in the next layer. Compare to earlier <a href='#group_conv2d2_tiny_curves'>curves (<code>conv2d2</code>)</a> and later <a href='#group_mixed3b_curves'>curves (<code>mixed3b</code>)</a>. <br><br> A detailed article on these is forthcoming."
   },
   {
     "name": "Crosses / Diverging Lines",
