@@ -17,7 +17,7 @@
   {
     "name": "Color Contrast",
     "units": [10, 36, 172, 56, 131, 176, 35, 41, 45, 126, 77, 120, 101, 0, 43, 62, 106, 169, 127, 6, 68, 60, 134, 51, 74, 85, 115, 24, 14, 16, 151, 168, 19, 7, 88, 177, 183, 76, 70, 122],
-    "comment": "These units detect a color on side of the receptive field, and a different color on the oppositie side. Composed of lower-level color contrast detectors, they often respond to color transitions in a range of translation and orientation variations. Compare to earlier color contrast (<a href='#group_conv2d0_color_contrast'><code>conv2d0</code></a>, <a href='#group_conv2d1_color_contrast'><code>conv2d1</code></a>) and later color contrast (<a href='#group_mixed3a_color_contrast'><code>mixed3a</code></a>, <a href='#group_mixed3b_color_contrast_gradient'><code>mixed3b</code></a>)."
+    "comment": "These units detect a color on one side of the receptive field, and a different color on the opposite side. Composed of lower-level color contrast detectors, they often respond to color transitions in a range of translation and orientation variations. Compare to earlier color contrast (<a href='#group_conv2d0_color_contrast'><code>conv2d0</code></a>, <a href='#group_conv2d1_color_contrast'><code>conv2d1</code></a>) and later color contrast (<a href='#group_mixed3a_color_contrast'><code>mixed3a</code></a>, <a href='#group_mixed3b_color_contrast_gradient'><code>mixed3b</code></a>)."
   },
   {
     "name": "Gabor Textures",
@@ -47,7 +47,7 @@
   {
     "name": "Corners",
     "units": [47, 87, 95, 26],
-    "comment": "These units detect two Gabor patterens which meet at apprixmately 90 degrees, causing them to respond to corners."
+    "comment": "These units detect two Gabor patterns which meet at apprixmately 90 degrees, causing them to respond to corners."
   },
   {
     "name": "Shifted Line",

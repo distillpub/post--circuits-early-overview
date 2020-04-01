@@ -12,7 +12,7 @@
   {
     "name": "Color Contrast",
     "units": [2, 5, 9, 10, 12, 20, 21, 42, 45, 50, 53, 59],
-    "comment": "These units detect a color on side of the receptive field, and a different color on the oppositie side. Composed of lower-level color contrast detectors, they often respond to color transitions in a range of translation and orientation variations. Compare to earlier <a href='#group_conv2d0_color_contrast'>color contrast (<code>conv2d0</code>)</a> and later color contrast (<a href='#group_conv2d2_color_contrast'><code>conv2d2</code></a>, <a href='#group_mixed3a_color_contrast'><code>mixed3a</code></a>, <a href='#group_mixed3b_color_contrast_gradient'><code>mixed3b</code></a>)."
+    "comment": "These units detect a color on one side of the receptive field, and a different color on the opposite side. Composed of lower-level color contrast detectors, they often respond to color transitions in a range of translation and orientation variations. Compare to earlier <a href='#group_conv2d0_color_contrast'>color contrast (<code>conv2d0</code>)</a> and later color contrast (<a href='#group_conv2d2_color_contrast'><code>conv2d2</code></a>, <a href='#group_mixed3a_color_contrast'><code>mixed3a</code></a>, <a href='#group_mixed3b_color_contrast_gradient'><code>mixed3b</code></a>)."
   },
   {
     "name": "Low Frequency",

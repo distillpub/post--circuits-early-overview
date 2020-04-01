@@ -12,7 +12,7 @@
   {
     "name": "High-Low Frequency",
     "units": [110, 180, 153, 106, 112, 186, 132, 136, 117, 113, 108, 70, 86, 88, 160],
-    "comment": "These units look for transitions from high-frequency texture to low-frequency. They are primarily used by <a href='#group_mixed3b_boundary'>boundary detectors (<code>mixed3b</code>)</a> as an additional cue for a boundary between objects. (Larger scale high-low frequency detectors can be found again in <code>mixed4a</code>, but are not discussed in this article.) <br><br> A detailed article on these is forthcoming."
+    "comment": "These units look for transitions from high-frequency texture to low-frequency. They are primarily used by <a href='#group_mixed3b_boundary'>boundary detectors (<code>mixed3b</code>)</a> as an additional cue for a boundary between objects. (Larger scale high-low frequency detectors can be found in <code>mixed4a</code> (245, 93, 392, 301), but are not discussed in this article.) <br><br> A detailed article on these is forthcoming."
   },
   {
     "name": "Brightness Gradient",
