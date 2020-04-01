@@ -198,11 +198,18 @@ for f in os.listdir("public/images/"):
     line = line.replace("#pattern", "#pattern"+name)
     line = line.replace("\"image", "\"image"+name)
     line = line.replace("#image", "#image"+name)
-    if ("<rect" in line or "<path" in line) and "#pattern" in line:
-      pattern_n = line.split("#pattern")[1].split(")")[0]
-      text.append("<a href='#pattern%s'>" % pattern_n)
-      text.append(line)
-      text.append("</a>")
+    if ("<rect" in line or "<path" in line) and "id=" in line:
+      neuron_id = line.split("id=\"")[1].split("\"")[0]
+      if "_" in neuron_id and neuron_id.split("_")[0] in layer_sizes:
+        if neuron_id.count("_") > 1:
+          neuron_id = neuron_id[:-2]
+        url = "https://storage.googleapis.com/clarity-public/colah/experiments/aprox_weights_1/%s.html" % neuron_id
+        #pattern_n = line.split("#pattern")[1].split(")")[0]
+        text.append("<a href='%s'>" % url)
+        text.append(line)
+        text.append("</a>")
+      else:
+        text.append(line)
     else:
       text.append(line)
   figure_html[key] = "\n".join(text)

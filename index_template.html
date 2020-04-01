@@ -294,7 +294,10 @@ by piecing together <a href="#group_conv2d2_tiny_curves">early curves and circle
 <figure>
   {images/Triangle}
   <figcaption style="margin-top: 12px;">
-  Six highest magnitudes inputs to the triangle detector, plus one a couple further down the ranking. (Left leaning edges have slightly higher weights than right ones, but it seemed more illustrative to show two of both.) Click on neurons to see the full weights.</figcaption>
+  The circuit  constructing a triangle detector.
+  The choice of which neurons in the previous layer to shown is slightly cherrypicked for pedagogy.
+  The six neurons with the highest magnitude weights to the triangle are shown, plus one other neuron with slightly weaker weights.
+  (Left leaning edges have slightly higher weights than right ones, but it seemed more illustrative to show two of both.) Click on neurons to see the full weights.</figcaption>
 </figure>
 
 <p>
@@ -384,7 +387,7 @@ On the other hand, it also has many units that still feel quite low-level, such 
 <p>
   In addition to the above features, are also a lot of other features which don't fall into such a neat categorization.
   One frustrating issue is that <code>mixed3b</code> has many units that don't have a simple low-level articulation, but also are not yet very specific to a high-level feature.
-  For example, there are units which seem to be developing towards detecting certain animal body parts, but still respond to many other stimuli as well and so hare difficult to describe.
+  For example, there are units which seem to be developing towards detecting certain animal body parts, but still respond to many other stimuli as well and so are difficult to describe.
 </p>
 
 
@@ -400,7 +403,7 @@ On the other hand, it also has many units that still feel quite low-level, such 
 <p>
   The goal of this essay was to give a high-level overview of our present understanding of early vision in InceptionV1.
   Every single feature discussed in this article is a potential topic of deep investigation.
-  For example, are curve detectors really curve detectors? What types of curves to they fire for? How do they behave on various edge cases? How are they built?
+  For example, are curve detectors really curve detectors? What types of curves do they fire for? How do they behave on various edge cases? How are they built?
   Over the coming articles, we'll do deep dives rigorously investigating these questions for a few features, starting with curves.
 </p>
 
@@ -450,7 +453,7 @@ On the other hand, it also has many units that still feel quite low-level, such 
 <d-appendix>
   <h3>Acknowledgments</h3>
   <p>
-    Brice Menard, Sophia Sanborn, Nick Barry, Daniel Filan, Nick Moran, Joseph Abrahamson, Richard Meyes, David Valdman
+    Brice Menard, Sophia Sanborn, Nick Barry, Daniel Filan, Nick Moran, Joseph Abrahamson, Richard Meyes, David Valdman, Alex Bäuerle, Chris Hallacy.
   </p>
   <d-footnote-list></d-footnote-list>
   <d-citation-list></d-citation-list>
