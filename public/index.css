@@ -35,11 +35,56 @@ figure > svg > text[font-weight=bold] {
 p code {
   color:  #000;
 }
+
+
+.group-container {
+  display:grid;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  column-gap: 10px;
+  row-gap: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+@media (max-width: 800px) {
+  .group-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1200px) {
+  .group-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .group-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1600px){
+  .group-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1000px){
+  #conv2d0-group-container{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (min-width: 1000px){
+  #conv2d0-group-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .group {
-  margin-right: 20px;
-  margin-bottom: 20px;
-  background: #F8F8FB;
-  border: solid 1px #D5D5D5;
+  background: #FCFCFE;
+  border: solid 1px #C5C5C7;
   border-radius: 5px;
   padding: 10px;
   display: flex;
@@ -114,6 +159,36 @@ p code {
 }
 
 
+.group .neuron-container {
+  overflow: hidden;
+}
+
+.group.collapsed .neuron-container {
+  height: var(--collaposed-height);
+}
+
+.group:not(.collapsed) .collapse-reveal { display: none; }
+.group.collapsed       .collapse-reveal { display: block;  }
+.group:not(.collapsed) .collapse-hide   { display: block; }
+.group.collapsed       .collapse-hide   { display: none;  }
+
+.group .collapse-hide, .group .collapse-reveal {
+  opacity: 0.6;
+  margin-bottom: 4px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.group .collapse-hide:hover, .group .collapse-reveal:hover {
+  opacity: 1.0;
+}
+
+@media (max-width: 800px) {
+  .group.collapsed .neuron-container {
+      --height: default;
+      max-height:  var(--collaposed-height);
+  }
+}
 
 /* TOC */
     @media(max-width: 1000px){

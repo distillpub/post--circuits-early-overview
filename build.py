@@ -104,14 +104,22 @@ def render(groups, max_rec_height=None, show_html=False, priority_filter=lambda 
   html =""
 
 
+  # def unit_group_ord(group):
+  #   n_units = len(group["units"])
+  #   width = units_to_width(group, max_rec_height=max_rec_height)
+  #   comment = group["comment"]
+  #   return (-group["priority"], -np.ceil(n_units/width), -(n_units + len(comment.split(" "))/4.))
+
   def unit_group_ord(group):
     n_units = len(group["units"])
     width = units_to_width(group, max_rec_height=max_rec_height)
     comment = group["comment"]
-    return (-group["priority"], -np.ceil(n_units/width), -(n_units + len(comment.split(" "))/4.))
-
+    comment_text = " ".join([str.split(">")[1] if  ">" in str else str for str in comment.split("<")])
+    #return (-len(comment_text))
+    return (-n_units)
 
   flex_content  = ""
+
 
   for group in sorted(groups, key=unit_group_ord):
 
@@ -124,6 +132,7 @@ def render(groups, max_rec_height=None, show_html=False, priority_filter=lambda 
 
     n_width = units_to_width(group)
 
+    n_group_units = len(group_units)
     percent = 100*len(group_units)/layer_sizes[group_layer]
     if percent >= 0.6:
       size_str = str(int(percent + 0.5))
@@ -134,22 +143,45 @@ def render(groups, max_rec_height=None, show_html=False, priority_filter=lambda 
     div_id = div_id.replace(" ","_").replace("-", "_")
     div_id = div_id.replace("_/_","_").replace("/","_").replace(",","")
 
-    flex_content += "<div style='flex-basis: %spx; flex-grow: %s; max-width: %spx;' class='group' id='%s'> <div><h3>%s</h3> <div>%s</div></div><div class='figcaption'>%s</div></div>" % (
-        2+max(100, (W+3)*n_width+1),
-        len(group_units) + (100 if np.ceil(len(group_units)/n_width) >=5 else 30 if np.ceil(len(group_units)/n_width) >=3 else 0),
-        2+max(100, (W+3)*max(n_width, len(group_units))+1),
-        div_id,
-        "<a href='#"+div_id+"'><b>" + group_name.replace(group_layer+"_", "") + "</b> %s%%</a>" % size_str,
-        "".join(["<div class='neuron'>%s<div class='label'>%s</div></div>" % (vis_html(group_layer, unit, W=W), unit)
-          for unit in group_units]
-          ),
-      group["comment"]
-    )
+    group_header = "<a href='#"+div_id+"'><b>" + group_name.replace(group_layer+"_", "") + "</b> %s%%</a>" % size_str
+    comment = group["comment"]
+    neuron_html = "".join([
+      "<div class='neuron'>%s<div class='label'>%s</div></div>"
+        % (vis_html(group_layer, unit, W=W), unit)
+      for unit in group_units[:]]
+      )
+    max_height = 2*(W+2)
 
-  html += "<figure class='l-screen-inset'><div style='display:flex; flex-wrap: wrap; margin-top: 40px; margin-bottom: 40px;'>%s</div></figure>" % flex_content
+    if n_group_units > 10:
+      collapse_toggles = """
+      <div class='figcaption collapse-toggle collapse-reveal' onclick='toggle_collapse()'>Show all {n_group_units} neurons.</div>
+      <div class='figcaption collapse-toggle collapse-hide' onclick='toggle_collapse()'>Collapse neurons.</div>""".format(**locals())
+    else:
+      collapse_toggles = "<div class='figcaption collapse-reveal' style='wdith: 40px; height: 16px;'> </div>"
+
+
+    flex_content += """
+      <div class='group collapsed' id='{div_id}'>
+        <div>
+          <h3>{group_header}</h3>
+          <div class='neuron-container' style='--collaposed-height:{max_height}px'>
+            {neuron_html}
+          </div>
+        </div>
+        {collapse_toggles}
+        <div class='figcaption'>{comment}</div>
+      </div>""".format(**locals())
+
+
+  #html += "<figure class='l-screen-inset'><div style='display:flex; flex-wrap: wrap; margin-top: 40px; margin-bottom: 40px;'>%s</div></figure>" % flex_content
+  html += """
+  <figure class='l-screen-inset' style='padding-left: 0px;'>
+    <div class='group-container' id='{group_layer}-group-container' >{flex_content}</div>
+  </figure>""".format(**locals())
+
 
   if unused_units:
-    print("unused units:", unused_units)
+    print("unused units:", unused_units[:5], "...")
     html += "<figure class='l-screen-inset'><p>Other Units in " + layer + " (%s%%)</p><br>"  % str((1000*len(unused_units)//layer_sizes[group_layer])*0.1)[:4]
     html += "<div class='group'><div>%s</div></div>" % (
       "".join(["<div class='neuron'>%s<div class='label'>%s</div></div>" % (vis_html(group_layer, unit, W=W), unit)

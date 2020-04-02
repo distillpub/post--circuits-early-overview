@@ -4,6 +4,16 @@
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="index.css">
   <title>An Overview of Early Vision in InceptionV1</title>
+  <script  type="text/javascript">
+  function toggle_collapse() {{
+    var className = event.target.parentNode.className;
+    if (className.includes("collapsed")){{
+      event.target.parentNode.className = className.replace("collapsed", "")
+    }} else {{
+      event.target.parentNode.className = className + " collapsed";
+    }}
+  }}
+  </script>
 </head>
 
 <d-front-matter>
@@ -459,4 +469,5 @@ On the other hand, it also has many units that still feel quite low-level, such 
   <d-citation-list></d-citation-list>
 </d-appendix>
 <d-bibliography src="bibliography.bib"></d-bibliography>
+
 </html>
