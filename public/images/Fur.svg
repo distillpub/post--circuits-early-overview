@@ -24,16 +24,12 @@
 <rect id="Rectangle 94" x="342" y="425" width="31" height="31" rx="5" fill="#CA0020" fill-opacity="0.8"/>
 <rect id="Rectangle 95" x="342" y="470" width="31" height="31" rx="5" fill="#0571B0" fill-opacity="0.8"/>
 <text id="Oriented fur detectors detect fur parting like hair by assembling early fur detectors which detect fur at different angles to coverge at one point. These two are primairly used to create head detectors in the next layer." fill="#666666" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="27.5" letter-spacing="0em"><tspan x="342" y="280.399">Oriented fur detectors detect fur parting like hair by </tspan><tspan x="342" y="312.399">assembling early fur detectors which detect fur at </tspan><tspan x="342" y="344.399">different angles to coverge at one point. These two are </tspan><tspan x="342" y="376.399">primairly used to create head detectors in the next layer.</tspan></text>
-<path id="Vector 111" d="M272 502L272 34" stroke="#949494" stroke-width="6" stroke-linecap="round"/>
-<path id="Vector 112" d="M1138.5 502L1138.5 34" stroke="#949494" stroke-width="6" stroke-linecap="round"/>
-<g id="Group 16">
-<path id="Vector 32" d="M459.5 73.5L419.5 96.594L419.5 50.406L459.5 73.5Z" fill="#949494"/>
-<path id="Vector 111_2" d="M272 73C272 73 325.5 73 429.5 73" stroke="#949494" stroke-width="6"/>
-</g>
-<g id="Group 17">
-<path id="Vector 32_2" d="M951 73.5L991 96.594L991 50.406L951 73.5Z" fill="#949494"/>
-<path id="Vector 111_3" d="M1138.5 73C1138.5 73 1085 73 981 73" stroke="#949494" stroke-width="6"/>
-</g>
+<path id="Vector 111" d="M272 525L272 24" stroke="#949494" stroke-width="3" stroke-linecap="round"/>
+<path id="Vector 112" d="M1139 525L1139 24" stroke="#949494" stroke-width="3" stroke-linecap="round"/>
+<path id="Polygon 12" d="M951 73L973.5 60.0096L973.5 85.9904L951 73Z" fill="#949494"/>
+<path id="Polygon 13" d="M459 73L436.5 85.9904L436.5 60.0096L459 73Z" fill="#949494"/>
+<path id="Vector 243" d="M968 73H1137" stroke="#949494" stroke-width="6" stroke-linecap="round"/>
+<path id="Vector 244" d="M442 73L274 73" stroke="#949494" stroke-width="6" stroke-linecap="round"/>
 </g>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">

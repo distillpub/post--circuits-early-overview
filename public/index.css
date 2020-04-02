@@ -23,9 +23,10 @@ figure > svg {
   width: 100%;
   height: auto;
 }
-figure > svg > text {
-  font: normal 29px sans-serif;
-  opacity: 0.8;
+figure > svg text, figure > svg tspan {
+  font-family: sans-serif;
+  ---font: normal 29px sans-serif;
+  color: rgba(0, 0, 0, 0.6);
 }
 figure > svg > text[font-weight=bold] {
   font: bold 28px sans-serif;
