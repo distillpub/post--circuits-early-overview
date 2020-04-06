@@ -41,8 +41,8 @@ def vis_html(layer_name, n, W=120):
     img = "<img style='margin-left: -%spx; margin-top: -%spx;' src='%s'>" % ((224 - W)//2+0.1*W, (224 - W)//2+0.1*W, img_url)
   img = "<div style='width: %spx; height: %spx; margin-right: 1px; overflow: hidden; display: inline-block;'>%s</div>" % (W, W, img)
 
-  a_url =  "https://storage.googleapis.com/clarity-public/colah/experiments/aprox_weights_1/%s_%s.html" % (layer_name, n)
-  #a_url =  "https://storage.googleapis.com/clarity-public/colah/experiments/many-low-level-tuning-curves/%s_%s.html" % (layer_name, n)
+  #a_url =  "https://storage.googleapis.com/inceptionv1-weight-explorer/%s_%s.html" % (layer_name, n)
+  a_url = "https://storage.googleapis.com/inceptionv1-weight-explorer/%s_%s.html" % (layer_name, n)
   img = "<a href='%s'>%s</a>" % (a_url, img)
 
   return img
@@ -235,7 +235,7 @@ for f in os.listdir("public/images/"):
       if "_" in neuron_id and neuron_id.split("_")[0] in layer_sizes:
         if neuron_id.count("_") > 1:
           neuron_id = neuron_id[:-2]
-        url = "https://storage.googleapis.com/clarity-public/colah/experiments/aprox_weights_1/%s.html" % neuron_id
+        url = "neurons/%s.html" % neuron_id
         #pattern_n = line.split("#pattern")[1].split(")")[0]
         text.append("<a href='%s'>" % url)
         text.append(line)

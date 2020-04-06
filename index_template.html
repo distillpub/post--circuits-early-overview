@@ -20,15 +20,14 @@
     <script type="text/json">{{
       "title": "",
       "description": "",
-      "password": "circuits",
       "authors": [
-        {{
-          "author": "Authors TBD",
-          "authorURL": "",
-          "affiliation": "OpenAI",
-          "affiliationURL": "https://openai.com"
-        }}
-      ]
+      {{ "author": "Chris Olah", "authorURL": "https://colah.github.io", "affiliation": "OpenAI", "affiliationURL": "https://openai.com"  }},
+      {{ "author": "Nick Cammarata", "authorURL": "http://nickcammarata.com", "affiliation": "OpenAI", "affiliationURL": "https://openai.com"  }},
+      {{ "author": "Ludwig Schubert", "authorURL": "https://schubert.io/", "affiliation": "OpenAI", "affiliationURL": "https://openai.com"  }},
+      {{ "author": "Gabriel Goh", "authorURL": "http://gabgoh.github.io", "affiliation": "OpenAI", "affiliationURL": "https://openai.com"  }},
+      {{ "author": "Michael Petrov", "authorURL": "https://twitter.com/mpetrov", "affiliation": "OpenAI", "affiliationURL": "https://openai.com"  }},
+      {{ "author": "Shan Carter", "authorURL": "http://shancarter.com", "affiliation": "OpenAI", "affiliationURL": "https://openai.com"  }}
+    ]
     }}</script>
   </d-front-matter>
 
@@ -57,7 +56,7 @@
 
 <p>
   The first few articles of the Circuits project will be focused on early vision in InceptionV1<d-cite bibtex-key="szegedy2015going"></d-cite>
-  -- for our purposes, the five convolutional layers leading up to the third pooling layer.
+  — for our purposes, the five convolutional layers leading up to the third pooling layer.
 </p>
 
 <figure class="l-body-outset">
@@ -115,15 +114,28 @@
 <p>
   This article shares our working categorization of units in the first five layers of InceptionV1 into neuron families.
   Our categorization is based on looking at feature visualizations, dataset examples, how a feature is built from the previous layer, how it is used, and other analysis, although it varies in how much attention we've given to an individual neuron.
+  These families are ad-hoc, human defined collections of features that seem to be similar in some way.
   We've found these helpful for communicating among ourselves and breaking the problem of understanding InceptionV1 into smaller chunks.
   While there are some families we suspect are "real", many others are categories of convenience, or categories we have low-confidence about.
   The main goal of these families is to help researchers orient themselves.
 </p>
 
+<p>
+  In some ways, our categorization of units is similar to <a href="http://netdissect.csail.mit.edu/">Net Dissect</a> <d-cite bibtex-key="bau2017network"></d-cite>, which correlates neurons with a pre-defined set of features and groups them into categories like color, texture, and object. 
+  This has the advantage of removing subjectivity and being much more scalable. 
+  At the same time, it also has downsides: correlation can be misleading and the pre-defined taxonomy may miss the true feature types.
+  For example, a whisker detector might be most correlated with a cat, an eye detector most correlated with faces, etc.<d-footnote>
+    <a href="http://netdissect.csail.mit.edu/">Net Dissect</a> <d-cite bibtex-key="bau2017network"></d-cite> was very elegant work which advanced our ability to systematically talk about network features.
+    However, to understand the differences between correlating features with a pre-defined taxonomy and individually studying them, it may be illustrative to consider how it classifies some features.
+    Net Dissect doesn't include the canonical InceptionV1, but it does include a variant of it.
+    Glancing through their version of layer <a href="http://netdissect.csail.mit.edu/dissect/googlenet_imagenet/html/inception_3b-output.html"><code>mixed3b</code></a> we see many units which appear from dataset examples likely to be familiar feature types like curve detectors, divot detectors, boundary detectors, eye detector, and so forth, but are classified as weakly correlated with another feature — often objects that it seems unlikely could be detected at such an early layer.
+  </d-footnote>
+</p>
+
 <h4>Caveats</h4>
 
 <ul>
-  <li>This is a broad overview and our understanding of many of these units is low-confidence.</li>
+  <li>This is a broad overview and our understanding of many of these units is low-confidence. We fully expect, in retrospect, to realize we misunderstood some units.</li>
   <li>Many neuron groups are catch-all categories or convenient organizational categories that we don't think reflect fundamental structure.</li>
   <li>Even for neuron groups we suspect do reflect a fundamental structure (eg. some can be recovered from factorizing the layer's weight matrices) the boundaries of these groups can be blurry and some neurons inclusion involve judgement calls.</li>
 </ul>
@@ -145,6 +157,33 @@
   When we represent a neuron with a feature visualization, we don't intend to claim that the feature visualization captures the entirety of the neuron's behavior.
   Rather, the role of a feature visualization is like a variable name in understanding a program.
   It replaces an arbitrary number with a more meaningful symbol <d-cite bibtex-key="olah2018building"></d-cite>.
+</p>
+
+<h3 id="presentation">Presentation of Circuits</h3>
+
+<p>
+  Although this article is focused on giving an overview of the features which exist in early vision, we're also interested in understanding how they're computed from earlier features. 
+  To do this, we present <a href="https://distill.pub/2020/circuits/zoom-in/#claim-2">circuits</a> consisting of a neuron, the units it has the strongest (L2 norm) weights to in the previous layer, and the weights between them.<d-footnote>
+    Some neurons in <code>mixed3a</code> and <code>mixed3b</code> are in branches consisting of a "bottleneck" 1x1 conv that greatly reduces the number of channels followed by a 5x5 conv. Although there is a ReLU between them, we generally think of them as a low rank factorization of a single weight matrix and visualize the product of the two weights. Additionally, some neurons in these layers are in a branch consisting of maxpooling followed by a 1x1 conv; we present these units as their weights replicated over the region of their maxpooling.
+  </d-footnote>
+  In some cases, we've also included a few neurons that have weaker connections if they seem to have particular pedagogical value; in these cases, we've mentioned doing so in the caption.
+  Neurons are visually displayed by their feature visualizations, as discussed above.
+  Weights are represented using a color map with red as positive and blue as negative.
+</p>
+
+<p>
+  For example, here is a circuit of a circle detecting unit in <code>mixed3a</code> being assembled from earlier curves and a primitive circle detector.
+  We'll discuss this example <a href="#mixed3a_discussion_small_circle">in more depth</a> later.
+</p>
+
+<figure style='grid-column-start: text-start; image-rendering: pixelated;'>
+  {images/SmallCircle}
+  <figcaption style="margin-top:12px;">Click on the feature visualization of any neuron to see more weights!</figcaption>
+</figure>
+
+<p>
+  At any point, you can click on a neuron's feature visualization to see its weights to the 50 neurons in the previous layer it is most connected to (that is, how it assembled from the previous layer, and also the 50 neurons in the next layer it is most connected to (that is, how it is used going forward).
+  This allows further investigation, and gives you an unbiased view of the weights if you're concerned about cherry-picking. 
 </p>
 
 
@@ -191,7 +230,7 @@
   A nice example of this is the "Complex Gabor" feature family.
   Like simple Gabor filters, complex Gabors detect edges.
   But unlike simple Gabors, they are relatively invariant to the exact position of the edge or which side is dark or light.
-  This is achieved by being excited by multiple Gabor filters in similar orientations -- and most critically, by being excited by "reciprocal Gabor filters" that detect the same pattern with dark and light switched.
+  This is achieved by being excited by multiple Gabor filters in similar orientations — and most critically, by being excited by "reciprocal Gabor filters" that detect the same pattern with dark and light switched.
   This can be seen as an early example of the "union over cases" motif.
 </p>
 

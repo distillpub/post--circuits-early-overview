@@ -2,7 +2,7 @@
  {
    "name": "Other Fur",
    "units": [472, 476, 477, 453, 454, 427, 449, 467, 64, 129],
-   "comment": ""
+   "comment": "Units which seem to detect fur but, unlike the oriented fur detectors, don't seem to detect it parting in a particular way. Many of these seem to prefer a particular fur pattern."
  },
  {
    "name": "Texture",
@@ -22,7 +22,7 @@
  {
    "name": "Lines",
    "units": [377, 326, 95, 38, 307, 1, 19, 209, 210],
-   "comment": ""
+   "comment": "Units which seem, to a significant extent, to detect a line. Many seem to have additional, more complex behavior."
  },
  {
    "name": "Brightness Gradients",
@@ -115,17 +115,17 @@
  {
    "name": "Line Grad",
    "units": [21, 63, 102, 423, 364, 175, 314],
-   "comment": ""
+   "comment": "Low confidence category."
  },
  {
    "name": "Shiny",
    "units": [173, 200],
-   "comment": ""
+   "comment": "Units that seem to detect shiny, specular surfaces."
  },
  {
    "name": "Pattern",
    "units": [157, 431, 444, 311, 470, 33, 115, 316, 372],
-   "comment": ""
+   "comment": "Low confidence category."
  },
  {
    "name": "Columns",
