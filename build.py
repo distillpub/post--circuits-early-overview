@@ -15,7 +15,14 @@ layer_sizes = {
     "mixed4d" : 528,
 }
 
-def vis_html(layer_name, n, W=120):
+def vis_html(layer_name, n, W=None):
+
+  W_dict = {"mixed3a": 60, "mixed3b" : 60, "mixed4a": 100, "mixed4b" : 110, "mixed4c" : 120, "mixed4d" : 130}
+  if W is None:
+    if W in W_dict:
+      W = W_dict
+    else:
+      W=60
 
   if layer_name == "localresponsenorm0" or layer_name == "maxpool0":
     layer_name = "conv2d0"
@@ -23,17 +30,10 @@ def vis_html(layer_name, n, W=120):
   if layer_name == "localresponsenorm1":
     layer_name = "conv2d02"
 
-  if layer_name == "conv2d0":
-    pass
-    # weight = param['conv2d0_w'][..., n]
-    # weight = 0.6*weight / np.abs(param['conv2d0_w']).max() + 0.4*weight / np.abs(weight).max()
-    # img_url = _image_url(0.5+0.5*weight, domain=[0,1])
-    img_url = "https://storage.googleapis.com/clarity-public/colah/experiments/aprox_weights_1/%s_%s.png" % (layer_name, n)
-    img = "<img style='width: 100%%; image-rendering: pixelated;' src='%s'>" % (img_url)
-  elif layer_name in [ "conv2d1", "conv2d2"]:
-    img_url = "https://storage.googleapis.com/clarity-public/colah/experiments/aprox_weights_1/%s_%s.png" % (layer_name, n)
+  if layer_name in [ "conv2d0", "conv2d1", "conv2d2"]:
+    img_url = "images/neuron/%s_%s.png" % (layer_name, n)
     img = "<img style='width: 100%%;' src='%s'>" % (img_url)
-  elif layer_name in [ "mixed3a", "mixed3b", "mixed4a"]:
+  elif layer_name in [ "conv2d0", "conv2d1", "conv2d2", "mixed3a", "mixed3b", "mixed4a"]:
     img_url = "images/neuron/%s_%s.jpg" % (layer_name, n)
     img = "<img style='width: 100%%;' src='%s'>" % (img_url)
   else:
@@ -41,7 +41,6 @@ def vis_html(layer_name, n, W=120):
     img = "<img style='margin-left: -%spx; margin-top: -%spx;' src='%s'>" % ((224 - W)//2+0.1*W, (224 - W)//2+0.1*W, img_url)
   img = "<div style='width: %spx; height: %spx; margin-right: 1px; overflow: hidden; display: inline-block;'>%s</div>" % (W, W, img)
 
-  #a_url =  "https://storage.googleapis.com/inceptionv1-weight-explorer/%s_%s.html" % (layer_name, n)
   a_url = "https://storage.googleapis.com/inceptionv1-weight-explorer/%s_%s.html" % (layer_name, n)
   img = "<a href='%s'>%s</a>" % (a_url, img)
 
