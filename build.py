@@ -41,8 +41,8 @@ def vis_html(layer_name, n, W=None):
     img = "<img style='margin-left: -%spx; margin-top: -%spx;' src='%s'>" % ((224 - W)//2+0.1*W, (224 - W)//2+0.1*W, img_url)
   img = "<div style='width: %spx; height: %spx; margin-right: 1px; overflow: hidden; display: inline-block;'>%s</div>" % (W, W, img)
 
-  #a_url = "https://storage.googleapis.com/inceptionv1-weight-explorer/%s_%s.html" % (layer_name, n)
-  a_url = "https://schubert-staging-dot-encyclopedia-251300.appspot.com/models/inceptionv1/%s_0/%s" % (layer_name, n)
+  a_url = "https://storage.googleapis.com/inceptionv1-weight-explorer/%s_%s.html" % (layer_name, n)
+  
   img = "<a href='%s'>%s</a>" % (a_url, img)
 
   return img
