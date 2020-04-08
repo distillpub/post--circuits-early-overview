@@ -101,7 +101,7 @@
   Dmitri Mendeleev is often accounted to have discovered the Periodic Table by playing "chemical solitaire," writing the details of each element on a card and patiently fiddling with different ways of classifying and organizing them.
   Some modern historians are skeptical about the cards, but Mendeleev's story is a compelling demonstration of that there can be a lot of value in simply organizing phenomena, even when you don't have a theory or firm justification for that organization yet.
   Mendeleev is far from unique in this.
-  For example, in biology, taxonomies of species proceeded genetics and the theory of evolution giving them a theoretical foundation.
+  For example, in biology, taxonomies of species preceded genetics and the theory of evolution giving them a theoretical foundation.
 </p>
 
 <p>
@@ -113,7 +113,6 @@
 
 <p>
   This article shares our working categorization of units in the first five layers of InceptionV1 into neuron families.
-  Our categorization is based on looking at feature visualizations, dataset examples, how a feature is built from the previous layer, how it is used, and other analysis, although it varies in how much attention we've given to an individual neuron.
   These families are ad-hoc, human defined collections of features that seem to be similar in some way.
   We've found these helpful for communicating among ourselves and breaking the problem of understanding InceptionV1 into smaller chunks.
   While there are some families we suspect are "real", many others are categories of convenience, or categories we have low-confidence about.
@@ -121,21 +120,29 @@
 </p>
 
 <p>
+  In constructing this categorization, our understanding of individual neurons was developed by looking at feature visualizations, dataset examples, how a feature is built from the previous layer, how it is used by the next layer, and other analysis.
+  It's worth noting that the level of attention we've given to individual neurons varies greatly: we've dedicated entire forthcoming articles to detailed analysis some of these units, while many others have only received a few minutes of cursory investigation.
+</p>
+
+<p>
   In some ways, our categorization of units is similar to <a href="http://netdissect.csail.mit.edu/">Net Dissect</a> <d-cite bibtex-key="bau2017network"></d-cite>, which correlates neurons with a pre-defined set of features and groups them into categories like color, texture, and object. 
   This has the advantage of removing subjectivity and being much more scalable. 
-  At the same time, it also has downsides: correlation can be misleading and the pre-defined taxonomy may miss the true feature types.
-  For example, a whisker detector might be most correlated with a cat, an eye detector most correlated with faces, etc.<d-footnote>
+  At the same time, it also has downsides: correlation can be misleading and the pre-defined taxonomy may miss the true feature types.<d-footnote>
     <a href="http://netdissect.csail.mit.edu/">Net Dissect</a> <d-cite bibtex-key="bau2017network"></d-cite> was very elegant work which advanced our ability to systematically talk about network features.
     However, to understand the differences between correlating features with a pre-defined taxonomy and individually studying them, it may be illustrative to consider how it classifies some features.
     Net Dissect doesn't include the canonical InceptionV1, but it does include a variant of it.
     Glancing through their version of layer <a href="http://netdissect.csail.mit.edu/dissect/googlenet_imagenet/html/inception_3b-output.html"><code>mixed3b</code></a> we see many units which appear from dataset examples likely to be familiar feature types like curve detectors, divot detectors, boundary detectors, eye detector, and so forth, but are classified as weakly correlated with another feature — often objects that it seems unlikely could be detected at such an early layer.
+    Or in another fun case, there is a feature (372) which is most correlated with a cat detector, but appears to be detecting left-oriented whiskers!
   </d-footnote>
+  In particular, if we expect models to have novel, unanticipated features — for example, <a href="#group_mixed3a_high_low_frequency"></a>high-low frequency detectors</a> — the fact that they are unanticipated makes them impossible to include in a set of pre-defined features. 
+  The only way to discover them is the laborious process of manually investigating each feature.
+  In the future, you could imagine hybrid approaches, where a human investigator is saved time by having many features sorted into a (continually growing) set of known features, especially if the <a href="https://drafts.distill.pub/circuits-zoom-in/#claim-3">universality hypothesis</a> holds.
 </p>
 
 <h4>Caveats</h4>
 
 <ul>
-  <li>This is a broad overview and our understanding of many of these units is low-confidence. We fully expect, in retrospect, to realize we misunderstood some units.</li>
+  <li>This is a broad overview and our understanding of many of these units is low-confidence. We fully expect, in retrospect, to realize we misunderstood some units and categories.</li>
   <li>Many neuron groups are catch-all categories or convenient organizational categories that we don't think reflect fundamental structure.</li>
   <li>Even for neuron groups we suspect do reflect a fundamental structure (eg. some can be recovered from factorizing the layer's weight matrices) the boundaries of these groups can be blurry and some neurons inclusion involve judgement calls.</li>
 </ul>
@@ -203,6 +210,10 @@
   For lack of a better word, they're messy.
   We have no way of knowing, but it seems likely this is a result of the gradient not reaching the early layers very well during training.
   Note that InceptionV1 predated the adoption of modern techniques like batch norm and Adam, which make it much easier to train deep models well.
+  If we compare to the tf-slim rewrite of InceptionV1, which does use BatchNorm, we see crisper features.<d-footnote>
+    The weights for the units in the first layer of the tf-slim version of InceptionV1, which adds BatchNorm. (Units are sorted by the first principal component of the adjacency matrix between the first and second layers.) These features are typical of a well trained conv net. Note how, unlike the canonical InceptionV1, these units have a crisp division between black and white Gabors, color Gabors, color-contrast units and color center-surround units. <br><br>
+    <img src="images/slim_weights.png" style="width: 100%;">
+  </d-footnote>
 </p>
 
 <p>
@@ -296,7 +307,7 @@ At a high-level, we see a few primary patterns:
 
 <p>
 <code>mixed3a</code> has a significant increase in the diversity of features we observe.
-Some of them  -- curve detectors and high-low frequency detectors --
+Some of them  -- <a href="#group_mixed3a_curves">curve detectors</a> and <a href="#group_mixed3a_high_low_frequency">high-low frequency detectors</a> --
 were discussed in <a href="https://distill.pub/2020/circuits/zoom-in/">Zoom In</a>
 and will be discussed again in later articles in great detail.
 But there are some really interesting circuits in <code>mixed3a</code> which we haven't discussed before,
@@ -500,10 +511,24 @@ On the other hand, it also has many units that still feel quite low-level, such 
 
 </d-article>
 <d-appendix>
+  <h3>Resources</h3>
+  <p>
+    Our taxonomy is available for download in the form of JSON files:
+    <a href="layer_data/conv2d0.json">conv2d0</a>,
+    <a href="layer_data/conv2d1.json">conv2d1</a>,
+    <a href="layer_data/conv2d2.json">conv2d2</a>,
+    <a href="layer_data/mixed3a.json">mixed3a</a>,
+    <a href="layer_data/mixed3b.json">mixed3b</a>
+  </p>
+  <h3>Author Contributions</h3>
+  <p>
+    TODO
+  </p>
   <h3>Acknowledgments</h3>
   <p>
-    Brice Menard, Sophia Sanborn, Nick Barry, Daniel Filan, Nick Moran, Joseph Abrahamson, Richard Meyes, David Valdman, Alex Bäuerle, Chris Hallacy.
+    Thanks to Brice Menard, Sophia Sanborn, Nick Barry, Katarina Slama, Daniel Filan, Nick Moran, Joseph Abrahamson, Richard Meyes, David Valdman, Alex Bäuerle, and Chris Hallacy.
   </p>
+  
   <d-footnote-list></d-footnote-list>
   <d-citation-list></d-citation-list>
 </d-appendix>

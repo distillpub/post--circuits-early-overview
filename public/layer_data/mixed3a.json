@@ -1,0 +1,93 @@
+[
+  {
+    "name": "Fur Precursors",
+    "units": [46, 47, 26, 63, 80, 23, 16],
+    "comment": "These units are not yet highly selective for fur (they also fire for other high-frequency patterns), but their primary use in the next layer is supporting <a href='#group_mixed3b_generic_oriented_fur'>fur detection</a>. At the 224x224 image resolution, individual fur hairs are generally not detectable, but tufts of fur are. These units use Gabor textures to detect those tufts in different orientations. The also detect lower frequency edges or changes in lighting perpendicular to the tufts."
+  },
+  {
+    "name": "Eyes / Small Circles",
+    "units": [174, 168, 79, 125, 175],
+    "comment": "We think of eyes as high-level features, but small eye detectors actually form very early. Compare to later <a href='#group_mixed3b_eyes'>eye detectors (<code>mixed3b</code>)</a>. See also <a href='#mixed3a_discussion_small_circle'>circuit example and discussion</a>."
+  },
+  {
+    "name": "High-Low Frequency",
+    "units": [110, 180, 153, 106, 112, 186, 132, 136, 117, 113, 108, 70, 86, 88, 160],
+    "comment": "These units look for transitions from high-frequency texture to low-frequency. They are primarily used by <a href='#group_mixed3b_boundary'>boundary detectors (<code>mixed3b</code>)</a> as an additional cue for a boundary between objects. (Larger scale high-low frequency detectors can be found in <code>mixed4a</code> (245, 93, 392, 301), but are not discussed in this article.) <br><br> A detailed article on these is forthcoming."
+  },
+  {
+    "name": "Brightness Gradient",
+    "units": [216, 127, 22, 182, 162, 25, 249, 15, 28, 59, 29, 196, 206, 18, 247],
+    "comment": "These units detect brightness gradients. Among other things they will help detect specularity (shininess), curved surfaces, and the boundary of objects. Compare to earlier <a href='#group_conv2d2_early_brightness_gradient'>brightness gradients (<code>conv2d2</code>)</a> and later <a href='#group_mixed3b_brightness_gradients'>brightness gradients (<code>mixed3b</code>)</a>."
+  },
+  {
+    "name": "BW vs Color",
+    "units": [214, 208, 201, 223, 210, 197, 222, 204, 220, ],
+    "comment": "These \"black and white\" detectors respond to absences of color. Prior to this, color detectors contrast to the opposite hue, but from this point on we'll see many compare to the absence of color. See also <a href='#mixed3a_discussion_BW'>BW circuit example and discussion</a>."
+  },
+  {
+    "name": "Color Contrast",
+    "units": [195, 84, 85, 123, 203, 217, 199, 211, 205, 212, 202, 200, 138, 32],
+    "comment": "These units look for one color on one side of their receptive field, and another (usually opposite) color on the opposing side. They typically don't care about the exact position or orientation of the transition. Compare to earlier color contrast (<a href='#group_conv2d0_color_contrast'><code>conv2d0</code></a>, <a href='#group_conv2d1_color_contrast'><code>conv2d1</code></a>, <a href='#group_conv2d2_color_contrast'><code>conv2d2</code></a>) and later color contrast (<a href='#group_mixed3b_color_contrast_gradient'><code>mixed3b</code></a>)."
+  },
+  {
+    "name": "Color Center-Surround",
+    "units": [119, 34, 167, 76, 19, 30, 131, 251, 226, 13, 7, 50, 1, 4, 41, 192, 36, 40, 103, 213, 10, 35, 221, 193, 158, 73, 74, 177, 97, 141],
+    "comment": "These units look for one color in the center, and another (usually opposite) color surrounding it. They are typically much more sensitive to the center color than the surrounding one. In visual neuroscience, center-surround units are classically an extremely low-level feature, but we see them in the later parts of early vision. Compare to earlier <a href='#group_conv2d2_color_center_surround'> Color Center-Surround (<code>conv2d2</code>)</a> and later <a href='#group_mixed3b_color_center_surround'>Color Center-Surround  (<code>mixed3b</code>)</a>."
+  },
+  {
+    "name": "Texture",
+    "units": [246, 242, 253, 232, 233, 209, 139, 65, 44, 51, 194, 207, 111, 218, 224, 225, 215, 198, 62, 21, 254, 255, 61, 2, 3, 8, 12, 53, 56, 102, 148, 244, 250, 11, 238, 248, 9, 219, 234, 252, 236, 5, 183, 241, 229, 93, 243, 99, 45, 33, 135, 231, 60, 235, 48, 55, 42, 151, 54, 72, 6, 239, 66, 129, 245],
+    "comment": "This is a broad, not very well defined category for units that seem to look for simple local structures over a wide receptive field, including mixtures of colors. Many live in a branch consisting of a maxpool followed by a 1x1 conv, which structurally encourages this.<d-footnote>Maxpool branches (ie. maxpool 5x5 stride 1 -> conv 1x1) have large receptive fields, but can't control where in in their receptive field each feature they detect is, nor the relative position of these features. In early vision, this unstructured of feature detection makes them a good fit for textures. </d-footnote>"
+  },
+  {
+    "name": "Angles",
+    "units": [188, 94, 164, 107, 77, 157, 149, 100],
+    "comment": "Units that detect multiple lines, forming angles, triangles and squares. They generally respond to any of the individual lines, and more strongly to them together."
+  },
+  {
+    "name": "Repeating patterns",
+    "units": [237, 31, 17, 20, 39, 126, 124, 156, 98, 105, 230, 228],
+    "comment": "This is broad, catch-all category for units that seem to look for repeating local patterns that seem more complex than textures."
+  },
+  {
+    "name": "Complex Center-Surround",
+    "units": [178, 181, 161, 166, 172, 68, 130, 49, 52, 114, 115, 120, 144, 37],
+    "comment": "This is a broad, not very well defined category for center-surround units that detect a pattern or complex texture in their center."
+  },
+  {
+    "name": "Curves",
+    "units": [81, 104, 92, 145, 95, 163, 171, 71, 147, 189, 137],
+    "comment": "These curve detectors detect significantly larger radii curves than their predecessors. They will be refined into more specific, larger curve detectors in the next layer. Compare to earlier <a href='#group_conv2d2_tiny_curves'>curves (<code>conv2d2</code>)</a> and later <a href='#group_mixed3b_curves'>curves (<code>mixed3b</code>)</a>. <br><br> A detailed article on these is forthcoming."
+  },
+  {
+    "name": "Crosses / Diverging Lines",
+    "units": [91, 185, 64, 118],
+    "comment": "These units seem to respond to lines crossing or to lines diverging from a central point."
+  },
+  {
+    "name": "Line Ends",
+    "units": [133, 96],
+    "comment": "These units detect a line ending or sharply turning. Often used in boundary detection and more complex shape detectors."
+  },
+  {
+    "name": "Line Misc.",
+    "units": [191, 121, 116, 14, 24, 0, 159, 152, 165, 83, 173, 87, 90, 82],
+    "comment": "Broad, low confidence organizational category."
+  },
+  {
+    "name": "Thick Lines",
+    "units": [140, 78, 89],
+    "comment": "Low confidence organizational category."
+  },
+  {
+    "name": "Lines",
+    "units": [227, 75, 146, 69, 169, 57, 154, 187, 27, 134, 150, 240, 101, 176],
+    "comment": "Units used to detect extended lines, often further excited by different colors on each side. A few are highly combed line detectors that aren't obviously such at first glance. The decision to include a unit was often decided by whether it seems to be used by downstream client units as a line detector."
+  },
+  {
+    "name": "Other Units",
+    "units": [38, 43, 58, 67, 190, 109, 122, 128, 142, 143, 155, 170, 179, 184],
+    "comment": "Catch-all category for all other units.",
+    "priority": -1
+  }
+]

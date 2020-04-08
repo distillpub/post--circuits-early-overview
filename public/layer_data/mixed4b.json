@@ -1,0 +1,45 @@
+[
+    {
+      "name": "Fur boundary / posture",
+      "units": [431, 443, 416,
+        412, 429, 414, 384,
+        425, 408, 436, 397, 406, 398, 422, 404, 199, 420, 393, 439, 434, 401],
+      "comment": ""
+    },
+
+    {
+      "name": "Human boundary / posture",
+      "units": [391, 411, 405, 44, 475],
+      "comment": ""
+    },
+    {
+      "name": "Dog Heads",
+      "units": [270, 328, 329, 400, 402, 403, 409, 418, 345, 325, 327, 336, 324, 339, 327, 370, 260, 165, ],
+      "comment": ""
+    },
+    {
+      "name": "Square Things",
+      "units": [ 474, 467, 169, 202, 237],
+      "comment": ""
+    },
+    {
+      "name": "Curves",
+      "units": [ 482, 426, 253, 226, 193, 142, 96, 502],
+      "comment": ""
+    },
+    {
+      "name": "Color Center-Surround",
+      "units": [ 90, 88, 80, 5, 72, 26, 120, 149, 139],
+      "comment": ""
+    },
+    {
+      "name": "Evolute / Diverge",
+      "units": [ 39],
+      "comment": ""
+    },
+    {
+      "name": "Counting?",
+      "units": [256,],
+      "comment": ""
+    },
+  ]

@@ -1,0 +1,73 @@
+[
+  {
+    "name": "Tiny Curves",
+    "units": [182, 117, 171, 111, 63, 130, 146, 180,   39,  140, 32, 80],
+    "comment": "Very small curve (and one circle) detectors. Many of these units respond to a range of curvatures all the way from a flat line to a curve. Compare to later <a href='#group_mixed3a_curves'>curves (<code>mixed3a</code>)</a> and <a href='#group_mixed3b_curves'>curves (<code>mixed3b</code>)</a>. See also <a href='#mixed3a_discussion_small_circle'>circuit example and discussion</a> of use in forming <a href='#group_mixed3a_eyes_small_circles'>small circles/eyes (<code>mixed3a</code>)</a>."
+  },
+  {
+    "name": "Early Brightness Gradient",
+    "units": [94, 142, 99, 104, 163, 188, 98, 165, 83, 79, 128, 5],
+    "comment": "These units detect oriented gradients in brightness. They support a variety of similar units in the next layer. Compare to later <a href='#group_mixed3a_brightness_gradient'>brightness gradients (<code>mixed3a</code>)</a> and <a href='#group_mixed3b_brightness_gradients'>brightness gradients (<code>mixed3b</code>)</a>."
+  },
+  {
+    "name": "Line Divergence",
+    "units": [137, 53],
+    "comment": "These units detect lines diverging from a point."
+  },
+  {
+    "name": "Color Contrast",
+    "units": [10, 36, 172, 56, 131, 176, 35, 41, 45, 126, 77, 120, 101, 0, 43, 62, 106, 169, 127, 6, 68, 60, 134, 51, 74, 85, 115, 24, 14, 16, 151, 168, 19, 7, 88, 177, 183, 76, 70, 122],
+    "comment": "These units detect a color on one side of the receptive field, and a different color on the opposite side. Composed of lower-level color contrast detectors, they often respond to color transitions in a range of translation and orientation variations. Compare to earlier color contrast (<a href='#group_conv2d0_color_contrast'><code>conv2d0</code></a>, <a href='#group_conv2d1_color_contrast'><code>conv2d1</code></a>) and later color contrast (<a href='#group_mixed3a_color_contrast'><code>mixed3a</code></a>, <a href='#group_mixed3b_color_contrast_gradient'><code>mixed3b</code></a>)."
+  },
+  {
+    "name": "Gabor Textures",
+    "units": [89, 91, 110, 114, 123, 135, 139, 143, 144, 167, 173, 118],
+    "comment": "Like complex Gabor units from the previous layer, but larger. They're probably starting to be better described as a texture."
+  },
+  {
+    "name": "Hatch Textures",
+    "units": [164, 184, 28, 121, 159, 102],
+    "comment": "These units detect Gabor patterns in two orthogonal directions, selecting for a \"hatch\" pattern."
+  },
+  {
+    "name": "Texture Contrast",
+    "units": [1, 37, 71, 73, 105, 147, 178, 181],
+    "comment": "These units look for different textures on opposite sides of their receptive field. One side is typically a Gabor pattern."
+  },
+  {
+    "name": "Textures",
+    "units": [21, 52, 59, 119, 148, 161, 162, 186, 189, 191, 72, 46, 67, 40, 38],
+    "comment": "A broad category of units detecting repeating local structure."
+  },
+  {
+    "name": "Line",
+    "units": [107, 31, 9, 112, 133, 103, 97, 125, 20, 33, 113, 185, 150, 166, 157, 57, 145, 48, 55, 15, 152, 11, 141, 174, 44, 170, 27, 100, 30, 82, 65, 3, 108],
+    "comment": "These units are beginning to look for a single primary line. Some look for different colors on each side. Many exhibit \"combing\" (small perpendicular lines along the main one), a very common but not presently understood phenomenon in line-like features across vision models. Compare to <a href='#group_conv2d2_shifted_line'>shifted lines</a> and later <a href='#group_mixed3a_lines'>lines (<code>mixed3a</code>)</a>."
+  },
+  {
+    "name": "Corners",
+    "units": [47, 87, 95, 26],
+    "comment": "These units detect two Gabor patterns which meet at apprixmately 90 degrees, causing them to respond to corners."
+  },
+  {
+    "name": "Shifted Line",
+    "units": [116, 61, 8, 22, 69, 96, 78, 18, 17, 132, 190, 64, 81, 154, 179, 136],
+    "comment": "These units look for edges \"shifted\" to the side of the receptive field instead of the middle. This may be linked to the many 1x1 convs in the next layer. Compare to <a href='#group_conv2d2_line'>lines</a> (non-shifted) and later <a href='#group_mixed3a_lines'>lines (<code>mixed3a</code>)</a>."
+  },
+  {
+    "name": "Color/Multicolor",
+    "units": [58, 75, 92, 42, 12],
+    "comment": "Several units look for mixtures of colors but seem indifferent to their organization."
+  },
+  {
+    "name": "Color Center-Surround",
+    "units": [155, 34, 156, 13, 49, 138, 23, 160, 86, 124, 25, 4, 29],
+    "comment": "These units look for one color in the middle and another (typically opposite) on the boundary. Genereally more sensitive to the center than boundary. Compare to later <a href='#group_mixed3a_color_center_surround'> Color Center-Surround (<code>mixed3a</code>)</a> and <a href='#group_mixed3b_color_center_surround'>Color Center-Surround  (<code>mixed3b</code>)</a>."
+  },
+  {
+    "name": "Other Units",
+    "units": [2, 50, 54, 66, 84, 90, 93, 109, 129, 149, 153, 158, 175, 187],
+    "comment": "Catch-all category for all other units.",
+    "priority": -1
+  },
+]

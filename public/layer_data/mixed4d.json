@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Dog Ears",
+    "units": [426, 436, ],
+    "comment": ""
+  },
+  {
+    "name": "Person Beside Dog",
+    "units": [429, 427],
+    "comment": ""
+  },
+  {
+    "name": "Person",
+    "units": [432, 458, 354, 227],
+    "comment": ""
+  },
+]
