@@ -299,6 +299,7 @@ d-contents nav > div > a {
  * Thread Info
  ******************************************/
 
+
 .thread-info {
   background-color: hsl(54, 78%, 96%);
   border-left: solid hsl(54, 33%, 67%) 1px;
@@ -310,21 +311,23 @@ d-contents nav > div > a {
   margin-top: 20;
   margin-bottom: 1.5rem;
   display: grid;
-  grid-template-columns: 65px 1fr 1fr;
+  grid-template-columns: 45px 2fr 3fr;
   grid-template-areas:
-    'icon explanation explanation '
-    'icon prev next';
+    "icon explanation explanation "
+    "icon prev next";
   grid-column-gap: 1.5em;
 }
 
-#thread-nav .icon-multiple-pages {
+@media (min-width: 768px){
+  #thread-nav {
+    grid-template-columns: 65px 2fr 3fr;
+  }
+}
+
+#thread-nav .icon {
   grid-area: icon;
   padding: 0.5em;
-  /* content: url(images/multiple-pages.svg); */
-  background-image: url(images/multiple-pages.svg);
-  transform: translateY(7px);
-  width: 50px;
-  height: 60px;
+  justify-self: center;
 }
 
 #thread-nav .explanation {
@@ -338,7 +341,7 @@ d-contents nav > div > a {
 }
 
 #thread-nav .prev::before {
-  content: '← Previous Article';
+  content: "← Previous Article";
 }
 
 #thread-nav .overview {
@@ -346,7 +349,8 @@ d-contents nav > div > a {
 }
 
 #thread-nav .overview::before {
-  content: '↑';
+  content: "↑";
+  white-space: nowrap;
   margin-right: 0.5em;
 }
 
@@ -356,30 +360,35 @@ d-contents nav > div > a {
 }
 
 #thread-nav .next::before {
-  content: 'Next Article →';
+  content: "Next Article →";
 }
 
-#thread-nav .next::before,
-#thread-nav .prev::before {
+#thread-nav .next::before, #thread-nav .prev::before {
   display: block;
+  white-space: nowrap;
+  padding: 0.5em 0;
   font-size: 80%;
   font-weight: bold;
   margin-top: 0px;
   margin-right: 0.5em;
   text-transform: uppercase;
-  margin-bottom: -8px;
 }
 
 #thread-nav .prev,
 #thread-nav .next,
 #thread-nav .overview {
   font-size: 80%;
+  line-height: 1.5em;
   font-weight: 600;
   border-bottom: none;
   color: #2e6db7;
-  margin-top: 0.25em;
   letter-spacing: 0.25px;
 }
+
+
+/* ****************************************
+ * SVG styling
+ ******************************************/
 
 svg .model .node,
 svg .model .background {
