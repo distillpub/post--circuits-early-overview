@@ -42,14 +42,14 @@
   <section id="thread-nav" class="thread-info" style="grid-column-start: text; grid-column-end: text; margin-top: 20px; margin-bottom: 80px;">
       <div class="icon-multiple-pages"></div>
       <p class="explanation">
-          This article is part of the <a style="border-bottom: none; color: #2e6db7; margin-left: 0px;" href="https://distill.pub/2020/circuits/">Circuits thread</a>, a collection of short articles and commentary by an open scientific collaboration delving into the inner workings of neural networks.<br>
+          This article is part of the <a style="border-bottom: none; color: #2e6db7; margin-left: 0px;" href="/2020/circuits/">Circuits thread</a>, a collection of short articles and commentary by an open scientific collaboration delving into the inner workings of neural networks.<br>
           <!--<a style="border-bottom: none; color: #2e6db7; margin-left: 0px;">🔬Learn how to get involved.</a>-->
           <!--<a class="overview" href="#">Thread Overview</a>-->
       </p>
 
-      <a class="prev" href="https://distill.pub/2020/circuits/zoom-in/">Zoom In: An Introduction to Circuits</a>
-      <div class="next" href="#" style="color:#999;">Curve Detectors
-        <div style="color:#BBB; font-size: 90%; line-height: 140%; margin-top: 4px;">Under discussion in <a href="http://slack.distill.pub/">Distill slack</a> <code>#circuits</code></div>
+      <a class="prev" href="/2020/circuits/zoom-in/">Zoom In: An Introduction to Circuits</a>
+      <div class="next" href="#" style="color:#999;">
+        <div style="color:#BBB; font-size: 90%; line-height: 140%; margin-top: 4px;">Future articles are under discussion <br>in the <a href="http://slack.distill.pub/">Distill slack</a> (<code>#circuits</code>)</div>
       </div>
   </section>
 
@@ -210,8 +210,8 @@
   For lack of a better word, they're messy.
   We have no way of knowing, but it seems likely this is a result of the gradient not reaching the early layers very well during training.
   Note that InceptionV1 predated the adoption of modern techniques like batch norm and Adam, which make it much easier to train deep models well.
-  If we compare to the tf-slim rewrite of InceptionV1, which does use BatchNorm, we see crisper features.<d-footnote>
-    The weights for the units in the first layer of the tf-slim version of InceptionV1, which adds BatchNorm. (Units are sorted by the first principal component of the adjacency matrix between the first and second layers.) These features are typical of a well trained conv net. Note how, unlike the canonical InceptionV1, these units have a crisp division between black and white Gabors, color Gabors, color-contrast units and color center-surround units. <br><br>
+  If we compare to the TF-Slim<d-cite bibtex-key="TFSlim"></d-cite> rewrite of InceptionV1, which does use BatchNorm, we see crisper features.<d-footnote>
+    The weights for the units in the first layer of the TF-Slim<d-cite bibtex-key="TFSlim"></d-cite> version of InceptionV1, which adds BatchNorm. (Units are sorted by the first principal component of the adjacency matrix between the first and second layers.) These features are typical of a well trained conv net. Note how, unlike the canonical InceptionV1, these units have a crisp division between black and white Gabors, color Gabors, color-contrast units and color center-surround units. <br><br>
     <img src="images/slim_weights.png" style="width: 100%;">
   </d-footnote>
 </p>
@@ -498,14 +498,14 @@ On the other hand, it also has many units that still feel quite low-level, such 
 <div id="thread-nav" class="thread-info" style="margin-top: 40px;">
     <div class="icon-multiple-pages"></div>
     <p class="explanation">
-        This article is part of the Circuits thread, a collection of short articles and commentary by an open scientific collaboration delving into the inner workings of neural networks.<br>
+        This article is part of the <a style="border-bottom: none; color: #2e6db7; margin-left: 0px;" href="/2020/circuits/">Circuits thread</a>, a collection of short articles and commentary by an open scientific collaboration delving into the inner workings of neural networks.<br>
         <!--<a style="border-bottom: none; color: #2e6db7; margin-left: 0px;">🔬Learn how to get involved.</a>-->
         <!--<a class="overview" href="#">Thread Overview</a>-->
     </p>
 
-    <a class="prev" href="https://distill.pub/2020/circuits/zoom-in/">Zoom In: An Introduction to Circuits</a>
-    <div class="next" href="#" style="color:#999;">Curve Detectors
-      <div style="color:#BBB; font-size: 90%; line-height: 140%; margin-top: 4px;">Under discussion in <a href="http://slack.distill.pub/">Distill slack</a> <code>#circuits</code></div>
+    <a class="prev" href="/2020/circuits/zoom-in/">Zoom In: An Introduction to Circuits</a>
+    <div class="next" href="#" style="color:#999;">
+      <div style="color:#BBB; font-size: 90%; line-height: 140%; margin-top: 4px;">Future articles are under discussion <br>in the <a href="http://slack.distill.pub/">Distill slack</a> (<code>#circuits</code>)</div>
     </div>
 </div>
 
@@ -522,11 +522,11 @@ On the other hand, it also has many units that still feel quite low-level, such 
   </p>
   <h3>Author Contributions</h3>
   <p>
-    TODO
+    This article grew out of a project of Chris to ensure he'd spent at least a little time thinking about every neuron in InceptionV1. It draws heavily on a common pool of knowledge the entire Clarity team has developed about InceptionV1. Nick, in particular, investigated some of the units mentioned in this article in great detail. It also would not have been possible without infrastructure developed by others, especially Ludwig and Michael. The text was drafted by Chris with input from others.
   </p>
   <h3>Acknowledgments</h3>
   <p>
-    Thanks to Brice Menard, Sophia Sanborn, Nick Barry, Katarina Slama, Daniel Filan, Nick Moran, Joseph Abrahamson, Richard Meyes, David Valdman, Alex Bäuerle, and Chris Hallacy.
+    We're very grateful for the comments of Brice Menard, Sophia Sanborn, Nick Barry, Katarina Slama, Daniel Filan, Nick Moran, Joseph Abrahamson, Richard Meyes, David Valdman, Alex Bäuerle, and Chris Hallacy.
   </p>
   
   <d-footnote-list></d-footnote-list>

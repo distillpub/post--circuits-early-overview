@@ -66,7 +66,7 @@
           </div>
         </div>
         <div class='figcaption collapse-reveal' style='wdith: 40px; height: 16px;'> </div>
-        <div class='figcaption'>Two of these units seem to track brightness (bright vs dark), while the other two units seem to mostly track hue, dividing the space of hues between them. One responds to red/orange/yellow, while the other responds to purple/blue/turqoise. Unfortunately, their circuits seem to heavily rely on the existence of an Local Response Normalization layer after <code>conv2d0</code>.</div>
+        <div class='figcaption'>Two of these units seem to track brightness (bright vs dark), while the other two units seem to mostly track hue, dividing the space of hues between them. One responds to red/orange/yellow, while the other responds to purple/blue/turqoise. Unfortunately, their circuits seem to heavily rely on the existence of a Local Response Normalization layer after <code>conv2d0</code>, which makes it hard to reason about.</div>
       </div>
       <div class='group collapsed' id='group_conv2d1_other_units'>
         <div>

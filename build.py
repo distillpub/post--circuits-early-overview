@@ -42,7 +42,6 @@ def vis_html(layer_name, n, W=None):
   img = "<div style='width: %spx; height: %spx; margin-right: 1px; overflow: hidden; display: inline-block;'>%s</div>" % (W, W, img)
 
   a_url = "https://storage.googleapis.com/inceptionv1-weight-explorer/%s_%s.html" % (layer_name, n)
-  
   img = "<a href='%s'>%s</a>" % (a_url, img)
 
   return img
@@ -254,7 +253,17 @@ for layer in layer_sizes:
       figure_html["neuron/%s/%s" %(name, unit)] = "<a href=\"%s\"><span>%s:%s</span></a>" % (a_url, name, unit)
     else:
       img_url = "images/neuron/%s_%s.jpg" % (layer, unit)
-      figure_html["neuron/%s/%s" %(name, unit)] = "<a href=\"%s\" style=\"border-bottom: none; \"><span style=\"display:inline-block; background: #F5F5F9; border-radius: 3px; padding-left: 2px; height:20px;\"><span>%s:%s</span> <img src=\"%s\" style=\"width:20px; border-radius: 0px 3px 3px 0px; margin-bottom: -4px; margin-left: -2px; display: inline-block;\"></img></span></a>" % (a_url, name, unit, img_url)
+      figure_html["neuron/%s/%s" %(name, unit)] = """
+        <a href="%s" >
+          %s:%s
+        </a>""" % (a_url, name, unit)
+      # figure_html["neuron/%s/%s" %(name, unit)] = """
+      #   <a href="%s" style="border-bottom: none; ">
+      #   <span style="display:inline-block; background: #F5F5F9; border-radius: 3px; padding-left: 2px; padding-right: 2px; height:25px;">
+      #     <span style="margin-top: -20px">%s:%s</span> 
+      #     <!--<img src="%s" style="width:25px; border-radius: 0px 3px 3px 0px; margin-bottom: 0px; margin-left: -2px; display: inline-block;"></img>-->
+      #   </span>
+      #   </a>""" % (a_url, name, unit, img_url)
 
 render_layer("mixed3b", priority_filter=lambda p: p >= 1, suffix="_hipri")
 render_layer("mixed3b", priority_filter=lambda p: p < 1, suffix="_lowpri")
