@@ -322,6 +322,7 @@ d-contents nav > div > a {
   padding: 0.5em;
   /* content: url(images/multiple-pages.svg); */
   background-image: url(images/multiple-pages.svg);
+  transform: translateY(7px);
   width: 50px;
   height: 60px;
 }
