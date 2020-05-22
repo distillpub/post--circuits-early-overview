@@ -57,7 +57,7 @@
   {
     "name": "Curves",
     "units": [81, 104, 92, 145, 95, 163, 171, 71, 147, 189, 137],
-    "comment": "These curve detectors detect significantly larger radii curves than their predecessors. They will be refined into more specific, larger curve detectors in the next layer. Compare to earlier <a href='#group_conv2d2_tiny_curves'>curves (<code>conv2d2</code>)</a> and later <a href='#group_mixed3b_curves'>curves (<code>mixed3b</code>)</a>. <br><br> A detailed article on these is forthcoming."
+    "comment": "These curve detectors detect significantly larger radii curves than their predecessors. They will be refined into more specific, larger curve detectors in the next layer. Compare to earlier <a href='#group_conv2d2_tiny_curves'>curves (<code>conv2d2</code>)</a> and later <a href='#group_mixed3b_curves'>curves (<code>mixed3b</code>)</a>. <br><br>See the <a href='https://distill.pub/2020/circuits/curve-detectors/'>full paper on curve detectors</a>."
   },
   {
     "name": "Crosses / Diverging Lines",

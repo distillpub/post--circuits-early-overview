@@ -57,7 +57,7 @@
  {
    "name": "Curves",
    "units": [379, 406, 385, 343, 342, 388, 340, 330, 349, 324],
-   "comment": "The third iteration of curve detectors. They detect larger radii curves than their predecessors, and are the first to not slightly fire for curves rotated 180 degrees. Compare to the earlier <a href='#group_conv2d2_tiny_curves'>curves (conv2d2)</a> and <a href='#group_mixed3a_curves'>curves (mixed3a)</a>. <br><br>A detailed article on these is forthcoming.",
+   "comment": "The third iteration of curve detectors. They detect larger radii curves than their predecessors, and are the first to not slightly fire for curves rotated 180 degrees. Compare to the earlier <a href='#group_conv2d2_tiny_curves'>curves (conv2d2)</a> and <a href='#group_mixed3a_curves'>curves (mixed3a)</a>. <br><br>See the <a href='https://distill.pub/2020/circuits/curve-detectors/'>full paper on curve detectors</a>.",
    "priority": 1
  },
  {
