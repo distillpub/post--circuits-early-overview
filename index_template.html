@@ -123,8 +123,8 @@ g
 </p>
 
 <p>
-  In some ways, our categorization of units is similar to <a href="http://netdissect.csail.mit.edu/">Net Dissect</a> <d-cite bibtex-key="bau2017network"></d-cite>, which correlates neurons with a pre-defined set of features and groups them into categories like color, texture, and object. 
-  This has the advantage of removing subjectivity and being much more scalable. 
+  In some ways, our categorization of units is similar to <a href="http://netdissect.csail.mit.edu/">Net Dissect</a> <d-cite bibtex-key="bau2017network"></d-cite>, which correlates neurons with a pre-defined set of features and groups them into categories like color, texture, and object.
+  This has the advantage of removing subjectivity and being much more scalable.
   At the same time, it also has downsides: correlation can be misleading and the pre-defined taxonomy may miss the true feature types.<d-footnote>
     <a href="http://netdissect.csail.mit.edu/">Net Dissect</a> <d-cite bibtex-key="bau2017network"></d-cite> was very elegant work which advanced our ability to systematically talk about network features.
     However, to understand the differences between correlating features with a pre-defined taxonomy and individually studying them, it may be illustrative to consider how it classifies some features.
@@ -132,7 +132,7 @@ g
     Glancing through their version of layer <a href="http://netdissect.csail.mit.edu/dissect/googlenet_imagenet/html/inception_3b-output.html"><code>mixed3b</code></a> we see many units which appear from dataset examples likely to be familiar feature types like curve detectors, divot detectors, boundary detectors, eye detector, and so forth, but are classified as weakly correlated with another feature — often objects that it seems unlikely could be detected at such an early layer.
     Or in another fun case, there is a feature (372) which is most correlated with a cat detector, but appears to be detecting left-oriented whiskers!
   </d-footnote>
-  In particular, if we expect models to have novel, unanticipated features — for example, <a href="#group_mixed3a_high_low_frequency"></a>high-low frequency detectors</a> — the fact that they are unanticipated makes them impossible to include in a set of pre-defined features. 
+  In particular, if we expect models to have novel, unanticipated features — for example, <a href="#group_mixed3a_high_low_frequency"></a>high-low frequency detectors</a> — the fact that they are unanticipated makes them impossible to include in a set of pre-defined features.
   The only way to discover them is the laborious process of manually investigating each feature.
   In the future, you could imagine hybrid approaches, where a human investigator is saved time by having many features sorted into a (continually growing) set of known features, especially if the <a href="https://drafts.distill.pub/circuits-zoom-in/#claim-3">universality hypothesis</a> holds.
 </p>
@@ -167,7 +167,7 @@ g
 <h3 id="presentation">Presentation of Circuits</h3>
 
 <p>
-  Although this article is focused on giving an overview of the features which exist in early vision, we're also interested in understanding how they're computed from earlier features. 
+  Although this article is focused on giving an overview of the features which exist in early vision, we're also interested in understanding how they're computed from earlier features.
   To do this, we present <a href="https://distill.pub/2020/circuits/zoom-in/#claim-2">circuits</a> consisting of a neuron, the units it has the strongest (L2 norm) weights to in the previous layer, and the weights between them.<d-footnote>
     Some neurons in <code>mixed3a</code> and <code>mixed3b</code> are in branches consisting of a "bottleneck" 1x1 conv that greatly reduces the number of channels followed by a 5x5 conv. Although there is a ReLU between them, we generally think of them as a low rank factorization of a single weight matrix and visualize the product of the two weights. Additionally, some neurons in these layers are in a branch consisting of maxpooling followed by a 1x1 conv; we present these units as their weights replicated over the region of their maxpooling.
   </d-footnote>
@@ -188,7 +188,7 @@ g
 
 <p>
   At any point, you can click on a neuron's feature visualization to see its weights to the 50 neurons in the previous layer it is most connected to (that is, how it assembled from the previous layer, and also the 50 neurons in the next layer it is most connected to (that is, how it is used going forward).
-  This allows further investigation, and gives you an unbiased view of the weights if you're concerned about cherry-picking. 
+  This allows further investigation, and gives you an unbiased view of the weights if you're concerned about cherry-picking.
 </p>
 
 
@@ -523,7 +523,7 @@ On the other hand, it also has many units that still feel quite low-level, such 
   <p>
     We're very grateful for the comments of Brice Menard, Sophia Sanborn, Nick Barry, Katarina Slama, Daniel Filan, Nick Moran, Joseph Abrahamson, Richard Meyes, David Valdman, Alex Bäuerle, and Chris Hallacy.
   </p>
-  
+
   <d-footnote-list></d-footnote-list>
   <d-citation-list></d-citation-list>
 </d-appendix>
