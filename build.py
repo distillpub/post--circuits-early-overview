@@ -41,7 +41,7 @@ def vis_html(layer_name, n, W=None):
     img = "<img style='margin-left: -%spx; margin-top: -%spx;' src='%s'>" % ((224 - W)//2+0.1*W, (224 - W)//2+0.1*W, img_url)
   img = "<div style='width: %spx; height: %spx; margin-right: 1px; overflow: hidden; display: inline-block;'>%s</div>" % (W, W, img)
 
-  a_url = "https://storage.googleapis.com/inceptionv1-weight-explorer/%s_%s.html" % (layer_name, n)
+  a_url = "https://storage.googleapis.com/distill-circuits/inceptionv1-weight-explorer/%s_%s.html" % (layer_name, n)
   #a_url = "https://schubert-staging-dot-encyclopedia-251300.appspot.com/models/inceptionv1/%s_0/%s" % (layer_name, n)
   img = "<a href='%s'>%s</a>" % (a_url, img)
 
@@ -235,7 +235,7 @@ for f in os.listdir("public/images/"):
       if "_" in neuron_id and neuron_id.split("_")[0] in layer_sizes:
         if neuron_id.count("_") > 1:
           neuron_id = neuron_id[:-2]
-        url = "https://storage.googleapis.com/inceptionv1-weight-explorer/%s.html" % neuron_id
+        url = "https://storage.googleapis.com/distill-circuits/inceptionv1-weight-explorer/%s.html" % neuron_id
         #pattern_n = line.split("#pattern")[1].split(")")[0]
         text.append("<a href='%s'>" % url)
         text.append(line)
@@ -249,7 +249,7 @@ for f in os.listdir("public/images/"):
 for layer in layer_sizes:
   for unit in range(layer_sizes[layer]):
     name = layer.replace("mixed","").replace("conv2d","")
-    a_url =  "https://storage.googleapis.com/inceptionv1-weight-explorer/%s_%s.html" % (layer, unit)
+    a_url =  "https://storage.googleapis.com/distill-circuits/inceptionv1-weight-explorer/%s_%s.html" % (layer, unit)
     if layer not in ["mixed3a", "mixed3b", "mixed4a"]:
       figure_html["neuron/%s/%s" %(name, unit)] = "<a href=\"%s\"><span>%s:%s</span></a>" % (a_url, name, unit)
     else:
